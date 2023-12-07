@@ -29,6 +29,12 @@
 3. python3 ternary-CrFeMo.py
 
 
+## Example: Cr-Fe-Ni
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd Cr-Fe-Ni
+3. python3 ternary-CrFeNi.py
+
+
 ## Example: Al-Cr-Ni
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
