@@ -1,5 +1,6 @@
 # pycalphad-v.0.10.3-examples
-- Note: If part of the figure is missing, please use "Configure subplots".
+- Note 1: If part of the figure is missing, please use "Configure subplots".
+- Note 2: Try rewriting the "XXX" part of "v.T: XXX," and changing the temperature and plotting. For example, in ternary-AlCuY.py, try changing "v.T: 830," to "v.T: 1273,".
 
 
 ## Installation (ubuntu 22.04 LTS or WSL2 (win))
