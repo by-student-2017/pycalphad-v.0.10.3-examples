@@ -32,12 +32,12 @@
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/BinaryExamples.ipynb
 
 
-## Example: Al-Cu-Y
+## Example: Al-Cu-Y (Phase diagram and Mixing enthalpy )
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cu-Y
 3. python3 ternary-AlCuY.py
+4. python3 Ref_ternary-AlCuY-enthalpy.png
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/TernaryExamples.ipynb
-- https://github.com/pycalphad/pycalphad/blob/develop/examples/ReferenceStateExamples.ipynb
 
 
 ## Example: Cr-Fe-Mo
