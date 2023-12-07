@@ -10,13 +10,13 @@
 3. pip3 install -U pycalphad==0.10.3
 
 
-## Examples
+## Examples (official)
 1. git clone https://github.com/pycalphad/pycalphad.git
 2. cd pycalphad
 3. cd examples
 
 
-## Examples (this page)
+## Examples (python3)
 1. git clone https://github.com/by-student-2017/pycalphad-v.0.10.3-examples.git
 2. cd pycalphad-v.0.10.3-examples
 
