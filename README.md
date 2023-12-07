@@ -4,8 +4,10 @@
 
 
 ## Installation (ubuntu 22.04 LTS or WSL2 (win))
-1. pip3 install -U pip setuptools
-2. pip3 install -U pycalphad==0.10.3
+0. sudo apt update
+1. sudo apt -y install python3-pip
+2. pip3 install -U pip setuptools
+3. pip3 install -U pycalphad==0.10.3
 
 
 ## Examples
