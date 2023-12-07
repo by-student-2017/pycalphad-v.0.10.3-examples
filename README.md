@@ -38,7 +38,7 @@
 ## Example: Al-Cr-Ni
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
-3. (get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
+3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
 4. python3 ternary-AlCrNi.py
 
 
