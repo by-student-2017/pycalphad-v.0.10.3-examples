@@ -29,6 +29,13 @@
 3. python3 ternary-CrFeMo.py
 
 
+## Example: Al-Cr-Ni
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd Al-Cr-Ni
+3. (get alcrni_dup.tdb from CPDDB)
+4. python3 ternary-AlCrNi.py
+
+
 ## TDB files
 - Available open databases: https://www.opencalphad.com/databases.html
 -   https://github.com/pycalphad/pycalphad/tree/develop/examples
