@@ -1,3 +1,4 @@
+#%matplotlib inline # for Jupyter notebooks
 import matplotlib.pyplot as plt
 from pycalphad import Database, ternplot
 from pycalphad import variables as v

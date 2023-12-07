@@ -1,3 +1,4 @@
+#%matplotlib inline # for Jupyter notebooks
 import matplotlib.pyplot as plt
 from pycalphad import Database
 from pycalphad.plot import triangular

@@ -1,4 +1,4 @@
-#%matplotlib inline
+#%matplotlib inline # for Jupyter notebooks
 import matplotlib.pyplot as plt
 from pycalphad import Database, binplot
 import pycalphad.variables as v

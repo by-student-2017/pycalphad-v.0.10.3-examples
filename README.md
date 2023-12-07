@@ -18,10 +18,26 @@
 2. cd pycalphad-v.0.10.3-examples
 
 
+## Example: Al-Mg
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd Al-Mg
+3. python3 binary-AlMg.py
+- https://github.com/pycalphad/pycalphad/blob/develop/examples/BinaryExamples.ipynb
+
+
+## Example: Nb-Re
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd Nb-Re
+3. python3 binary-NbRe-gibbs_free_energy.py
+- https://github.com/pycalphad/pycalphad/blob/develop/examples/BinaryExamples.ipynb
+
+
 ## Example: Al-Cu-Y
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cu-Y
 3. python3 ternary-AlCuY.py
+- https://github.com/pycalphad/pycalphad/blob/develop/examples/TernaryExamples.ipynb
+- https://github.com/pycalphad/pycalphad/blob/develop/examples/ReferenceStateExamples.ipynb
 
 
 ## Example: Cr-Fe-Mo
