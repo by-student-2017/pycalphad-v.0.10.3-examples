@@ -18,14 +18,14 @@
 2. cd pycalphad-v.0.10.3-examples
 
 
-## Example: Al-Mg
+## Example: Al-Mg (Binary phase diagram)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Mg
 3. python3 binary-AlMg.py
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/BinaryExamples.ipynb
 
 
-## Example: Nb-Re
+## Example: Nb-Re (Gibbs energy surface)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Nb-Re
 3. python3 binary-NbRe-gibbs_free_energy.py
