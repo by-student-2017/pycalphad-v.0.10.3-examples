@@ -103,6 +103,8 @@
 - ESPEI: https://www.youtube.com/watch?v=T8oAnV8gZmQ
 - Examples: https://pycalphad.org/docs/latest/examples/index.html
 - Package: https://pycalphad.org/docs/latest/api/pycalphad.html
+- Phases research lab: https://phaseslab.com/pycalphad/
+- ResearchGate: https://www.researchgate.net/publication/311959120_pycalphad_CALPHAD-based_Computational_Thermodynamics_in_Python
 
 
 Acknowledgment
