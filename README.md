@@ -94,7 +94,6 @@
 
 
 ## Learn more
-- https://pycalphad.org/docs/latest/examples/index.html
 - Workshop 2021: https://www.youtube.com/watch?v=RuqtvRHQML4
 - Workshop 2020/12/08: https://www.youtube.com/watch?v=S-iOcrQlsnU
 - Workshop 2020/11/11: https://www.youtube.com/watch?v=FeITSRUhHQs
@@ -102,6 +101,8 @@
 - SciPy 2015/07/16: https://www.youtube.com/watch?v=30oiHIPjSJI, https://www.youtube.com/watch?v=iT1qeGg6Qbs&t
 - ESPEI: https://www.youtube.com/watch?v=4mSRpLFtMps
 - ESPEI: https://www.youtube.com/watch?v=T8oAnV8gZmQ
+- Examples: https://pycalphad.org/docs/latest/examples/index.html
+- Package: https://pycalphad.org/docs/latest/api/pycalphad.html
 
 
 Acknowledgment
