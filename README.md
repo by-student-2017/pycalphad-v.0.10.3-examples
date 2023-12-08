@@ -55,6 +55,13 @@
 3. python3 ternary-CrFeNi.py
 
 
+## Example: Mo-Ni-Re
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd Mo-Ni-Re
+3. (You can get mmc1.TDB from TDBDB (https://avdwgroup.engin.brown.edu/)
+4. python3 ternary-MoNiRe.py
+
+
 ## Example: Al-Cr-Ni
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
@@ -67,6 +74,14 @@
 - TDBDB: https://avdwgroup.engin.brown.edu/ 
 - Available open databases: https://www.opencalphad.com/databases.html
 -   https://github.com/pycalphad/pycalphad/tree/develop/examples
+
+
+## Usage (TDBDB: https://avdwgroup.engin.brown.edu/)
+1. Elements : Mo Ni Re
+2. (click) Search
+3. Use interactive 3D: [(check)]
+4. Preview(experimental!)
+5. (Compare graphe and pycalphad results)
 
 
 Acknowledgment
