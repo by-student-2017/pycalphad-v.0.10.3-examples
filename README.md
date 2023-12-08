@@ -43,19 +43,19 @@
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/TernaryExamples.ipynb
 
 
-## Example: Cr-Fe-Mo (version with easier user input)
+## Example: Cr-Fe-Mo (easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cr-Fe-Mo
 3. python3 ternary-CrFeMo.py
 
 
-## Example: Cr-Fe-Ni (version with easier user input)
+## Example: Cr-Fe-Ni (easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cr-Fe-Ni
 3. python3 ternary-CrFeNi.py
 
 
-## Example: Mo-Ni-Re (version with easier user input)
+## Example: Mo-Ni-Re (easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Mo-Ni-Re
 3. (You can get mmc1.TDB from TDBDB (https://avdwgroup.engin.brown.edu/)
@@ -63,7 +63,7 @@
 - An example of changing the order of element descriptions.
 
 
-## Example: Al-Cr-Ni (version with easier user input)
+## Example: Al-Cr-Ni (easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
