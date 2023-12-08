@@ -1,6 +1,5 @@
 # pycalphad-v.0.10.3-examples
 - Note 1: If part of the figure is missing, please use "Configure subplots".
-- Note 2: Try rewriting the "XXX" part of "v.T: XXX," and changing the temperature and plotting. For example, in ternary-AlCuY.py, try changing "v.T: 830," to "v.T: 1273,".
 
 
 ## Installation (ubuntu 22.04 LTS or WSL2 (win))
@@ -92,7 +91,6 @@
 3. Use interactive 3D: [(check)]
 4. (click) Preview(experimental!)
 5. (Compare graphe and pycalphad results)
-6. Change "XXX" of "v.T: XXX," in ternary-MoNiRe-500K.py
 
 
 ## Learn more
