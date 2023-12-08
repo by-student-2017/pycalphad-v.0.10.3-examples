@@ -82,6 +82,7 @@
 3. Use interactive 3D: [(check)]
 4. Preview(experimental!)
 5. (Compare graphe and pycalphad results)
+6. Change "XXX" of "v.T: XXX," in ternary-MoNiRe.py
 
 
 Acknowledgment
