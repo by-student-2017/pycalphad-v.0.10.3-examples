@@ -27,14 +27,14 @@
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/BinaryExamples.ipynb
 
 
-## Example: Nb-Re (Gibbs energy surface)
+## Example: Nb-Re (Gibbs energy surface [J/mol])
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Nb-Re
 3. python3 binary-NbRe-gibbs_free_energy.py
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/BinaryExamples.ipynb
 
 
-## Example: Al-Cu-Y (Phase diagram and Mixing enthalpy )
+## Example: Al-Cu-Y (Phase diagram and Mixing enthalpy [J/mol])
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cu-Y
 3. python3 ternary-AlCuY.py
@@ -46,12 +46,14 @@
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cr-Fe-Mo
 3. python3 ternary-CrFeMo.py
+- It would be good to compare the results with OpenCALPHAD.
 
 
 ## Example: Cr-Fe-Ni (easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cr-Fe-Ni
 3. python3 ternary-CrFeNi.py
+- It would be good to compare the results with OpenCALPHAD.
 
 
 ## Example: Mo-Ni-Re (easier user input)
