@@ -89,7 +89,7 @@
 - Workshop 2021: https://www.youtube.com/watch?v=RuqtvRHQML4
 - Workshop 2020/12/08: https://www.youtube.com/watch?v=S-iOcrQlsnU
 - Workshop 2020/11/11: https://www.youtube.com/watch?v=FeITSRUhHQs
-- Workshop 2020/08/24: https://www.youtube.com/watch?v=cDGX5XOeWJQ&t, https://www.youtube.com/watch?v=cDGX5XOeWJQ&t
+- Workshop 2020/08/24: https://www.youtube.com/watch?v=cDGX5XOeWJQ&t
 - SciPy 2015/07/16: https://www.youtube.com/watch?v=30oiHIPjSJI, https://www.youtube.com/watch?v=iT1qeGg6Qbs&t
 - ESPEI: https://www.youtube.com/watch?v=4mSRpLFtMps
 - ESPEI: https://www.youtube.com/watch?v=T8oAnV8gZmQ
