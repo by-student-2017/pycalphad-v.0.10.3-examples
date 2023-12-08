@@ -3,11 +3,27 @@ import matplotlib.pyplot as plt
 from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
-tdb = Database('bfend_hal.tdb') # You can get 'alcrni_dup.tdb' file from CPDDB.
-comps = ['B', 'FE', 'ND', 'VA']
-phases = list(tdb.phases.keys())
-conds = {v.T: 1275, v.P:101325, v.X('ND'): (0,1,0.015), v.X('B'): (0,1,0.015)}
+#------User input area--------
+tdb_file = 'bfend_hal.tdb' # from TDBDB (https://avdwgroup.engin.brown.edu/)
+ELA = 'Nd'  # x-axis
+ELB = 'Fe' # lower left side
+ELC = 'B' # y-axis
+Temp = 1275 # [K]
+#------User input area--------
+# It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
 
-ternplot(tdb, comps, phases, conds, x=v.X('ND'), y=v.X('B'))
+ELA = ELA.upper ()
+ELB = ELB.upper ()
+ELC = ELC.upper ()
+
+tdb = Database(tdb_file)
+comps = [ELA, ELB, ELC, 'VA']
+phases = list(tdb.phases.keys())
+conds = {v.T: Temp, v.P:101325, v.X(ELA): (0,1,0.015), v.X(ELC): (0,1,0.015)}
+
+ternplot(tdb, comps, phases, conds, x=v.X(ELA), y=v.X(ELC))
+
+plt.text(-0.1, -0.1, ELB, family='monospace', fontsize=20)
+plt.text(-0.1, 1.1, str(Temp)+' K', family='monospace', fontsize=20)
 
 plt.show()

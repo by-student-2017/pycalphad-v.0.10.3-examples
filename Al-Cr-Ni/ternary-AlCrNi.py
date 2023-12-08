@@ -10,6 +10,7 @@ ELB = 'Ni' # lower left side
 ELC = 'Al' # y-axis
 Temp = 1573 # [K]
 #------User input area--------
+# It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
 
 ELA = ELA.upper ()
 ELB = ELB.upper ()

@@ -63,11 +63,20 @@
 - An example of changing the order of element descriptions.
 
 
+## Example: B-Fe-Nd (easier user input)
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd B-Fe-Nd
+3. (You can get mmc1.TDB from TDBDB (https://avdwgroup.engin.brown.edu/)
+4. python3 ternary-BFeNd.py
+- An example of changing the order of element descriptions.
+
+
 ## Example: Al-Cr-Ni (easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
 4. python3 ternary-AlCrNi.py
+- An example of changing the order of element descriptions.
 
 
 ## TDB files
