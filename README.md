@@ -63,7 +63,7 @@
 - An example of changing the order of element descriptions.
 
 
-## Example: Al-Cr-Ni
+## Example: Al-Cr-Ni (version with easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
