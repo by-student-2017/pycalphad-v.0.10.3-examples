@@ -62,9 +62,10 @@
 3. (You can get mmc1.TDB from TDBDB (https://avdwgroup.engin.brown.edu/)
 4. python3 ternary-MoNiRe.py
 - An example of changing the order of element descriptions.
+- It would be good to compare the results with OpenCALPHAD.
 
 
-## Example: B-Fe-Nd (easier user input)
+## Example: B-Fe-Nd (easier user input + output png)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd B-Fe-Nd
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
@@ -72,7 +73,7 @@
 - An example of changing the order of element descriptions.
 
 
-## Example: Al-Cr-Ni (easier user input + output png)
+## Example: Al-Cr-Ni (easier user input + output png (not show graph))
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
