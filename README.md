@@ -110,6 +110,10 @@
 - ResearchGate: https://www.researchgate.net/publication/311959120_pycalphad_CALPHAD-based_Computational_Thermodynamics_in_Python
 
 
+## Note
+- Al-Mg-Zn (CPDDB): read error
+
+
 Acknowledgment
 =======
 - This project (modified version) is/was partially supported by the following :
