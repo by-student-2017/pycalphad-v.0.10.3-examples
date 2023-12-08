@@ -3,11 +3,32 @@ import matplotlib.pyplot as plt
 from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
-tdb = Database('crfeti_wan.tdb') # You can get 'alcrni_dup.tdb' file from CPDDB.
-comps = ['CR', 'FE', 'TI', 'VA']
-phases = list(tdb.phases.keys())
-conds = {v.T: 1073, v.P:101325, v.X('CR'): (0,1,0.015), v.X('FE'): (0,1,0.015)}
+#------User input area--------
+tdb_file = 'crfeti_wan.tdb' # from CPDDB
+ELA = 'Cr' # x-axis
+ELB = 'Ti' # lower left side
+ELC = 'Fe' # y-axis
+Temp = 1073 # [K]
+#------User input area--------
 
-ternplot(tdb, comps, phases, conds, x=v.X('CR'), y=v.X('FE'))
+img_comps = ELA+ELB+ELC
+
+ELA = ELA.upper ()
+ELB = ELB.upper ()
+ELC = ELC.upper ()
+
+tdb = Database(tdb_file)
+comps = [ELA, ELB, ELC, 'VA']
+phases = list(tdb.phases.keys())
+conds = {v.T: Temp, v.P:101325, v.X(ELA): (0,1,0.015), v.X(ELC): (0,1,0.015)}
+
+ternplot(tdb, comps, phases, conds, x=v.X(ELA), y=v.X(ELC))
+
+plt.text(-0.15, -0.15, ELB, family='monospace', fontsize=20)
+plt.text(-0.08, 1.08, str(Temp)+' K', family='monospace', fontsize=20)
+
+plt.rcParams['savefig.bbox'] = 'tight'
+output_file = 'ternary-'+img_comps+"-"+str(Temp)+'K.png'
+plt.savefig(output_file)
 
 plt.show()
