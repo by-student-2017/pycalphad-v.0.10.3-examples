@@ -94,6 +94,7 @@
 
 
 ## Learn more
+- https://pycalphad.org/docs/latest/examples/index.html
 - Workshop 2021: https://www.youtube.com/watch?v=RuqtvRHQML4
 - Workshop 2020/12/08: https://www.youtube.com/watch?v=S-iOcrQlsnU
 - Workshop 2020/11/11: https://www.youtube.com/watch?v=FeITSRUhHQs
