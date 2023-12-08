@@ -1,5 +1,5 @@
 # pycalphad-v.0.10.3-examples
-- Note 1: If part of the figure is missing, please use "Configure subplots".
+- Note: If part of the figure is missing, please use "Configure subplots".
 
 
 ## Installation (ubuntu 22.04 LTS or WSL2 (win))
