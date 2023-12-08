@@ -70,7 +70,7 @@
 - An example of changing the order of element descriptions.
 
 
-## Example: Al-Cr-Ni (easier user input)
+## Example: Al-Cr-Ni (easier user input + output png)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cr-Ni
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
@@ -102,6 +102,7 @@
 - ESPEI: https://www.youtube.com/watch?v=4mSRpLFtMps
 - ESPEI: https://www.youtube.com/watch?v=T8oAnV8gZmQ
 - Examples: https://pycalphad.org/docs/latest/examples/index.html
+- FAQ: https://github.com/pycalphad/pycalphad/blob/1563bc4cc7754d2925a73d6e4aa76bb22abbb7d4/docs/faq.rst#L50
 - Package: https://pycalphad.org/docs/latest/api/pycalphad.html
 - Phases research lab: https://phaseslab.com/pycalphad/
 - ResearchGate: https://www.researchgate.net/publication/311959120_pycalphad_CALPHAD-based_Computational_Thermodynamics_in_Python
