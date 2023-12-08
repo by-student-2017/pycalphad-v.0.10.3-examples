@@ -85,6 +85,18 @@
 6. Change "XXX" of "v.T: XXX," in ternary-MoNiRe-500K.py
 
 
+## Learn more
+- Workshop 2021: https://www.youtube.com/watch?v=RuqtvRHQML4
+- Workshop 2020/12/08: https://www.youtube.com/watch?v=S-iOcrQlsnU
+- Workshop 2020/11/11: https://www.youtube.com/watch?v=FeITSRUhHQs
+- Workshop 2020/08/24: https://www.youtube.com/watch?v=cDGX5XOeWJQ&t=16s
+- https://www.youtube.com/watch?v=cDGX5XOeWJQ&t=2198s
+- SciPy 2015/07/16: https://www.youtube.com/watch?v=30oiHIPjSJI
+- SciPy 2015: https://www.youtube.com/watch?v=iT1qeGg6Qbs&t=41s
+- ESPEI: https://www.youtube.com/watch?v=4mSRpLFtMps
+- ESPEI: https://www.youtube.com/watch?v=T8oAnV8gZmQ
+
+
 Acknowledgment
 =======
 - This project (modified version) is/was partially supported by the following :
