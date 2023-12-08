@@ -111,7 +111,7 @@
 
 
 ## Note
-- Al-Mg-Zn (CPDDB): read error
+- Al-Mg-Zn (almgzn_hay.tdb from CPDDB): read error
 ```
 Line 170: "3000 Unary5.0 N !" => "3000 N  Unary5 !"
 Line 205: Remove "6000 N 2019Hay", i.d., => "CONSTITUENT ALMG_G  :MG : AL,MG,ZN : AL,MG,ZN : !"
