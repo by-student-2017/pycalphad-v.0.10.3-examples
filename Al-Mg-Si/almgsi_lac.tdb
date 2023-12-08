@@ -1,0 +1,173 @@
+$ Al-Mg-Si
+$
+$ TDB-file for the thermodynamic assessment of the Al-Mg-Si system
+$
+$------------------------------------------------------------------------------
+$ 2021.08.27
+$
+$ TDB file for PANDAT created by G.Deffrennes, T.Abe, K.Hashimoto and Y.Sawada
+$
+$ National Institute for Materials Science. 
+$ 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi @nims.go.jp
+$ Copyright (C) NIMS 2021
+$
+$------------------------------------------------------------------------------
+$ PARAMETERS ARE TAKEN FROM
+$ CALPHAD-type Assessmentof the Al-Mg-Si System
+$ J. Lacaze, R. Valdes, Monatshefte fur Chemie, 136 (2005), 1899-1907
+$
+$------------------------------------------------------------------------------
+$ Comments
+$ We could not reproduce in the transverse section
+$ at 85wt.%Al given in Fig.4, where the invariant reaction at around 
+$ 15%Mg is missing.
+$ 
+$ Parameters for pure elements are taken from SGTE Unary 5.0.
+$                                                                          T.A.
+$
+$------------------------------------------------------------------------------
+$ ELEMENTS
+$------------------------------------------------------------------------------
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01!
+ ELEMENT MG   HCP_A3                    2.4305E+01  4.9980E+03  3.2671E+01!
+ ELEMENT SI   DIAMOND_A4                2.8085E+01  3.2175E+03  1.8820E+01!
+$------------------------------------------------------------------------------
+$ FUNCTION
+$------------------------------------------------------------------------------
+$ Al
+$ -------------------------------------
+ FUNCTION GHSERAL 298.15
+ -7976.15+137.093038*T-24.3671976*T*LN(T)-1.884662E-3*T**2-0.877664E-6*T**3
+ +74092*T**(-1); 700 Y
+ -11276.24+223.048446*T-38.5844296*T*LN(T)+18.531982E-3*T**2-5.764227E-6*T**3
+ +74092*T**(-1); 933.473 Y
+ -11278.361+188.684136*T-31.748192*T*LN(T)-1230.622E25*T**(-9); 2900 N !
+ 
+ FUNCTION GHCPAL 298.15 5481-1.8*T+GHSERAL; 2900 N !
+ 
+ FUNCTION GLIQAL 298.15 11005.045-11.84185*T+79.337E-21*T**7+GHSERAL; 933.473 Y
+  -795.991+177.430209*T-31.748192*T*LN(T); 2900 N !
+
+$ Mg
+$ -------------------------------------
+ FUNCTION GHSERMG  298.15
+ -8367.34+143.675547*T-26.1849782*T*LN(T)+0.4858E-3*T**2-1.393669E-6*T**3
+ +78950*T**(-1);   923.00 Y
+ -14130.185+204.716215*T-34.3088*T*LN(T)+1038.192E25*T**(-9);  3000.00 N !
+ 
+ FUNCTION GLIQMG 298.15 8202.243-8.83693*T-80.176E-21*T**7+GHSERMG; 923 Y
+ -5439.869+195.324057*T-34.3088*T*LN(T);  3000.00 N !
+ 
+ FUNCTION GFCCMG 298.15 2600-0.9*T+GHSERMG; 3000 N !
+ 
+$ Si
+$ -------------------------------------
+ FUNCTION GHSERSI  298.15
+ -8162.609+137.236859*T-22.8317533*T*LN(T)-1.912904E-3*T**2-0.003552E-6*T**3
+ +176667*T**(-1);  1687.00 Y
+ -9457.642+167.281367*T-27.196*T*LN(T)-420.369E28*T**(-9);  3600.00 N !
+ 
+ FUNCTION GLIQSI 298.15 50696.36-30.099439*T+209.307E-23*T**7+GHSERSI; 1687 Y
+ 40370.523+137.722298*T-27.196*T*LN(T);  3600.00 N !
+ 
+ FUNCTION GFCCSI 298.15 51000-21.8*T+GHSERSI; 3600 N !
+ 
+ FUNCTION GHCPSI 298.15 49200-20.8*T+GHSERSI; 3600 N !
+
+$------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ * !
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA !
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR LIQUID PHASE
+$------------------------------------------------------------------------------
+ PHASE LIQUID % 1 1 !
+ CONSTITUENT LIQUID : AL,MG,SI : !
+ PARAMETER G(LIQUID,AL;0)    298.15 +GLIQAL;                           6000 N !
+ PARAMETER G(LIQUID,MG;0)    298.15 +GLIQMG;                           6000 N !
+ PARAMETER G(LIQUID,SI;0)    298.15 +GLIQSI;                           6000 N !
+ PARAMETER G(LIQUID,AL,MG;0) 298.15 -12000.0+8.566*T;                  6000 N !
+ PARAMETER G(LIQUID,AL,MG;1) 298.15 +1894.0-3.000*T;                   6000 N !
+ PARAMETER G(LIQUID,AL,MG;2) 298.15 +2000.0;                           6000 N !
+ PARAMETER G(LIQUID,AL,SI;0) 298.15 -11340.10-1.23394*T;               6000 N !
+ PARAMETER G(LIQUID,AL,SI;1) 298.15 -3530.93+1.35993*T;                6000 N !
+ PARAMETER G(LIQUID,AL,SI;2) 298.15 +2265.39;                          6000 N !
+ PARAMETER G(LIQUID,MG,SI;0) 298.15 -83864.26+32.44438*T;              6000 N !
+ PARAMETER G(LIQUID,MG,SI;1) 298.15 +18027.41-19.61202*T;              6000 N !
+ PARAMETER G(LIQUID,MG,SI;2) 298.15 +2486.67-0.31084*T;                6000 N !
+ PARAMETER G(LIQUID,MG,SI;3) 298.15 +18541.17-2.31766*T;               6000 N !
+ PARAMETER G(LIQUID,MG,SI;4) 298.15 -12338.84+1.54236*T;               6000 N !
+ PARAMETER G(LIQUID,AL,MG,SI;0) 298.15 +11882;                         6000 N !
+ PARAMETER G(LIQUID,AL,MG,SI;1) 298.15 -24207;                         6000 N !
+ PARAMETER G(LIQUID,AL,MG,SI;2) 298.15 -38223;                         6000 N !
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR FCC_A1 PHASE
+$------------------------------------------------------------------------------
+ PHASE FCC_A1 % 1 1 !
+ CONSTITUENT FCC_A1 : AL%,MG,SI : !
+ PARAMETER G(FCC_A1,AL;0) 298.15 +GHSERAL;                             6000 N !
+ PARAMETER G(FCC_A1,MG;0) 298.15 +GFCCMG;                              6000 N !
+ PARAMETER G(FCC_A1,SI;0) 298.15 +GFCCSI;                              6000 N !
+ PARAMETER G(FCC_A1,AL,MG;0) 298.15 +4971.0-3.5*T;                     6000 N !
+ PARAMETER G(FCC_A1,AL,MG;1) 298.15 +900.0+0.423*T;                    6000 N !
+ PARAMETER G(FCC_A1,AL,MG;2) 298.15 +950.0;                            6000 N !
+ PARAMETER G(FCC_A1,AL,SI;0) 298.15 -3143.78+0.39297*T;                6000 N !
+ PARAMETER G(FCC_A1,MG,SI;0) 298.15 -7148.79+0.89361*T;                6000 N !
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR HCP_A3 PHASE
+$------------------------------------------------------------------------------
+ PHASE HCP_A3 % 1 1 !
+ CONSTITUENT HCP_A3 : AL,MG%,SI : !
+ PARAMETER G(HCP_A3,AL;0) 298.15 +GHCPAL;                              6000 N !
+ PARAMETER G(HCP_A3,MG;0) 298.15 +GHSERMG;                             6000 N !
+ PARAMETER G(HCP_A3,SI;0) 298.15 +GHCPSI;                              6000 N !
+ PARAMETER G(HCP_A3,AL,MG;0) 298.15 +1950.0-2.0*T;                     6000 N !
+ PARAMETER G(HCP_A3,AL,MG;1) 298.15 +1480.0-2.08*T;                    6000 N !
+ PARAMETER G(HCP_A3,AL,MG;2) 298.15 +3500.0;                           6000 N !
+ PARAMETER G(HCP_A3,AL,SI;0) 298.15 -3143.78+0.39297*T;                6000 N !
+ PARAMETER G(HCP_A3,MG,SI;0) 298.15 -7148.79+0.89361*T;                6000 N !
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR DIAMOND_A4 PHASE
+$------------------------------------------------------------------------------
+ PHASE DIAMOND_A4 % 1 1 !
+ CONSTITUENT DIAMOND_A4 : AL,SI% : !
+ PARAMETER G(DIAMOND_A4,AL;0) 298.15 +30.0*T+GHSERAL;                  6000 N !
+ PARAMETER G(DIAMOND_A4,SI;0) 298.15 +GHSERSI;                         6000 N !
+ PARAMETER G(DIAMOND_A4,AL,SI;0) 298.15 +113246.16-47.55509*T;         6000 N !
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR COMPOUNDS
+$------------------------------------------------------------------------------
+ PHASE ALMG_BETA  % 2  89  140 !
+ CONSTITUENT ALMG_BETA : MG : AL : !
+ PARAMETER G(ALMG_BETA,MG:AL;0) 298.15 -246175.0-675.5500*T
+ +89*GHSERMG+140*GHSERAL;                                              6000 N !
+
+ PHASE ALMG_EPS  %  2  23   30 !
+ CONSTITUENT ALMG_EPS : MG : AL :  !
+ PARAMETER G(ALMG_EPS,MG:AL;0) 298.15 -52565.4-173.1775*T
+ +23*GHSERMG+30*GHSERAL;                                               6000 N !
+
+ PHASE ALMG_GAMMA  %  3  5  12 12 !
+ CONSTITUENT ALMG_GAMMA : MG : AL,MG% : AL%,MG : !
+ PARAMETER G(ALMG_GAMMA,MG:AL:AL;0) 298.15  +97875.0-101.500*T
+ +5*GHSERMG+24*GHSERAL;                                                6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:MG:AL;0) 298.15  -52780.0-50.750*T
+ +17*GHSERMG+12*GHSERAL;                                               6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:AL:MG;0) 298.15 +284124.6-138.069*T
+ +17*GHSERMG+12*GHSERAL;                                               6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:MG:MG;0) 298.15 +133469.6-87.319*T
+ +29*GHSERMG;                                                          6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:AL:AL,MG;0) 298.15 113100-14.5*T;           6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:MG:AL,MG;0) 298.15 113100-14.5*T;           6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:AL,MG:AL;0) 298.15 0.0;                     6000 N !
+ PARAMETER G(ALMG_GAMMA,MG:AL,MG:MG;0) 298.15 0.0;                     6000 N !
+
+ PHASE MG2SI % 2 2 1 !
+ CONSTITUENT MG2SI  : MG : SI : !
+ PARAMETER G(MG2SI,MG:SI;0) 298.15
+ -92250.0+440.4*T-75.9*T*LN(T)-0.0018*T**2+630000.*T**(-1);            6000 N !
+$------------------------------------------------------------------------------
+$end
