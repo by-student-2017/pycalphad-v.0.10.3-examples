@@ -38,7 +38,7 @@
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Al-Cu-Y
 3. python3 ternary-AlCuY.py
-4. python3 Ref_ternary-AlCuY-enthalpy.png
+4. python3 ternary-AlCuY-enthalpy.py
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/TernaryExamples.ipynb
 
 
