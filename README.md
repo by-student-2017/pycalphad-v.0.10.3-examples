@@ -43,13 +43,13 @@
 - https://github.com/pycalphad/pycalphad/blob/develop/examples/TernaryExamples.ipynb
 
 
-## Example: Cr-Fe-Mo (more easy input version)
+## Example: Cr-Fe-Mo (version with easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cr-Fe-Mo
 3. python3 ternary-CrFeMo.py
 
 
-## Example: Cr-Fe-Ni (more easy input version)
+## Example: Cr-Fe-Ni (version with easier user input)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cr-Fe-Ni
 3. python3 ternary-CrFeNi.py
