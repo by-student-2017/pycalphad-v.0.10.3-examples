@@ -67,7 +67,7 @@
 ## Example: B-Fe-Nd (easier user input + output png)
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd B-Fe-Nd
-3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
+3. (You can get bfend_hal.tdb from CPDDB (Multicomponent Systems))
 4. python3 ternary-BFeNd.py
 - An example of changing the order of element descriptions.
 
