@@ -146,6 +146,7 @@ Line 1061: => "+2*GHSERWW#+4*GHSERFE#;   6.00000E+03   N REF:12 !"
 Line 1310: => "+12*GHSERCR#;   6000   N REF:211 !"
 Line 1358-1373: Write "$" at the beginning of the line.
 ```
+- Folders related to hydrogen storage material: Mg-Mn-Ni, H-La-Ni
 
 
 Acknowledgment

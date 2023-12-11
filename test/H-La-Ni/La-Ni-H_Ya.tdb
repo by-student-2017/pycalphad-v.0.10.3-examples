@@ -1,0 +1,137 @@
+$-----------------------------------------------------------------------------------------------------
+$2004
+$-----------------------------------------------------------------------------------------------------
+
+
+Element /-                ELECTRON_Gas         0         0         0 !
+Element La                DHCP    138.906     6665    56.902 !
+Element Ni                FCC_A1  0.058693      4787    29.796 !
+Element H                 1/2_MOLE_H2(Gas)     1.01      217998  130.684!       
+Element VA                VACUUM         0         0         0 !
+
+Species  H2  H2!
+
+FUNCTION G_La_DHCP  298.15 -7968.4+120.285*T-26.34*T*ln(T)-0.00129517*T**2; 550 Y
+        -3381.41+59.0611*T-17.1659*T*ln(T)-0.00837171*T**2+6.8932e-007*T**3-399448*T**(-1); 2000 Y
+        -15608.9+181.39*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_La_LIQUID  298.15 5332.65+18.2301*T-11.0188*T*ln(T)-0.0201716*T**2+2.93775e-006*T**3-133541*T**(-1); 1134 Y
+        -3942+171.018*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_La_FCC  298.15 -6109.8+89.8788*T-21.7919*T*ln(T)-0.00404517*T**2-5.25865e-007*T**3; 1134 Y
+        -124599+955.878*T-139.347*T*ln(T)+0.0420324*T**2-3.0662e-006*T**3+2.09942e+007*T**(-1); 2000 Y
+        -12599.4+178.544*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_La_BCC  298.15 -3952.16+88.0724*T-21.7919*T*ln(T)-0.00404517*T**2-5.25865e-007*T**3; 800 Y
+        321683-3565.08*T+513.441*T*ln(T)-0.387295*T**2+4.9548e-005*T**3-3.65812e+007*T**(-1); 1134 Y
+        -16377.9+218.493*T-39.5388*T*ln(T); 1193 Y
+        -136610+1123.34*T-163.413*T*ln(T)+0.0539685*T**2-4.0564e-006*T**3+2.11672e+007*T**(-1); 2000 Y
+        -8205.99+174.836*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_Ni_BCC  298.15 +3535.925+114.298*T-22.096*T*LN(T)-0.0048407*T**2; 1728 Y
+        -19125.571+275.579*T-43.1*T*LN(T)+1.12754e+31*T**(-9); 3000 N !
+
+FUNCTION G_Ni_FCC  298.15 -5179.16+117.854*T-22.096*T*ln(T)-0.0048407*T**2; 1728 Y
+        -27840.655+279.135*T-43.1*T*ln(T)+1.12754e+031*T**(-9); 3000 N !
+
+FUNCTION G_Ni_LIQUID  298.15 +16414.686-9.397*T-3.82318e-021*T**7+G_Ni_FCC; 1728 Y
+        -9549.77+268.598*T-43.1*T*ln(T); 3000 N !
+
+FUNCTION G_Ni_GAS  298.15  +423093.837-21.4865718*T-24.34001*T*LN(T)+0.0046806645*T**2-3.40084167e-006*T**3; 400 Y
+         +423608.318-43.639632*T-20.26685*T*LN(T)-0.0060386157*T**2+1.2890125e-006*T**3; 800 Y
+         +419186.797+15.6323651*T-29.24746*T*LN(T)+0.0021365025*T**2-1.14496517e-007*T**3+412765.95*T**(-1); 2600 Y
+         +419346.214+9.07992226*T-28.29857*T*LN(T)+0.001646801*T**2-7.78248167e-008*T**3+785084*T**(-1); 5000 Y
+         +414475.627+36.7731872*T-31.80175*T*LN(T)+0.0024133565*T**2-1.0515525e-007*T**3; 6000 N !
+
+FUNCTION G_H2_GAS  298.15  -9522.97293+78.5273873*T-31.35707*T*LN(T)+0.0027589925*T**2+56582.3*T**(-1)-7.46390667e-007*T**3; 1000 Y
+         +180.10884-15.6128262*T-17.84857*T*LN(T)-0.00584168*T**2+3.14618667e-007*T**3-1280036*T**(-1); 2100 Y
+         -18840.1661+92.3120249*T-32.05082*T*LN(T)-0.0010728235*T**2+1.14281783e-008*T**3+3561002.5*T**(-1); 3000 N !
+
+Phase Gas:G % 1 1!
+Constituent Gas : H2 : !
+Parameter G(Gas, H2; 0) 298.15  G_H2_GAS+8.314*T*LN(9.8692327e-6*P); 6000 N !
+
+Phase Liquid % 1 1!
+Constituent Liquid : La, Ni, H : !
+Parameter G(Liquid, La; 0) 298.15  G_La_LIQUID; 6000 N !
+Parameter G(Liquid, Ni; 0) 298.15  G_Ni_LIQUID; 6000 N !
+Parameter G(Liquid, H; 0) 900  +8035+25*T+2*T*LN(T)+0.5*G_H2_GAS; 6000 N !
+Parameter G(Liquid, H, La; 0) 298.15  +1.5304693e+04-8.9375563e+1*T; 6000 N !
+Parameter G(Liquid, H, La; 1) 298.15  6.5990058e+04-7.7403240e+01*T; 6000 N !
+Parameter G(Liquid, Ni, H; 0) 298.15  -8.69093694e+03+1.07429419e+01*T; 6000 N !
+Parameter G(Liquid, Ni, La; 0)  298.15  -114278.224+7.1592*T; 6000 N !
+Parameter G(Liquid, Ni, La; 1)  298.15  -63511.8961+40.6196*T; 6000 N !
+
+Phase BCC % 2 1 3!
+Constituent BCC : La, Ni : H, VA : !
+Parameter G(BCC, La:VA; 0) 298.15  G_La_BCC; 6000 N !
+Parameter G(BCC, Ni:VA; 0) 298.15  G_Ni_BCC; 6000 N !
+Parameter G(BCC, La:H; 0) 298.15  -1.6628419e+05+1.4021312e+02*T+G_La_DHCP+1.5*G_H2_GAS; 6000 N !
+Parameter G(BCC, La,Ni:VA; 0) 298.15  +100000; 6000 N !
+
+Phase Dhcp % 1 1 !
+Constituent Dhcp : La, Ni : !
+Parameter G(Dhcp, La; 0)  298.15  G_La_DHCP; 6000 N ! 
+Parameter G(Dhcp, Ni; 0)  298.15  G_Ni_FCC+5000; 6000 N !
+Parameter G(Dhcp, La,Ni; 0)  298.15  100000; 6000 N !  
+
+Phase FCC % 2 1 1!
+Constituent FCC : La, Ni : H, VA : !
+Parameter G(FCC, La:VA; 0) 298.15  G_La_FCC; 6000 N !
+Parameter G(FCC, Ni:VA; 0) 298.15  G_Ni_FCC; 6000 N !
+Parameter G(FCC, La:H; 0) 298.15  -5.8190735e+04+3.7002222e+01*T+G_La_DHCP+0.5*G_H2_GAS; 6000 N !
+Parameter G(FCC, La,Ni:VA; 0) 298.15  +100000; 6000 N !
+Parameter G(FCC, La:H,VA; 0) 298.15  3.9875816e+03; 6000 N !
+Parameter G(FCC, Ni:H; 0) 298.15  -3120.7324+180.5062*T-16.2550*T*LN(T)+6.052879e-4*T**2+G_Ni_FCC+0.5*G_H2_GAS; 6000 N !
+
+Phase La3Ni % 2 1 3 !
+Constituent La3Ni : Ni : La : !
+Parameter G(La3Ni, Ni:La; 0)  298.15  3*G_La_DHCP+G_Ni_FCC-67410.7-0.702*T; 6000 N !
+
+Phase La7Ni3 % 2 3 7 !
+Constituent La7Ni3 : Ni : La : !
+Parameter G(La7Ni3, Ni:La; 0)  298.15  7*G_La_DHCP+3*G_Ni_FCC-197310.48+1.054*T; 6000 N !
+
+Phase LaNi % 2 1 1 !
+Constituent LaNi : Ni : La : !
+Parameter G(LaNi, Ni:La; 0)  298.15  G_La_DHCP+G_Ni_FCC-56450.823+0.265*T; 6000 N !
+
+Phase La2Ni3 % 2 3 2 !
+Constituent La2Ni3 : Ni : La : !
+Parameter G(La2Ni3, Ni:La; 0)  298.15  2*G_La_DHCP+3*G_Ni_FCC-148509+11.297*T; 6000 N !
+
+Phase La7Ni16 % 2 16 7 !
+Constituent La7Ni16 : Ni : La : !
+Parameter G(La7Ni16, Ni:La; 0)  298.15  7*G_La_DHCP+16*G_Ni_FCC-689590+79.955*T; 6000 N !
+
+Phase LaNi3 % 2 3 1 !
+Constituent LaNi3 : Ni : La : !
+Parameter G(LaNi3, Ni:La; 0)  298.15  G_La_DHCP+3*G_Ni_FCC-119954.235+16.657*T; 6000 N !
+
+Phase La2Ni7 % 2 7 2 !
+Constituent La2Ni7 : Ni : La : !
+Parameter G(La2Ni7, Ni:La; 0)  298.15  2*G_La_DHCP+7*G_Ni_FCC-264471+37.486*T; 6000 N !
+
+Phase La5Ni19 % 2 19 5 !
+Constituent La5Ni19 : Ni : La : !
+Parameter G(La5Ni19, Ni:La; 0)  298.15  5*G_La_DHCP+19*G_Ni_FCC-699079.6408+105.053*T; 6000 N !
+
+Phase LaNi5H7 % 3 0.076923 0.384615 0.538462 !
+Constituent LaNi5H7 : La : Ni : H : !
+Parameter G(LaNi5H7, La:Ni:H; 0)  298.15  0.076923*G_La_DHCP+0.384615*G_Ni_FCC+0.269231*G_H2_GAS-2.3583e+04+3.361519e+01*T; 6000 N !
+$Parameter G(LaNi5H7, La:Ni:H; 0)  298.15  0.076923*G_La_DHCP+0.384615*G_Ni_FCC+0.269231*G_H2_GAS-3.0553e+04+2.081519e+01*T; 6000 N !
+
+Phase LaNi5H1-x % 3 1 5 1 !
+Constituent LaNi5H1-x : La : Ni : H, VA : !
+Parameter G(LaNi5H1-x, La:Ni:VA; 0)  298.15  G_La_DHCP+5*G_Ni_FCC-168451.2938+29.256*T; 6000 N !
+Parameter G(LaNi5H1-x, La:Ni:H; 0)  298.15  G_La_DHCP+5*G_Ni_FCC+0.5*G_H2_GAS-203575.38+108.5874*T; 6000 N !
+Parameter G(LaNi5H1-x, La:Ni:H,VA; 0)  298.15  -47720-15.7563*T; 6000 N !
+
+Phase LaHx % 3 0.25 0.5 0.25 !
+Constituent LaHx : La : H, VA : H, VA : !
+Parameter G(LaHx, La:H:H; 0)  298.15  -5.9306309e+04+4.93e+01*T+0.25*G_La_DHCP+0.375*G_H2_GAS; 6000 N !
+Parameter G(LaHx, La:VA:H; 0)  298.15  8.8777368e+03+9.9901014e-01*T+0.25*G_La_DHCP+0.125*G_H2_GAS; 6000 N !
+Parameter G(LaHx, La:H:VA; 0)  298.15  -4.8045126e+04+3.3074723e+01*T+0.25*G_La_DHCP+0.25*G_H2_GAS; 6000 N !
+Parameter G(LaHx, La:VA:VA; 0)  298.15  8.8777368e+03+9.9901014e-01*T+0.25*G_La_DHCP; 6000 N !
+Parameter G(LaHx, La:VA:H,VA; 0)  298.15  -1.0446741e+03; 6000 N !
+Parameter G(LaHx, La:H:H,VA; 0)  298.15  -1.0446741e+03; 6000 N !
