@@ -4,7 +4,7 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-#tdb_file = 'Enriched dataseTDB_V2.txt' # from TDBDB
+#tdb_file = 'Enriched_dataseTDB_V2.txt' # from TDBDB
 tdb_file = 'CORRECTdatabase.txt' # from TDBDB
 ELA = 'Ni'  # x-axis
 ELB = 'Fe' # lower left side

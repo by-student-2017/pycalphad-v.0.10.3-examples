@@ -5,7 +5,9 @@ from pycalphad import variables as v
 
 #------User input area--------
 #tdb_file = 'saf2507.TDB' # from OpenCALPHAD
-tdb_file = 'CoCrFeNiV.TDB-R3.txt' # from TDBDB (Choi et al. (2019))
+#tdb_file = 'CoCrFeNiV.TDB-R3.txt' # from TDBDB (Choi et al. (2019))
+#tdb_file = 'CORRECTdatabase.txt' # from TDBDB (Berthod and Himeur (2018))
+tdb_file = 'CORRECTdatabase.txt' # from TDBDB (Berthod and Khair (2019))
 ELA = 'Cr'
 ELB = 'Fe'
 ELC = 'Ni'
