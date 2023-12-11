@@ -111,6 +111,13 @@
 
 
 ## Note
+- Al-Mg-Zn (Qiu et al. (2015)) from TDBDB (https://avdwgroup.engin.brown.edu/)
+```
+mv mmc1.TDB Qiu_2015.TDB
+sudo apt -y install nkf
+nkf -w Qiu_2015.TDB > Qiu_2015_en.TDB
+python3 ternary-AlMgZn.py
+```
 - Al-Mg-Zn (almgzn_hay.tdb from CPDDB at 15:00 Dec/08/2023): read error
 ```
 Line 170: "3000 Unary5.0 N !" => "3000 N  Unary5 !"
