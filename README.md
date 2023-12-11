@@ -54,6 +54,7 @@
 2. cd Cr-Fe-Ni
 3. python3 ternary-CrFeNi.py
 - It would be good to compare the results with OpenCALPHAD.
+- A thermodynamic description of the Co-Cr-Fe-Ni-V system for high-entropy alloy design
 
 
 ## Example: Mo-Ni-Re (easier user input)
