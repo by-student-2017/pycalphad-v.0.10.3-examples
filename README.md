@@ -124,14 +124,14 @@ python3 ternary-AlMgZn.py
 Line 170: "3000 Unary5.0 N !" => "3000 N  Unary5 !"
 Line 205: Remove "6000 N 2019Hay", i.d., => "CONSTITUENT ALMG_G  :MG : AL,MG,ZN : AL,MG,ZN : !"
 ```
-- Enriched dataseTDB_V2.txt
+- Fe-Nb-Ni_test folder (Enriched dataseTDB_V2.txt)
 ```
 Line 79: => "$ FUNCTION GNIBCC  298.15 +8715.084-3.556*T+GHSERNI#; 6000 N !"
 Line 175: => "+GHSERCO#; 1768 Y"
 Line 985: => "+2*GHSERWW#+4*GHSERFE#;   6.00000E+03   N REF:12 !"
 Line 1183: => "+12*GHSERCR#;   6000   N REF:211 !"
 ```
-- Enriched dataseTDB_V2.txt
+- Fe-Nb-Ni_test folder (CORRECTdatabase.txt)
 ```
 Line 96: => "$ FUNCTION GCOBCC 298.14 +2938-.7138*T+GHSERCO#; 6000 N !"
 Line 100: => "$ FUNCTION GNIBCC  298.15 +8715.084-3.556*T+GHSERNI#; 6000 N !"
