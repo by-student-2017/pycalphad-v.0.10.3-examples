@@ -4,11 +4,12 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-#tdb_file = 'bfend_hal.tdb' # You can get TDB file from CPDDB.
-tdb_file = 'Nd-Fe-B.TDB' # TDBDB
+#tdb_file = 'bfend_hal.tdb' # CPDDB (1995)
+#tdb_file = 'bfend_hal.tdb' # TDBDB (1995)
+tdb_file = 'Nd-Fe-B.TDB' # TDBDB (2019)
 ELA = 'Nd'  # x-axis
-ELB = 'Fe' # lower left side
-ELC = 'B' # y-axis
+ELB = 'Fe'  # lower left side
+ELC = 'B'   # y-axis
 Temp = 1275 # [K]
 #------User input area--------
 # It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
