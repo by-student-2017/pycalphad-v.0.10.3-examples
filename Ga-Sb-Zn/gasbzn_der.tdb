@@ -1,0 +1,159 @@
+$GASBZN
+$ -----------------------------------------------------------------------------
+$ 2011.7.7
+$ 
+$ TDB file created by K.Hashimoto, T.Abe and Y.Sawada,
+$
+$ Particle Simulation and Thermodynamics Group, National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ 
+$ e-mail: abe.taichi @ nims.go.jp
+$
+$ Copyright (C) NIMS 2011
+$ -----------------------------------------------------------------------------
+$
+$ The parameter set is taken from   
+$ Experimental investigation and thermodynamic calculation of the Ga-Sb-Zn 
+$ phase diagram,
+$ I. Dervisevic, A.Todorovic, N.Talijan, J. Djokic,
+$ J. Mater Sci., 45 (2010) 2725-2731.
+$
+$ -----------------------------------------------------------------------------
+$ Comments
+$  The vertical sections of the ternary in Fig.3 cannot be reproduced unless the 
+$ mixing of Zn and Ga in HCP_Zn phase is neglected although Ga has solubility 
+$ into HCP_Zn. Maybe in their calculations Ga in HCP_Zn droped somehow. In this 
+$ TDB, thus, it is included. Another questin is the phase boundary at 520K in 
+$ Fig.3(b). There is no transition at that condition based on the present TDB.   
+$ For the calculations of the ternary system, one has to confirm these points.
+$                                                                      T.A.
+$ 2021.5.11 add
+$ Phasename changed FCC_B3(Thermodynamic database name)->GASB(Phase-common name)
+$ -----------------------------------------------------------------------------
+$              
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT GA   ORTHORHOMBIC_CMCA         6.9723E+01  5.5731E+03  4.0828E+01!
+ ELEMENT SB   RHOMBOHEDRAL_A7           1.2175E+02  5.8702E+03  4.5522E+01!
+ ELEMENT ZN   HCP_A3                    6.5390E+01  5.6568E+03  4.1631E+01!
+
+$ ------------------------------------------------------------------------------  
+ FUNCTION GHSERGA    298.15  -21312.331+585.263691*T-108.2287832*T*LN(T)
+    +.227155636*T**2-1.18575257E-04*T**3+439954*T**(-1);             302.92 Y
+    -7055.643+132.73019*T-26.0692906*T*LN(T)+1.506E-04*T**2-4.0173E-08*T**3
+    -118332*T**(-1)+1.645E+23*T**(-9);                                 4000 N !
+ FUNCTION GGALIQ     200     +5491.31-18.073718*T
+    -7.0154E-17*T**7+GHSERGA#;                                      302.92  Y
+    +5666.446-18.680788*T-1.64554E+23*T**(-9)+GHSERGA#;               4000  N  !
+ FUNCTION GGAHCP     200.00
+    -16812.331+575.763691*T-108.2287832*T*LN(T)+227.155636E-3*T**2
+    -118.575257E-6*T**3+439954*T**(-1);                              302.91 Y
+    -2555.643+123.23019*T-26.0692906*T*LN(T)+0.1506E-3*T**2-0.040173E-6*T**3
+    -118332*T**(-1)+164.547E21*T**(-9);                                4000 N !
+
+ FUNCTION GHSERSB    298.15  -9242.858+156.154689*T-30.5130752*T*LN(T)
+      +.007748768*T**2-3.003415E-06*T**3+100625*T**(-1);              903.78 Y
+      -11738.83+169.485872*T-31.38*T*LN(T)+1.616849E+27*T**(-9);        2000 N !
+ FUNCTION GSBLIQ     298.15  +19822.595-21.920597*T
+      -1.73785E-20*T**7+GHSERSB#;                                      903.9 Y
+      +19913.982-22.026755*T-1.610442E+27*T**(-9)+GHSERSB#;             2000 N !
+
+ FUNCTION GHSERZN    298.15  -7285.787+118.469269*T-23.701314*T*LN(T)
+    -.001712034*T**2-1.264963E-06*T**3;                               692.73 Y
+    -11070.597+172.344911*T-31.38*T*LN(T)+4.70657E+26*T**(-9);          3000 N !
+ FUNCTION GZNLIQ     298.15  +7157.27-10.292343*T  
+    -3.58652E-19*T**7+GHSERZN#;                                       692.73 Y
+    +7450.123-10.736234*T-4.70657E+26*T**(-9)+GHSERZN#;                 3000 N !
+
+$ ------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+
+$-------------------------------------------------------------------------------
+$ PARAMETERS FOR LIQUID PHASE
+$-------------------------------------------------------------------------------
+ PHASE LIQUID %  1  1.0  !
+    CONSTITUENT LIQUID:L :GA,SB,ZN :  !
+   PARAMETER G(LIQUID,GA;0)     298.15 +GGALIQ;                         6000 N !
+   PARAMETER G(LIQUID,SB;0)     298.15 +GSBLIQ;                         6000 N !
+   PARAMETER G(LIQUID,ZN;0)     298.15 +GZNLIQ;                         4000 N !
+   PARAMETER G(LIQUID,GA,ZN;0)  298.15 +3662.8+27.28629*T-4.2*T*LN(T);  6000 N !
+   PARAMETER G(LIQUID,GA,ZN;1)  298.15 -464.2;                          6000 N !
+   PARAMETER G(LIQUID,GA,SB;0)  298.15
+                               -13953.8+71.0787*T-9.6232*T*LN(T);       6000 N !
+   PARAMETER G(LIQUID,GA,SB;1)  298.15 +1722.9-1.92588*T;               6000 N !
+   PARAMETER G(LIQUID,GA,SB;2)  298.15 +2128.3;                         6000 N !
+   PARAMETER G(LIQUID,SB,ZN;0)  298.15 -11740.942-0.1283*T;             6000 N !
+   PARAMETER G(LIQUID,SB,ZN;1)  298.15 -427.582-0.809855*T;             6000 N !
+   PARAMETER G(LIQUID,SB,ZN;2)  298.15 +34440.943-33.59286*T;           6000 N !
+   PARAMETER G(LIQUID,GA,SB,ZN;0)  298.15 0;                            6000 N ! 
+   PARAMETER G(LIQUID,GA,SB,ZN;1)  298.15 0;                            6000 N !
+   PARAMETER G(LIQUID,GA,SB,ZN;2)  298.15 0;                            6000 N !
+
+$-------------------------------------------------------------------------------
+$ PARAMETERS FOR ORT
+$-------------------------------------------------------------------------------
+ PHASE ORTHORHOMBIC  %  2  1  1!
+    CONSTITUENT ORTHORHOMBIC  :GA : VA: ! 
+   PARAMETER G(ORTHORHOMBIC,GA:VA;0)   298.15   +GHSERGA;               4000 N !
+
+$-------------------------------------------------------------------------------
+$ PARAMETERS FOR RHOMBO
+$-------------------------------------------------------------------------------
+ PHASE RHOMBO_A7  %  1  1.0  !
+  CONSTITUENT RHOMBO_A7  :SB,ZN :  !
+  PARAMETER G(RHOMBO_A7,SB;0)     298.15  +GHSERSB#;                    2000 N !
+  PARAMETER G(RHOMBO_A7,ZN;0)     298.15  +2300+11.5*T+GHSERZN#;        2000 N !
+  PARAMETER G(RHOMBO_A7,SB,ZN;0)  298.15  0;                            6000 N !
+
+$-------------------------------------------------------------------------------
+$ PARAMETERS FOR HCP
+$-------------------------------------------------------------------------------
+ PHASE HCP  %  2  1  0.5  !
+    CONSTITUENT HCP  :GA,ZN :  VA : !
+   PARAMETER G(HCP,ZN:VA;0)    298.15 +GHSERZN#;                        3800 N !
+   PARAMETER G(HCP,GA:VA;0)    298.15 +4500-9.5*T+GHSERGA#;             3800 N !
+   PARAMETER G(HCP,GA,ZN:VA;0) 298.15 +10744;                           6000 N !
+
+$-------------------------------------------------------------------------------
+$ PARAMETERS FOR STOICHIOMETRIC COMPOUND
+$-------------------------------------------------------------------------------
+ PHASE GASB  %  2  0.5   0.5!
+   CONSTITUENT GASB  :GA : SB: ! 
+  PARAMETER G(GASB,GA:SB;0)     298.15  -21738.1-10.53764*T+2.692876*T*LN(T)
+      -0.00137791*T**2+0.5*GHSERGA+0.5*GHSERSB;                         4000 N !
+
+ PHASE BETA  %  2 0.5   0.5 !
+   CONSTITUENT BETA  :SB : ZN :  !
+  PARAMETER G(BETA,SB:ZN;0)  298.15  -11542.68+5*T
+                                 +0.5*GHSERSB#+0.5*GHSERZN#;            6000 N !
+
+ PHASE GAMMA  %  2 0.45  0.55 !
+   CONSTITUENT GAMMA  :SB : ZN :  !
+  PARAMETER G(GAMMA,SB:ZN;0)  298.15  -8748.7632+1.3365*T
+                                 +0.45*GHSERSB#+0.55*GHSERZN#;          6000 N !
+
+ PHASE EPSILON  %  2 0.425   0.575 !
+   CONSTITUENT EPSILON  :SB : ZN :  !
+  PARAMETER G(EPSILON,SB:ZN;0)  298.15  -7730.454
+                                 +0.425*GHSERSB#+0.575*GHSERZN#;        6000 N !
+
+ PHASE DELTA  %  2 0.425   0.575 !
+   CONSTITUENT DELTA  :SB : ZN :  !
+  PARAMETER G(DELTA,SB:ZN;0)  298.15   -7348-0.5*T
+                                 +0.425*GHSERSB#+0.575*GHSERZN#;        6000 N !
+
+ PHASE ZETA  %  2  0.4   0.6 !
+   CONSTITUENT ZETA  :SB : ZN :  !
+  PARAMETER G(ZETA,SB:ZN;0)  298.15   -4918.01-3.37557*T
+                                 +0.4*GHSERSB#+0.6*GHSERZN#;            6000 N !
+
+ PHASE ETA  %  2  0.38  0.62 !
+   CONSTITUENT ETA  :SB : ZN :  !
+  PARAMETER G(ETA,SB:ZN;0)  298.15    -5042.71-2.743826*T
+                                 +0.38*GHSERSB#+0.62*GHSERZN#;          6000 N !
+$GASBZN-NIMS
+
+
+ 

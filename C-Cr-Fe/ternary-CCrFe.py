@@ -1,15 +1,14 @@
 #%matplotlib inline # for Jupyter notebooks
-#%matplotlib notebook # for plt.savefig
 import matplotlib.pyplot as plt
 from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-#tdb_file = 'alcrni_dup.tdb' # from CPDDB
-tdb_file = 'Liu_2016.TDB' # from TDBDB (Liu et al. (2016))
-ELA = 'Cr' # x-axis
-ELB = 'Ni' # lower left side
-ELC = 'Al' # y-axis
+#tdb_file = 'Enriched_dataseTDB_V2.txt' # from TDBDB
+tdb_file = 'CORRECTdatabase.txt' # from TDBDB
+ELA = 'Cr'  # x-axis
+ELB = 'C' # lower left side
+ELC = 'Fe' # y-axis
 Temp = 1573 # [K]
 #------User input area--------
 # It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
@@ -34,4 +33,4 @@ plt.rcParams['savefig.bbox'] = 'tight'
 output_file = 'ternary-'+img_comps+"-"+str(Temp)+'K.png'
 plt.savefig(output_file)
 
-# plt.show()
+plt.show()

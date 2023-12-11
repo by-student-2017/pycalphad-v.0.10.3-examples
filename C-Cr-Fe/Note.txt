@@ -1,0 +1,9 @@
+#--------------------------------------------------------
+Enriched dataseTDB_V2.txt
+ C,Co,Cr,Fe,Hf,Nb,Ni,Ta,Ti,W,Zr Berthod and Himeur (2018)
+ https://doi.org/10.1016/j.calphad.2018.05.003
+#--------------------------------------------------------
+CORRECTdatabase.txt
+ C,Co,Cr,Fe,Hf,Nb,Ni,Ta,Ti,W,Zr Berthod and Khair (2019)
+ https://doi.org/10.1016/j.calphad.2019.02.009
+#--------------------------------------------------------

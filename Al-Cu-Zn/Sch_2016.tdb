@@ -1,0 +1,247 @@
+$  AlCuZn_20150814.tdb
+$ $ Al-Cu-Zn ternary system: 
+$ TDB for the paper:  Thermodynamic assessment the Al-Cu-Zn system, 
+$    part III: Al-Cu-Zn ternary system
+$ Case sensitive. Direct use in Pandat. 
+$ For Thermocalc: Enter line breaks, change to Upper Case
+$ Prepared by Song-Mao Liang and Rainer Schmid-Fetzer.
+$  --------------- 2015-09-24. 
+
+$ 
+
+
+
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00 !
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00 !
+ ELEMENT Al   FCC                       2.6982E+01  4.5773E+03  2.8322E+01 !
+ ELEMENT Cu   FCC                       6.3546E+01  5.0041E+03  3.3150E+01 !
+ ELEMENT Zn   HCP                       6.5390E+01  5.6568E+03  4.1631E+01 !
+
+
+Function RTLNP 298.15    +R*T*LN(1E-005*P); 6000 N !
+Function R 298.15    8.31451; 6000 N !
+
+$ Element Al ----------------------------------------------------------------- 
+Function GHSERAL 298.14     -7976.15+137.093038*T-24.3671976*T*LN(T)
+    -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1); 700 Y
+    -11276.24+223.048446*T-38.5844296*T*LN(T)+.018531982*T**2
+ 	-5.764227E-06*T**3+74092*T**(-1); 933.47 Y
+    -11278.378+188.684153*T-31.748192*T*LN(T)-1.231E+28*T**(-9); 2900 N !
+Function GLIQAL 298.14	+11005.029-11.841867*T+7.934E-20*T**7+GHSERAL; 933.6 Y
+    +10482.382-11.253974*T+1.231E+28*T**(-9)+GHSERAL; 6000 N !
+Function GBCCAL 298.15     +10083-4.813*T+GHSERAL; 6000 N !
+Function GHCPAL 298.15     +5481-1.8*T+GHSERAL; 6000 N !
+
+$ Element Cu -----------------------------------------------------------------
+Function GHSERCU 270      -7770.458+130.485235*T-24.112392*T*LN(T)
+    -.00265684*T**2+52478*T**(-1)+1.29223E-07*T**3; 1357.77 Y
+    -13542.026+183.803828*T-31.38*T*LN(T)+3.64167E+29*T**(-9); 2900 N !
+Function GLIQCU 270  +5194.277+120.973331*T-24.112392*T*LN(T)-2.65684E-3*T**2
+    +0.129223E-6*T**3 +52478*T**(-1)-584.89E-23*T**7; 1357.77 Y
+    -46.545+173.881484*T-31.38*T*LN(T); 3200 N !	
+Function GBCCCU 270      +4017.-1.255*T+GHSERCU; 6000 N !
+Function GHCPCU 270      +600.+0.2*T+GHSERCU; 6000 N !
+
+$ Element Zn -----------------------------------------------------------------
+Function GHSERZN 298.15   -7285.787+118.470069*T-23.701314*T*LN(T)
+    -1.712034E-3*T**2-1.264963E-6*T**3; 692.68 Y
+    -11070.559 +172.34566*T-31.38*T*LN(T)+470.514E24*T**(-9); 1700 N !
+Function GLIQZN 270     -128.574+108.177079*T-23.701314*T*LN(T)
+    -1.712034E-3*T**2-1.264963E-6*T**3-358.958E-21*T**7; 692.68 Y
+    -3620.391+161.608594*T-31.38*T*LN(T); 6000 N !
+Function GBCCZN 298.15    +2886.96-2.5104*T+GHSERZN; 6000 N !
+Function GFCCZN 298.15    +2969.82-1.56968*T+GHSERZN; 6000 N !
+
+Function A1BCZ 270     -6150; 6000 N !
+
+Type_Definition & GES AMEND_PHASE_DESCRIPTION Bcc MAGNETIC -1 0.4 !
+Type_Definition + GES AMEND_PHASE_DESCRIPTION Bcc_B2 MAGNETIC -1 0.4 !
+Type_Definition O GES AMEND_PHASE_DESCRIPTION Bcc_B2 DISORDER_PART Bcc !
+
+Define_System_Default SPECIE 2 !
+Default_Command DEF_SYS_ELEMENT VA !
+Type_Definition % SEQ *!
+
+Phase Liquid:L % 1 1 !
+Constituent Liquid:L :Al,Cu,Zn:!
+    Parameter G(Liquid,Al;0) 298.14   GLIQAL; 6000 N !
+    Parameter G(Liquid,Cu;0) 270      GLIQCU; 3200 N !
+    Parameter G(Liquid,Zn;0) 298.15   GLIQZN; 1700 N !
+    Parameter L(Liquid,Al,Cu;0) 298.15     -67094+8.555*T; 6000 N !
+    Parameter L(Liquid,Al,Cu;1) 298.15     +32148-7.118*T; 6000 N !
+    Parameter L(Liquid,Al,Cu;2) 298.15     +5915-5.889*T; 6000 N !
+	Parameter G(Liquid,Al,Cu;3) 298.15     -7290+5.5*T; 6000 N !
+    Parameter L(Liquid,Al,Zn;0) 298.15   +10466-3.39259*T; 6000 N !
+    Parameter L(Liquid,Cu,Zn;0) 270  -40688.6+12.8655*T; 6000 N !
+    Parameter L(Liquid,Cu,Zn;1) 270  2252.3-4.8069*T; 6000 N !
+    Parameter L(Liquid,Cu,Zn;2) 270  5405.9-2.9197*T; 6000 N !
+	Parameter L(Liquid,Al,Cu,Zn;0) 270    +5475.; 6000 N !
+    Parameter L(Liquid,Al,Cu,Zn;1) 270   +13000; 6000 N !
+    Parameter L(Liquid,Al,Cu,Zn;2) 270   +43800.; 6000 N !
+
+Phase Bcc %& 1 1 !
+Constituent Bcc :Al,Cu,Zn:!
+    Parameter G(Bcc,Al;0) 298.15     GBCCAL; 6000 N !
+    Parameter G(Bcc,Cu;0) 270        GBCCCU; 6000 N !
+    Parameter G(Bcc,Zn;0) 298.15     GBCCZN; 6000 N !
+    Parameter L(Bcc,Al,Cu;0) 298.15     -73537+3.98*T; 6000 N !
+    Parameter L(Bcc,Al,Cu;1) 298.15     51696-12*T; 6000 N !
+	Parameter L(Bcc,Al,Zn;0) 270    +28000; 6000 N !
+    Parameter L(Bcc,Cu,Zn;0) 270    -48042+9.97*T; 6000 N !
+    Parameter L(Bcc,Cu,Zn;1) 270     6100-6*T; 6000 N !
+    Parameter L(Bcc,Cu,Zn;2) 270     1000; 6000 N !
+	Parameter L(Bcc,Al,Cu,Zn;0) 270   -10000; 6000 N !
+    Parameter L(Bcc,Al,Cu,Zn;1) 270   -30000+20*T; 6000 N !
+    Parameter L(Bcc,Al,Cu,Zn;2) 270   -10000; 6000 N !
+
+Phase Bcc_B2 %O+ 2 0.5 0.5 !
+Constituent Bcc_B2 :Al,Cu,Zn:Al,Cu,Zn:!
+    Parameter G(Bcc_B2,Cu:Cu;0) 270   0; 6000 N !
+    Parameter G(Bcc_B2,Zn:Zn;0) 270   0; 6000 N !
+    Parameter G(Bcc_B2,Cu:Zn;0) 270   0.5*A1BCZ; 6000 N !
+    Parameter G(Bcc_B2,Zn:Cu;0) 270   0.5*A1BCZ; 6000 N !
+    Parameter L(Bcc_B2,Cu:Cu,Zn;0) 270   -0.5*A1BCZ; 6000 N !
+    Parameter L(Bcc_B2,Zn:Cu,Zn;0) 270   -0.5*A1BCZ; 6000 N !
+    Parameter L(Bcc_B2,Cu,Zn:Cu;0) 270   -0.5*A1BCZ; 6000 N !
+    Parameter L(Bcc_B2,Cu,Zn:Zn;0) 270   -0.5*A1BCZ; 6000 N !
+
+Phase Delta % 1 1 !
+Constituent Delta :Al,Cu,Zn:!
+    Parameter G(Delta,Al;0) 298.15   +1000+GBCCAL; 6000 N !
+    Parameter G(Delta,Cu;0) 270      +5727.15-1.6807*T+GHSERCU; 6000 N !
+    Parameter G(Delta,Zn;0) 298.15   +4375.32-2.955*T+GHSERZN; 6000 N !
+    Parameter L(Delta,Al,Cu;0) 270    -94290.4+20*T; 6000 N !
+	Parameter L(Delta,Al,Cu;1) 270     35362; 6000 N !
+    Parameter L(Delta,Al,Zn;0) 270   7270+10*T; 6000 N !
+    Parameter L(Delta,Cu,Zn;0) 270   -54593.9+12.8111*T; 6000 N !
+    Parameter L(Delta,Cu,Zn;1) 270   +142+6.0249*T; 6000 N !
+ 	Parameter L(Delta,Al,Cu,Zn;0) 270   0; 6000 N !
+    Parameter L(Delta,Al,Cu,Zn;1) 270   0; 6000 N !
+    Parameter L(Delta,Al,Cu,Zn;2) 270   0; 6000 N !
+	
+Phase Fcc % 1 1 !
+Constituent Fcc :Al,Cu,Zn:!
+    Parameter G(Fcc,Al;0) 298.15       +GHSERAL; 6000 N !
+    Parameter G(Fcc,Cu;0) 298.15       +GHSERCU; 6000 N !
+    Parameter G(Fcc,Zn;0) 298.15       +GFCCZN; 6000 N !
+    Parameter L(Fcc,Al,Cu;0) 270    -53520+2*T; 6000 N !
+    Parameter L(Fcc,Al,Cu;1) 270    39005-2.368*T; 6000 N !
+    Parameter L(Fcc,Al,Cu;2) 270      1210; 6000 N !	
+	Parameter L(Fcc,Al,Zn;0) 298.15    +7297.48+.47512*T; 6000 N !
+    Parameter L(Fcc,Al,Zn;1) 298.15    +6612.88-4.5911*T; 6000 N !
+    Parameter L(Fcc,Al,Zn;2) 298.15   -3097.19+3.30635*T; 6000 N !
+    Parameter L(Fcc,Cu,Zn;0) 270    -40716+8.3*T; 6000 N !
+    Parameter L(Fcc,Cu,Zn;1) 270     4812.8-4*T; 6000 N !
+    Parameter G(Fcc,Al,Cu,Zn;0) 270   90000; 6000 N !
+    Parameter G(Fcc,Al,Cu,Zn;1) 270   0; 6000 N !
+    Parameter G(Fcc,Al,Cu,Zn;2) 270   90000; 6000 N !
+	
+Phase Hcp % 1 1 !
+Constituent Hcp :Al,Cu,Zn:!
+    Parameter G(Hcp,Al;0) 270      +GHCPAL; 6000 N !
+    Parameter G(Hcp,Cu;0) 270      +GHCPCU; 6000 N !
+    Parameter G(Hcp,Zn;0) 298.15   +GHSERZN; 6000 N !
+	Parameter L(Hcp,Al,Cu;0) 270    38107; 6000 N !
+    Parameter L(Hcp,Al,Zn;0) 298.15   +18820.95-8.95255*T; 6000 N !
+    Parameter L(Hcp,Al,Zn;1) 298.15   0; 6000 N !
+    Parameter L(Hcp,Al,Zn;2) 298.15   0; 6000 N !	
+    Parameter L(Hcp,Al,Zn;3) 298.15    -702.79; 6000 N !
+    Parameter L(Hcp,Cu,Zn;0) 270   -15739-12.56*T; 6000 N !
+
+$ Al-Cu binary compounds -----------------------------------------------------	
+Phase Eta1 % 2 1 1 !
+Constituent Eta1 :Al,Cu:Cu,Zn:!
+    Parameter G(Eta1,Al:Cu;0) 270   -39431+1.9*T+GHSERAL+GHSERCU; 6000 N !
+    Parameter G(Eta1,Cu:Cu;0) 270  4770+9*T+2*GHSERCU; 6000 N !
+	Parameter G(Eta1,Al:Zn;0) 270   10000+GHSERAL+GHSERZN; 6000 N !
+	Parameter G(Eta1,Cu:Zn;0) 270   +3040+GHSERCU+GHSERZN; 6000 N !
+    Parameter L(Eta1,Al,Cu:Cu;0) 270      0; 6000 N !
+    Parameter L(Eta1,Al,Cu:Cu;1) 270     -43168-18.5*T; 6000 N !
+
+Phase Eta2 % 2 0.48 0.52 !
+Constituent Eta2 :Al:Cu:!
+    Parameter G(Eta2,Al:Cu;0) 270  -20987+1.62*T+0.48*GHSERAL+0.52*GHSERCU; 6000 N !
+
+Phase Al2Cu % 2 2 1 !
+Constituent Al2Cu :Al:Al,Cu:!
+    Parameter G(Al2Cu,Al:Al;0) 270  +3*GBCCAL; 6000 N !
+    Parameter G(Al2Cu,Al:Cu;0) 270  -48361+8*T+2*GHSERAL+GHSERCU; 6000 N !
+    Parameter L(Al2Cu,Al:Al,Cu;0) 270      2211; 6000 N !	
+
+Phase Al9Cu11 % 2 9 11 !
+ Constituent Al9Cu11 :Al,Cu:Cu:!
+     Parameter G(Al9Cu11,Al:Cu;0) 270 -424720+20*T+9*GHSERAL+11*GHSERCU; 6000 N !
+     Parameter G(Al9Cu11,Cu:Cu;0) 270 20*GBCCCU; 6000 N !
+	 Parameter L(Al9Cu11,Al,Cu:Cu;0) 270 0; 6000 N !	 
+	 Parameter L(Al9Cu11,Al,Cu:Cu;1) 270 -413300+100*T; 6000 N !
+
+Phase Gamma1 % 3 4 6 16 !
+Constituent Gamma1 :Cu:Cu,Zn:Al,Cu,Zn: !
+    Parameter G(Gamma1,Cu:Cu:Al;0) 270  -94322.4+389.508*T
+	                                 +16*GHSERAL+10*GHSERCU; 6000 N !
+    Parameter G(Gamma1,Cu:Cu:Cu;0) 270  +26*GHSERCU+2600; 6000 N !
+	Parameter L(Gamma1,Cu:Cu:Al,Cu;0) 270     -1613680-708*T; 6000 N !  
+	Parameter L(Gamma1,Cu:Cu:Al,Cu;1) 270     -1585780-100*T; 6000 N !	
+	Parameter G(Gamma1,Cu:Zn:Al;0) 298.15     260000
+	                                 +6*GHSERZN+4*GHSERCU+16*GHSERAL; 6000 N !	
+	Parameter G(Gamma1,Cu:Cu:Zn;0) 298.15    -258704-59.332*T
+                                           +10*GHSERCU+16*GHSERZN; 6000 N !
+	Parameter G(Gamma1,Cu:Zn:Cu;0) 298.15    26000+20*GHSERCU+6*GHSERZN; 6000 N !
+	Parameter G(Gamma1,Cu:Zn:Zn;0) 298.15    -36316-112.4872*T
+                                           +4*GHSERCU+22*GHSERZN; 6000 N !	
+    Parameter L(Gamma1,Cu:Cu:Al,Zn;0) 298.15    -574960-200*T; 6000 N !		
+
+Phase Gamma2 % 3 4 6 16 !
+Constituent Gamma2 :Cu:Cu,Zn:Al,Cu,Zn: !
+    Parameter G(Gamma2,Cu:Cu:Al;0) 270  -94322.4+389.508*T
+	                                 +16*GHSERAL+10*GHSERCU; 6000 N !
+    Parameter G(Gamma2,Cu:Cu:Cu;0) 270  +26*GHSERCU+2600; 6000 N !
+	Parameter L(Gamma2,Cu:Cu:Al,Cu;0) 270     -1451526.6-859.628*T; 6000 N !  
+	Parameter L(Gamma2,Cu:Cu:Al,Cu;1) 270     -1516652.4-92*T; 6000 N !
+	Parameter G(Gamma2,Cu:Zn:Al;0) 298.15     -226606+870*T
+	                              +6*GHSERZN+4*GHSERCU+16*GHSERAL; 6000 N !
+	Parameter G(Gamma2,Cu:Cu:Zn;0) 298.15    -284704-59.332*T
+                                           +10*GHSERCU+16*GHSERZN; 6000 N !
+	Parameter G(Gamma2,Cu:Zn:Cu;0) 298.15    20*GHSERCU+6*GHSERZN; 6000 N !
+	Parameter G(Gamma2,Cu:Zn:Zn;0) 298.15    -62316-112.4872*T
+                                           +4*GHSERCU+22*GHSERZN; 6000 N !	
+    Parameter L(Gamma2,Cu:Cu:Al,Zn;0) 298.15   -70960-680*T; 6000 N !
+
+Phase Al5Cu8 % 2 5 8 !
+ Constituent Al5Cu8 :Al:Cu:!
+    Parameter G(Al5Cu8,Al:Cu;0) 270 -278450+5.2*T+5*GHSERAL+8*GHSERCU; 6000 N !
+
+Phase Eps2 % 2 1 1 !
+Constituent Eps2 :Al,Cu,Zn:Cu:!
+    Parameter G(Eps2,Al:Cu;0) 270  -40326+4.100*T+GHSERAL+GHSERCU; 6000 N !
+    Parameter G(Eps2,Cu:Cu;0) 270  14850+30.1*T+2*GHSERCU; 6000 N !
+	Parameter G(Eps2,Zn:Cu;0) 270   -8000+GHSERZN+GHSERCU; 6000 N !
+    Parameter L(Eps2,Al,Cu:Cu;0) 270     -56870-55*T; 6000 N !	
+
+Phase Alpha2 % 2 0.23 0.77 !
+Constituent Alpha2 :Al:Cu: !
+    Parameter G(Alpha2,Al:Cu;0) 270  -13904.9-3*T+0.23*GHSERAL+0.77*GHSERCU; 6000 N !	
+
+$ Cu-Zn binary phase -----------------------------------------------------	
+Phase Eps % 1 1 !
+Constituent Eps :Al,Cu,Zn:!
+    Parameter G(Eps,Al;0) 298.15   +GHCPAL; 6000 N !
+    Parameter G(Eps,Cu;0) 270      +GHCPCU; 6000 N !
+    Parameter G(Eps,Zn;0) 298.15   +GFCCZN; 6000 N !
+    Parameter L(Eps,Al,Cu;0) 298.15   -50085; 6000 N !	
+    Parameter L(Eps,Cu,Zn;0) 270   -36818.3+6.5000*T; 6000 N !
+    Parameter L(Eps,Cu,Zn;1) 270   +27160.5-10.8351*T; 6000 N !
+	Parameter L(Eps,Al,Zn;0) 298.15   10000; 6000 N !
+    Parameter L(Eps,Al,Cu,Zn;0) 298.15   62500; 6000 N !
+    Parameter L(Eps,Al,Cu,Zn;1) 298.15   -218000; 6000 N !
+    Parameter L(Eps,Al,Cu,Zn;2) 298.15   38500; 6000 N !
+
+$ Ternary compounds -----------------------------------------------------	
+Phase Al5Cu4Zn % 4 1 4 4 1 !
+Constituent Al5Cu4Zn :Al,Cu:Al:Cu:Zn:!
+    Parameter G(Al5Cu4Zn,Al:Al:Cu:Zn;0) 270     -368827.4+230.*T
+	+5*GLIQAL+4*GLIQCU+GLIQZN; 6000 N !
+    Parameter G(Al5Cu4Zn,Cu:Al:Cu:Zn;0) 270     -323713.2+118.*T
+	+4*GLIQAL+5*GLIQCU+GLIQZN; 6000 N !
+    Parameter G(Al5Cu4Zn,Al,Cu:Al:Cu:Zn;0) 270   +212280.2-300.*T; 6000 N !
+

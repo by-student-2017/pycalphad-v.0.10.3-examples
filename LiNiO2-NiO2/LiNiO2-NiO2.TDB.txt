@@ -1,0 +1,125 @@
+$
+$ LINIO2-NIO2 pseudo-binary system
+$
+$ written by Keke Chang,Bengt Hallstedt,Denis Music
+$
+$ This TDB file is similar to the LICOO2-COO2 pseudo-binary system (Calphad
+$ Volume 35, 2011, Pages 209-218, by T.Abe and T.Koyama)
+$ -----------------------------------------------------------------------------
+$ Comments
+$ 
+$ In this TDB file, "V" does NOT stand for Vanadium but an imaginary element 
+$ to mimic the preserved Vacancy.
+$ Defining only V(vacancy) and Li, the diagram can be simply calucliated as 
+$ a V-Li binary phase diagram.   
+$ -----------------------------------------------------------------------------
+$                 
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                      0.0          0.0      0.0    ! 
+ ELEMENT LI   BCC_A2                    6.9410E+00  4.6233E+03  2.9095E+01!
+ ELEMENT NI   FCC_A1                    5.8690E+01  4.7870E+03  2.97955E+0!
+ ELEMENT O    1/2_MOLE_O2(G)            1.5999E+01  4.3410E+03  1.0252E+02!
+ ELEMENT V    BCC_A2                    1.0000E+01  1.0000E+03  1.0000E+00!
+$ -----------------------------------------------------------------------------
+$ Phase definitions
+$
+$ The disordered O3 phase, Prototype NaFeO2 (hR12, R-3m)
+$
+ PHASE O3LINIO2D   % 1  1  !
+ CONST O3LINIO2D  :LI,V:  !
+$
+$ The disordered contribution to the ordered O3 phase, same as O3LINIO2D +10J 
+$  
+ PHASE O3LINIO2   % 1  1  !
+ CONST O3LINIO2  :LI,V:  !
+$
+$ The ordering contribution to the O3 phase
+$
+ PHASE O3_ORDER   %( 2  0.5  0.5  !
+ CONST O3_ORDER  :LI,V:LI,V:  !
+$
+$ H1_3 phase (hybrid structure of O3 and O1, R-3m)
+$
+ PHASE H13   % 2 0.5 0.5 !
+ CONST H13  : LI,V : V :  !
+$
+$ The O1 phase, Prototype CdI2 (hP3, P-3m1)
+$
+ PHASE O1NIO2 % 1 1 !
+ CONST O1NIO2 : V : !
+$ ------------------------------------------------------------------------------
+$ Defaults
+$
+ DEFAULT-COM DEFINE_SYSTEM_ELEMENT VA /- !
+ TYPE-DEF % SEQ * !
+ TYPE_DEF ( GES AMEND_PHASE_DESCRIPTION O3_ORDER DIS_PART O3LINIO2 !
+ FUNCTION ZERO      298.15  0;                                         6000 N !
+ FUNCTION UN_ASS    298.15  0;                                         6000 N !
+$ -----------------------------------------------------------------------------
+$ Element data
+$ ------------------------------------------------------------------------------
+$
+ FUNCTION GHSERNI   298.15  -5179.159+117.854*T-22.096*T*LN(T)-0.0048407*T**2;
+                                                                       1728  Y  
+      -27840.655+279.135*T-43.1*T*LN(T)+1.12754E+31*T**(-9);   3000  N 91Din !
+$      
+ FUNCTION GHSERLI   200.00  -10583.817+217.637482*T-38.940488*T*LN(T)
+       +0.035466931*T**2-1.9869816E-05*T**3+159994*T**(-1);           453.6  Y
+              -559579.123+10547.8799*T-1702.88865*T*LN(T)
+       +2.25832944*T**2-5.71066077E-04*T**3+33885874*T**(-1);           500  Y
+              -9062.994+179.278285*T-31.2283718*T*LN(T)
+       +0.002633221*T**2-4.38058E-07*T**3-102387*T**(-1);       3000 N 91Din !
+$     
+ FUNCTION GHSEROO    298.15  -3480.87-25.503038*T-11.136*T*LN(T)
+     -.005098888*T**2+6.61846E-07*T**3-38365*T**(-1);                   1000 Y
+      -6568.763+12.65988*T-16.8138*T*LN(T)-5.95798E-04*T**2+6.781E-09*T**3
+     +262905*T**(-1);                                                   3300 Y
+      -13986.728+31.259625*T-18.9536*T*LN(T)-4.25243E-04*T**2
+     +1.0721E-08*T**3+4383200*T**(-1);                          6000 N 91Din !
+$     
+ FUNCTION GHSERV    298.15  +0;                                 6000 N 91Din !
+$ ----------------------------------------------------------------------------- 
+
+ FUNCTION GO3LINIO2   298.15  +GHSERLI+GHSERNI+2*GHSEROO
+                              -602000+240*T-7.16*T*LN(T);             6000 N !
+ FUNCTION GNIH13      298.15  -421980+180*T
+                                      +0.5*GHSERLI+GHSERNI+2*GHSEROO; 6000 N !
+$
+ PAR G(O3LINIO2,LI;0)     298.15 +GO3LINIO2;                          6000 N !
+ PAR G(O3LINIO2,V;0)      298.15 +GHSERNI+2*GHSEROO
+                                 -236080+194*T;                       6000 N !
+ PAR G(O3LINIO2,LI,V;0)   298.15 -50100;                              6000 N !
+ PAR G(O3LINIO2,LI,V;1)   298.15 +0;                                  6000 N !
+$
+ PAR G(O3LINIO2D,LI;0)    298.15 -1+GO3LINIO2;                        6000 N !
+ PAR G(O3LINIO2D,V;0)     298.15 +GHSERNI+2*GHSEROO
+                                 -1-236080+194*T;                     6000 N !
+ PAR G(O3LINIO2D,LI,V;0)  298.15 -50100;                              6000 N !
+ PAR G(O3LINIO2D,LI,V;1)  298.15 +0;                                  6000 N !
+$
+ PAR G(O3_ORDER,LI:LI;0)  298.15 +0;                                  6000 N !
+ PAR G(O3_ORDER,V:V;0)    298.15 +0;                                  6000 N !
+ PAR G(O3_ORDER,LI:V;0)   298.15 -14250;                              6000 N !
+ PAR G(O3_ORDER,V:LI;0)   298.15 -14250;                              6000 N !
+ PAR G(O3_ORDER,LI,V:*;0) 298.15 -10800;                              6000 N !
+ PAR G(O3_ORDER,*:LI,V;0) 298.15 -10800;                              6000 N !
+$
+ PAR G(H13,LI:V;0)        298.15 +GNIH13;                             6000 N !
+ PAR G(H13,V:V;0)         298.15 +GHSERNI+2*GHSEROO
+                                 -236540+205*T;                       6000 N !
+ PAR G(H13,LI,V:V;0)      298.15 -31500;                              6000 N !
+ PAR G(H13,LI,V:V;1)      298.15 +10000;                              6000 N !
+$
+ PAR  G(O1NIO2,V;0)     298.15 +GHSERNI+2*GHSEROO
+                                 -236870+190*T;                       6000 N !
+
+$ ------------------------------------------------------------------------------
+$
+$
+ LIST-OF-REFERENCE
+ NUMBER  SOURCE
+  Null   'Unknown source'
+  91Din  'A.T. Dinsdale, Calphad, 15, 317-425(1991).'
+!
+
+

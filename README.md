@@ -54,7 +54,7 @@
 2. cd Cr-Fe-Ni
 3. python3 ternary-CrFeNi.py
 - It would be good to compare the results with OpenCALPHAD.
-- A thermodynamic description of the Co-Cr-Fe-Ni-V system for high-entropy alloy design
+- CoCrFeNiV.TDB-R3.txt: A thermodynamic description of the Co-Cr-Fe-Ni-V system for high-entropy alloy (HEA) design
 
 
 ## Example: Mo-Ni-Re (easier user input)
@@ -79,6 +79,12 @@
 3. (You can get alcrni_dup.tdb from CPDDB (Multicomponent Systems))
 4. python3 ternary-AlCrNi.py
 - An example of changing the order of element descriptions.
+
+
+## Example: V-Li (V=Vacancy) (LiCoO2-CoO2 Pseudo-binary phase diagram)
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd LiCoO2-CoO2
+3. python3 binary-LiCoO.py
 
 
 ## TDB files
@@ -125,7 +131,7 @@ python3 ternary-AlMgZn.py
 Line 170: "3000 Unary5.0 N !" => "3000 N  Unary5 !"
 Line 205: Remove "6000 N 2019Hay", i.d., => "CONSTITUENT ALMG_G  :MG : AL,MG,ZN : AL,MG,ZN : !"
 ```
-- Fe-Nb-Ni_test folder (Enriched dataseTDB_V2.txt)
+- Fe-Nb-Ni_test folder (Enriched_dataseTDB_V2.txt)
 ```
 Line 79: => "$ FUNCTION GNIBCC  298.15 +8715.084-3.556*T+GHSERNI#; 6000 N !"
 Line 175: => "+GHSERCO#; 1768 Y"

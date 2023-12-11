@@ -1,0 +1,335 @@
+$Al-Ti-V
+$
+$ TDB-filE for thE thErmodynamic assEssmEnt of thE Al-Ti-V systEm
+$
+$-----------------------------------------------------------------------------
+$ 2015.2.13
+$ 
+$ TDB file created by T.Abe, K.Hashimoto,Y.Sawada,T.Bolotova
+$
+$ Particle Simulation and Thermodynamics Group, National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi(at)nims.go.jp
+$ Copyright (C) NIMS 2014
+$ ------------------------------------------------------------------------------
+$ PARAMETERS ARE TAKEN FROM
+$  Thermodynamic Modeling of the Al-Ti-V Ternary System 
+$  Xionggang Lu,Na Gui,Aitao Qiu,Guangxin Wu,Chonghe Li
+$  Metallurgical and Materials Transactions A 
+$  August 2014, Volume 45, Issue 9, pp 4155-4164 
+$ ------------------------------------------------------------------------------
+$ Comments
+$   On the original assessment of Al-Ti by Wit, A2/B2 transition is considered. 
+$   But, not in this assessment. Therefore, B2 phase is commented in this TDB.
+$   See also discussion by Lu et al. on p.4163.                 T.A.
+$
+$ ------------------------------------------------------------------------------
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT TI   HCP_A3                    4.7880E+01  4.8100E+03  3.0648E+01!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01!
+ ELEMENT V    BCC_A2                    5.0941E+01  4.5070E+03  3.0890E+01!
+$ -----------------------------------------------------------------------------
+$ Function Al
+$ -----------------------------------------------------------------------------
+ FUNCTION GHSERAL 298.15
+ -7976.15+137.093038*T-24.3671976*T*LN(T)-1.884662E-3*T**2-0.877664E-6*T**3
+ +74092*T**(-1); 700 Y
+ -11276.24+223.048446*T-38.5844296*T*LN(T)+18.531982E-3*T**2-5.764227E-6*T**3
+ +74092*T**(-1); 933.473 Y
+ -11278.361+188.684136*T-31.748192*T*LN(T)-1230.622E25*T**(-9); 2900 N !
+ FUNCTION GHCPAL 298.15 5481-1.8*T+GHSERAL; 2900 N !
+ FUNCTION GBCCAL 298.15 10083-4.813*T+GHSERAL; 2900 N !             
+ FUNCTION GLIQAL 298.15 11005.045-11.84185*T+79.337E-21*T**7+GHSERAL; 933.473 Y
+  -795.991+177.430209*T-31.748192*T*LN(T); 2900 N !
+ FUNCTION GFCCAL  298.15 +GHSERAL; 2900 N !
+$ -----------------------------------------------------------------------------
+$ Function Ti
+$ -----------------------------------------------------------------------------
+ FUNCTION GHSERTI  298.15
+ -8059.921+133.615208*T-23.9933*T*LN(T)-4.777975E-3*T**2+0.106716E-6*T**3
+ +72636*T**(-1);   900.00 Y
+ -7811.815+132.988068*T-23.9887*T*LN(T)-4.2033E-3*T**2-0.090876E-6*T**3
+ +42680*T**(-1);  1155.00 Y
+ 908.837+66.976538*T-14.9466*T*LN(T)-8.1465E-3*T**2+0.202715E-6*T**3
+ -1477660*T**(-1);  1941.00 Y
+ -124526.786+638.806871*T-87.2182461*T*LN(T)+8.204849E-3*T**2-0.304747E-6*T**3
+ +36699805*T**(-1);  4000.00 N !
+ FUNCTION GBCCTI   298.15
+ -1272.064+134.71418*T-25.5768*T*LN(T)-0.663845E-3*T**2-0.278803E-6*T**3
+ +7208*T**(-1);  1155.00 Y
+ 6667.385+105.366379*T-22.3771*T*LN(T)+1.21707E-3*T**2-0.84534E-6*T**3
+ -2002750*T**(-1);  1941.00 Y
+ 26483.26-182.426471*T+19.0900905*T*LN(T)-22.00832E-3*T**2+1.228863E-6*T**3
+ +1400501*T**(-1);  4000.00 N !
+ FUNCTION GLIQTI   298.15
+ 4134.494+126.63427*T-23.9933*T*LN(T)-4.777975E-3*T**2+0.106716E-6*T**3
+ +72636*T**(-1);   900.00 Y
+ 4382.601+126.00713*T-23.9887*T*LN(T)-4.2033E-3*T**2-0.090876E-6*T**3
+ +42680*T**(-1);  1155.00 Y
+ 13103.253+59.9956*T-14.9466*T*LN(T)-8.1465E-3*T**2+0.202715E-6*T**3
+ -1477660*T**(-1);  1300.00 Y
+ 369519.198-2554.0225*T+342.059267*T*LN(T)-163.409355E-3*T**2+12.457117E-6*T**3
+ -67034516*T**(-1);  1941.00 Y
+ -19887.066+298.7367*T-46.29*T*LN(T);  4000.00 N !
+ FUNCTION GFCCTI 298.15 6000-0.1*T+GHSERTI; 4000 N !
+ FUNCTION GHCPTI 298.15 +GHSERTI; 4000 N !
+$ -----------------------------------------------------------------------------
+$ FUNCTION V
+$ -----------------------------------------------------------------------------
+ FUNCTION GHSERV   298.15
+ -7930.43+133.346053*T-24.134*T*LN(T)-3.098E-3*T**2+0.12175E-6*T**3
+ +69460*T**(-1);   790.00 Y
+ -7967.842+143.291093*T-25.9*T*LN(T)+0.0625E-3*T**2-0.68E-6*T**3;  2183.00 Y
+ -41689.864+321.140783*T-47.43*T*LN(T)+644.389E29*T**(-9);  4000.00 N !
+ FUNCTION GFCCV 298.15 +7500+1.7*T+GHSERV; 4000 N !
+ FUNCTION GHCPV 298.15 +4000+2.4*T+GHSERV; 4000 N !
+ FUNCTION GBCCV 298.15 +GHSERV; 4000 N !
+ FUNCTION GLIQV 298.15 +20764.117-9.455552*T-5.19136E-22*T**7+GHSERV; 790 Y 
+  +20764.117-9.455552*T-5.19136E-22*T**7+GHSERV; 2183 Y 
+  +22072.354-10.0848*T-6.44389E31*T**(-9)+GHSERV; 4000 N !
+
+$------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+$-------------------------------------------------------------------------------
+$ SOLUTION PHASES
+$
+$   LIQUID(AL,TI,V)1
+$-------------------------------------------------------------------------------
+ PHASE  LIQUID % 1 1     !
+ CONSTITUENT  LIQUID : AL,TI,V    :   !
+ PARAMETER G(LIQUID,V;0)          298.15  +GLIQV;            4000 N !
+ PARAMETER G(LIQUID,TI;0)         298.15  +GLIQTI;           4000 N !
+ PARAMETER G(LIQUID,AL;0)         298.15  +GLIQAL;           2900 N !
+ PARAMETER G(LIQUID,AL,TI,V;0)    298.15  -550000;           6000 N !
+ PARAMETER G(LIQUID,AL,TI,V;1)    298.15  -50000;            6000 N !
+ PARAMETER G(LIQUID,AL,TI,V;2)    298.15  +390000;           6000 N !
+ PARAMETER G(LIQUID,AL,TI;0)      298.15  -118048+41.972*T;  6000 N !
+ PARAMETER G(LIQUID,AL,TI;1)      298.15  -23613+19.704*T;   6000 N !
+ PARAMETER G(LIQUID,AL,TI;2)      298.15  +34757-13.844*T;   6000 N !
+ PARAMETER G(LIQUID,TI,V;0)       298.15  +368.55;           6000 N !
+ PARAMETER G(LIQUID,TI,V;1)       298.15  +2838.63;          6000 N ! 
+ PARAMETER G(LIQUID,AL,V;0)       298.15  -122625.8+17.4*T;  6000 N ! 
+ PARAMETER G(LIQUID,AL,V;1)       298.15  +51463-0.85*T;     6000 N !
+$-------------------------------------------------------------------------------
+$    BCC_A2(AL,TI,V)3(VA)1   ( BCC_A2(AL,TI,V)0.25(VA)0.75 )
+$-------------------------------------------------------------------------------
+ PHASE  BCC_A2 % 2 1 3    !
+ CONSTITUENT  BCC_A2 : AL,TI,V : VA   :   !
+ PARAMETER G(BCC_A2,AL:VA;0)       298.15 +GBCCAL;           2900 N !
+ PARAMETER G(BCC_A2,TI:VA;0)       298.15 +GBCCTI;           4000 N !
+ PARAMETER G(BCC_A2,V:VA;0)        298.15 +GHSERV;           4000 N !
+ PARAMETER G(BCC_A2,AL,TI,V:VA;0)  298.15 +7315-100*T;       6000 N !
+ PARAMETER G(BCC_A2,AL,TI,V:VA;1)  298.15 -113926+40*T;      6000 N !
+ PARAMETER G(BCC_A2,AL,TI,V:VA;2)  298.15 +75972.5-150*T;    6000 N !
+ PARAMETER G(BCC_A2,TI,V:VA;0)     298.15 +6523.17;          6000 N !
+ PARAMETER G(BCC_A2,TI,V:VA;1)     298.15 +2025.39;          6000 N !
+ PARAMETER G(BCC_A2,AL,V:VA;0)     298.15 -136730+14.4*T;    6000 N ! 
+ PARAMETER G(BCC_A2,AL,V:VA;1)     298.15 +131633-43*T;      6000 N ! 
+ PARAMETER G(BCC_A2,AL,TI:VA;0)    298.15 -132903+39.961*T;  6000 N ! 
+ PARAMETER G(BCC_A2,AL,TI:VA;1)    298.15 +4890;             6000 N ! 
+ PARAMETER G(BCC_A2,AL,TI:VA;2)    298.15 +400;              6000 N ! 
+$------------------------------------------------------------------------------- 
+$   BCC_B2  (AL,TI)0.5(AL,TI)0.5(VA)3  SPLIT-CEF
+$   On the original paper by Wit, A2/B2 transition is considered. But
+$   not in this assessment. Therefore, B2 phase is commented in this TDB.
+$   see also Lu's paper (p.4163).                 T.A.
+$-------------------------------------------------------------------------------  
+$ TYPE_DEFINITION / GES A_P_D BCC_B2 DIS_PART BCC_A2,,,!
+$  PHASE BCC_B2  %/  3 .5 .5  3 !
+$    CONSTITUENT BCC_B2  :AL,TI :AL,TI: VA :  !
+$ PARAMETER G(BCC_B2,AL:AL:VA;0)    298.15 +0;                6000 N !
+$ PARAMETER G(BCC_B2,TI:TI:VA;0)    298.15 +0;                6000 N !
+$ PARAMETER G(BCC_B2,AL:TI:VA;0)    298.15 -17501;            6000 N !
+$ PARAMETER G(BCC_B2,TI:AL:VA;0)    298.15 -17501;            6000 N !
+$ PARAMETER G(BCC_B2,AL,TI:AL:VA;0) 298.15 +6155;             6000 N ! 
+$ PARAMETER G(BCC_B2,AL:AL,TI:VA;0) 298.15 +6155;             6000 N ! 
+$ PARAMETER G(BCC_B2,AL,TI:AL:VA;1) 298.15 +6292;             6000 N ! 
+$ PARAMETER G(BCC_B2,AL:AL,TI:VA;1) 298.15 +6292;             6000 N ! 
+$ PARAMETER G(BCC_B2,AL,TI:TI:VA;0) 298.15 -21406;            6000 N ! 
+$ PARAMETER G(BCC_B2,TI:AL,TI:VA;0) 298.15 -21406;            6000 N ! 
+$ PARAMETER G(BCC_B2,AL,TI:TI:VA;1) 298.15 -1080;             6000 N ! 
+$ PARAMETER G(BCC_B2,TI:AL,TI:VA;1) 298.15 -1080;             6000 N ! 
+$-------------------------------------------------------------------------------
+$  FCC_A1  (AL,TI,V)1(VA)1
+$------------------------------------------------------------------------------- 
+  PHASE FCC_A1  %  2 1   1 !
+    CONSTITUENT FCC_A1  :AL,TI,V : VA :  !
+ PARAMETER G(FCC_A1,AL:VA;0)       298.15 +GHSERAL;          6000 N !
+ PARAMETER G(FCC_A1,TI:VA;0)       298.15 +GFCCTI;           6000 N !
+ PARAMETER G(FCC_A1,AL,TI:VA;0)    298.15 -119185+40.723*T;  6000 N !
+ PARAMETER G(FCC_A1,V:VA;0)        298.15 +GFCCV;            4000 N !
+ PARAMETER G(FCC_A1,AL,V:VA;0)     298.15 -95812+28.3*T;     6000 N ! 
+$-------------------------------------------------------------------------------
+$  HCP_A3(AL,TI,V)1(VA)0.5 
+$-------------------------------------------------------------------------------
+ PHASE  HCP_A3 % 2 1 0.5   !
+ CONSTITUENT  HCP_A3 : AL,TI,V : VA   :   !
+ PARAMETER G(HCP_A3,AL:VA;0)       298.15 +GHCPAL;           2900 N !
+ PARAMETER G(HCP_A3,TI:VA;0)       298.15 +GHSERTI;          4000 N !
+ PARAMETER G(HCP_A3,V:VA;0)        298.15 +GHCPV;            4000 N !
+ PARAMETER G(HCP_A3,AL,TI,V:VA;0)  298.15 +0;                6000 N !
+ PARAMETER G(HCP_A3,AL,TI,V:VA;1)  298.15 -206074-40*T;      6000 N !
+ PARAMETER G(HCP_A3,AL,TI,V:VA;2)  298.15 +0;                6000 N !
+ PARAMETER G(HCP_A3,TI,V:VA;0)     298.15 +13233;            6000 N !
+ PARAMETER G(HCP_A3,AL,TI:VA;0)    298.15 -134164+37.863*T;  6000 N ! 
+ PARAMETER G(HCP_A3,AL,TI:VA;1)    298.15 -3475+0.825*T;     6000 N ! 
+ PARAMETER G(HCP_A3,AL,TI:VA;2)    298.15 -7756;             6000 N ! 
+
+$-------------------------------------------------------------------------------
+$ TERNARY EXPANSIONS FROM SUB-BINARY SYSTEMS
+$
+$  ALTI (AL,TI,V)0.5(AL,TI,V)0.5
+$-------------------------------------------------------------------------------
+ PHASE  ALTI  % 2 0.5 0.5    !
+ CONSTITUENT  ALTI  : AL,TI,V : AL,TI,V   :   !
+ PARAMETER G(ALTI,V:AL;0)        298.15 +0.5*GFCCV+0.5*GFCCAL-15000;  6000 N !
+ PARAMETER G(ALTI,AL:V;0)        298.15 +0.5*GFCCAL+0.5*GFCCV-15000;  6000 N !
+ PARAMETER G(ALTI,V:TI;0)        298.15 +0.5*GFCCV+0.5*GFCCTI;        6000 N !
+ PARAMETER G(ALTI,V:V;0)         298.15 +GFCCV;                       6000 N !
+ PARAMETER G(ALTI,TI:V;0)        298.15 +0.5*GFCCTI+0.5*GFCCV;        6000 N !
+ PARAMETER G(ALTI,V:AL,TI;0)     298.15 -109815+100*T;                6000 N !
+ PARAMETER G(ALTI,AL,V:AL;0)     298.15 -22500;                       6000 N !
+ PARAMETER G(ALTI,TI,V:AL;0)     298.15 -19037-20*T;                  6000 N !
+ PARAMETER G(ALTI,AL,TI,V:AL;0)  298.15 -150000;                      6000 N !
+ PARAMETER G(ALTI,AL:AL;0)       298.15 +GHSERAL+2;                   6000 N !
+ PARAMETER G(ALTI,TI:TI;0)       298.15 +GFCCTI;                      6000 N !
+ PARAMETER G(ALTI,AL:TI;0)       298.15 
+                               -40504+7.361*T+0.5*GHSERAL+0.5*GFCCTI; 6000 N !    
+ PARAMETER G(ALTI,TI:AL;0)       298.15 
+                               -40504+7.361*T+0.5*GHSERAL+0.5*GFCCTI; 6000 N !    
+ PARAMETER G(ALTI,AL,TI:AL;0)    298.15 -44496.5+20.8475*T;           6000 N !
+ PARAMETER G(ALTI,AL:AL,TI;0)    298.15 -44496.5+ 20.8475*T;          6000 N !
+ PARAMETER G(ALTI,AL:AL,TI;1)    298.15 +13681.5;                     6000 N !
+ PARAMETER G(ALTI,AL,TI:AL;1)    298.15 +13681.5;                     6000 N !
+ PARAMETER G(ALTI,AL:AL,TI;2)    298.15 +21094.5;                     6000 N !
+ PARAMETER G(ALTI,AL,TI:AL;2)    298.15 +21094.5;                     6000 N !
+ PARAMETER G(ALTI,TI:AL,TI;0)    298.15 -15981.5+ 3.476*T;            6000 N !
+ PARAMETER G(ALTI,AL,TI:TI;0)    298.15 -15981.5+ 3.476*T;            6000 N !
+$-------------------------------------------------------------------------------
+$   ALTI3_D019   (AL,TI,V)0.75(AL,TI)0.25
+$-------------------------------------------------------------------------------
+ PHASE  ALTI3_D019    % 2 0.75 0.25    !
+ CONSTITUENT  ALTI3_D019    : AL,TI,V : AL,TI   :   !
+ PARAMETER G(ALTI3_D019,V:AL;0) 298.15 
+                       +0.75*GHCPV+0.25*GHCPAL-31048.625+7.5*T;  6000 N !
+ PARAMETER G(ALTI3_D019,V:TI;0) 298.15 
+                                  +0.75*GHCPV+0.25*GHCPTI+22500; 6000 N !
+ PARAMETER G(ALTI3_D019,TI,V:AL;0)    298.15 -10100.6875-3.75*T; 6000 N !
+ PARAMETER G(ALTI3_D019,AL,TI,V:AL;0) 298.15 -62500;             6000 N !
+ PARAMETER G(ALTI3_D019,AL:AL;0) 298.15 +GHCPAL;                 6000 N !
+ PARAMETER G(ALTI3_D019,TI:TI;0) 298.15 +GHSERTI+5;              6000 N !
+ PARAMETER G(ALTI3_D019,AL:TI;0) 298.15 
+                      -4110.75+1.35*T+0.75*GHCPAL+0.25*GHSERTI;  6000 N ! 
+ PARAMETER G(ALTI3_D019,TI:AL;0) 298.15 
+                      -28419+5.20825*T+0.25*GHCPAL+0.75*GHSERTI; 6000 N ! 
+ PARAMETER G(ALTI3_D019,AL,TI:AL;0) 298.15 -67478+21.5845*T;     6000 N !
+ PARAMETER G(ALTI3_D019,TI:AL,TI;0) 298.15 -3426+1.3295*T;       6000 N !
+$-------------------------------------------------------------------------------
+$  Xi PHASE. THIS IS TIAL3_L IN THE ORIGINAL ASSESSMENT BY WIT
+$
+$   AL3TI_L      
+$-------------------------------------------------------------------------------
+ PHASE  AL3TI_L    % 2 3 1    !
+ CONSTITUENT  AL3TI_L    : AL,TI : AL,TI,V   :   !
+ PARAMETER G(AL3TI_L,TI:V;0)     298.15 +3*GHCPTI+1*GBCCV;             6000 N!
+ PARAMETER G(AL3TI_L,AL:TI,V;0)  298.15 -60251.8-28*T;                 6000 N!
+ PARAMETER G(AL3TI_L,AL:TI,V;1)  298.15 +40000;                        6000 N!
+ PARAMETER G(AL3TI_L,AL:V;0)     298.15 -95784+0.052*T+3*GFCCAL+GBCCV; 6000 N!
+ PARAMETER G(AL3TI_L,AL:AL;0)    298.15 +4*GHSERAL+80000;              6000 N!
+ PARAMETER G(AL3TI_L,TI:TI;0)    298.15 +4*GHSERTI+80000;              6000 N!
+ PARAMETER G(AL3TI_L,AL:TI;0)    298.15 -147620+38.395*T+3*GHSERAL+GHSERTI; 
+                                                                       6000 N!
+ PARAMETER G(AL3TI_L,TI:AL;0)    298.15 -53950+3*GHSERTI+GHSERAL;      6000 N!
+ PARAMETER G(AL3TI_L,AL,TI:AL;0) 298.15 -79752+26.614*T;               6000 N!
+ PARAMETER G(AL3TI_L,AL:AL,TI;0) 298.15 -79752+26.614*T;               6000 N!
+ PARAMETER G(AL3TI_L,TI:AL,TI;0) 298.15 -118520;                       6000 N!
+ PARAMETER G(AL3TI_L,AL,TI:TI;0) 298.15 -118520;                       6000 N!
+$-------------------------------------------------------------------------------
+$   AL8V5   (AL)6(AL,TI,V)2(AL,TI,V)3(V)2           
+$-------------------------------------------------------------------------------
+ PHASE  AL8V5 % 4  6   2   3    2  !
+ CONSTITUENT  AL8V5    : AL  : AL,TI,V : AL,TI,V : V :   !
+ PARAMETER G(AL8V5,AL:AL:TI:V;0)   298.15 +8*GFCCAL+3*GHCPTI+2*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:V:TI:V;0)    298.15 +6*GFCCAL+3*GHCPTI+4*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:TI:TI:V;0)   298.15 +6*GFCCAL+5*GHCPTI+2*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:TI:V:V;0)    298.15 +6*GFCCAL+2*GHCPTI+5*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:TI:AL:V;0)   298.15 +9*GFCCAL+2*GHCPTI+2*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:AL:V,TI:V;0) 298.15 +62380.5-469.9994*T;        6000 N !
+ PARAMETER G(AL8V5,AL:AL:V:V;0)    298.15 
+                                       -454220+26*T+8*GFCCAL+5*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:AL:AL:V;0)   298.15 +99999.9+11*GFCCAL+2*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:V:V:V;0)     298.15 -26000+6*GFCCAL+7*GBCCV;    6000 N !
+ PARAMETER G(AL8V5,AL:V:AL:V;0)    298.15 
+                                     +528219.9-26*T+9*GFCCAL+4*GBCCV; 6000 N !
+ PARAMETER G(AL8V5,AL:AL:AL,V:V;0) 298.15 -299767;                    6000 N !
+ PARAMETER G(AL8V5,AL:V:AL,V:V;0)  298.15 -299767;                    6000 N !
+ PARAMETER G(AL8V5,AL:AL,V:AL:V;0) 298.15 -465244;                    6000 N !
+ PARAMETER G(AL8V5,AL:AL,V:V:V;0)  298.15 -465244;                    6000 N !
+
+$-------------------------------------------------------------------------------
+$ BINARY COMPOUNDS
+$ 
+$ AL-TI
+$-------------------------------------------------------------------------------
+ PHASE AL2TI  %  2   2 1  !
+ CONSTITUENT AL2TI  :AL,TI :AL,TI :  !
+  PARAMETER G(AL2TI,AL:AL;0)    298.15 +3*GHSERAL+15000;          6000 N !
+  PARAMETER G(AL2TI,TI:TI;0)    298.15 +3*GHSERTI+15000;          6000 N !
+  PARAMETER G(AL2TI,AL:TI;0)    298.15 -117175+28.124*T+2*GHSERAL+GHSERTI; 
+                                                                  6000 N !
+  PARAMETER G(AL2TI,TI:AL;0)    298.15 +2*GHSERTI+GHSERAL;        6000 N !
+  PARAMETER G(AL2TI,AL,TI:AL;0) 298.15 -50997+14.098*T;           6000 N !
+  PARAMETER G(AL2TI,AL:AL,TI;0) 298.15 -50997+14.098*T;           6000 N !
+  PARAMETER G(AL2TI,TI:AL,TI;0) 298.15 -65359+12.733*T;           6000 N !
+  PARAMETER G(AL2TI,AL,TI:TI;0) 298.15 -65359+12.733*T;           6000 N !
+
+ PHASE AL5TI2  %  2   5 2  !
+ CONSTITUENT AL5TI2  :AL,TI :AL,TI :  !
+  PARAMETER G(AL5TI2,AL:AL;0)    298.15 +7*GHSERAL+60000;         6000 N !
+  PARAMETER G(AL5TI2,TI:TI;0)    298.15 +7*GHSERTI+55000;         6000 N !
+  PARAMETER G(AL5TI2,AL:TI;0)    298.15 -264790+67.463*T+5*GHSERAL+2*GHSERTI; 
+                                                                  6000 N !
+  PARAMETER G(AL5TI2,TI:AL;0)    298.15 +987760+5*GHSERTI+2*GHSERAL; 6000 N !
+  PARAMETER G(AL5TI2,AL,TI:AL;0) 298.15 -108171;                  6000 N !
+  PARAMETER G(AL5TI2,AL:AL,TI;0) 298.15 -108171;                  6000 N !
+  PARAMETER G(AL5TI2,TI:AL,TI;0) 298.15 -232241+10.101*T;         6000 N !
+  PARAMETER G(AL5TI2,AL,TI:TI;0) 298.15 -232241+10.101*T;         6000 N !
+
+ PHASE AL5TI3  %  2   5 3  !
+ CONSTITUENT AL5TI3  :AL:TI :  !
+  PARAMETER G(AL5TI3,AL:TI;0) 298.15 -311977+70.970*T+5*GHSERAL+3*GHSERTI; 
+                                                                  6000 N !
+
+ PHASE  AL3TI_H    % 2 3 1    !
+ CONSTITUENT  AL3TI_H    : AL,TI : AL,TI   :   !
+  PARAMETER G(AL3TI_H,AL:AL;0)    298.15 +4*GHSERAL+80000;         6000 N !
+  PARAMETER G(AL3TI_H,TI:TI;0)    298.15 +4*GHSERTI+80000;         6000 N !
+  PARAMETER G(AL3TI_H,AL:TI;0)    298.15 -143733+35.088*T+3*GHSERAL+GHSERTI; 
+                                                                   6000 N !
+  PARAMETER G(AL3TI_H,TI:AL;0)    298.15 -72097+3*GHSERTI+GHSERAL; 6000 N !
+  PARAMETER G(AL3TI_H,AL,TI:AL;0) 298.15 -67583;                   6000 N !
+  PARAMETER G(AL3TI_H,AL:AL,TI;0) 298.15 -67583;                   6000 N !
+  PARAMETER G(AL3TI_H,TI:AL,TI;0) 298.15 -93086;                   6000 N !
+  PARAMETER G(AL3TI_H,AL,TI:TI;0) 298.15 -93086;                   6000 N !
+
+$-------------------------------------------------------------------------------
+$ BINARY COMPOUNDS IN AL-V
+$-------------------------------------------------------------------------------
+ PHASE   AL21V2          % 2 21   2    ! 
+ CONSTITUENT   AL21V2 :  AL : V   :   ! 
+ PARAMETER G(AL21V2,AL:V;0) 298.15 -191571.6-8.28*T+21*GFCCAL+2*GBCCV; 6000 N ! 
+
+ PHASE   AL45V7          % 2 45 7     ! 
+ CONSTITUENT   AL45V7          :  AL : V   :   ! 
+ PARAMETER G(AL45V7,AL:V;0) 298.15 -670493.2-19.24*T+45*GFCCAL+7*GBCCV; 6000 N ! 
+ 
+ PHASE   AL23V4         % 2 23   4    ! 
+ CONSTITUENT   AL23V4         :  AL : V   :   ! 
+ PARAMETER G(AL23V4,AL:V;0) 298.15 -383138.1-9.18*T+23*GFCCAL+4*GBCCV; 6000 N ! 
+
+$-------------------------------------------------------------------------------
+
+
+

@@ -1,0 +1,329 @@
+$******************************************************************************
+$ ------------------------------Fe-Si-Zn TDB   --------------------------------
+$----------------------Made by Sha Chunsheng-----------------------------------
+$******************************************************************************
+$
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT FE   BCC_A2                    5.5847E+01  4.4890E+03  2.7280E+01!
+ ELEMENT ZN   HCP_A3                    6.5380E+01  5.6567E+03  4.1631E+01!
+ ELEMENT SI   DIAMOND_A4                2.8085E+01  3.2175E+03  1.8820E+01 !
+$
+$
+$-------------------------Fe------------------------------------------------
+ FUNCTION GHSERFE    2.98140E+02  +1225.7+124.134*T-23.5143*T*LN(T)
+     -.00439752*T**2-5.8927E-08*T**3+77359*T**(-1);  1.81100E+03  Y
+      -25383.581+299.31255*T-46*T*LN(T)+2.29603E+31*T**(-9);  6000  N  !
+ FUNCTION GLIQFE     2.98140E+02  +12040.17-6.55843*T+GHSERFE#
+     -3.67516E-21*T**7;  1.81100E+03  Y
+      -10838.83+291.302*T-46*T*LN(T);  6000  N !
+ FUNCTION GFCCFE     2.98140E+02  -1462.4+8.282*T-1.15*T*LN(T)+6.4E-04*T**2
+     +GHSERFE#;  1.81100E+03  Y
+      -27098.266+300.25256*T-46*T*LN(T)+2.78854E+31*T**(-9);  6000  N  !
+ FUNCTION GHCPFE     2.98140E+02  -3705.78+12.591*T-1.15*T*LN(T)
+     +6.4E-04*T**2+GHSERFE#;  1.81100E+03  Y
+      -3957.199+5.24951*T+4.925095E+30*T**(-9)+GHSERFE#;  6000  N !
+$
+$--------------------------Zn------------------------------------------------
+ FUNCTION GHSERZN    2.98140E+02  -7285.787+118.470069*T-23.701314*T*LN(T)
+     -.001712034*T**2-1.264963E-06*T**3;  6.92680E+02  Y
+     -11070.559+172.34566*T-31.38*T*LN(T)+4.70514E+26*T**(-9);  1.70000E+03 
+      N !
+ FUNCTION GLIQZN     2.98140E+02  -128.574+108.177079*T-23.701314*T*LN(T)
+     -.001712034*T**2-1.264963E-06*T**3-3.58958E-19*T**7;  6.92680E+02  Y
+      -3620.391+161.608594*T-31.38*T*LN(T);  1.70000E+03  N !
+ FUNCTION GBCCZN     298.15  +2886.96-2.5104*T+GHSERZN#;  6000.0 N !
+ FUNCTION GFCCZN     298.15  +2969.82-1.56968*T+GHSERZN#;  6000.0 N !
+ FUNCTION GHCPZN     298.15  +2970-1.57*T+GHSERZN#;  6000.0  N !
+ FUNCTION UN_ASS     2.98140E+02  0.0;  3.00000E+02  N !
+$ 
+$----------------Si--------------------------------------------------------- 
+ FUNCTION GHSERSI    298.15  -8162.609+137.236859*T-22.8317533*T*LN(T)
+     -.001912904*T**2-3.552E-09*T**3+176667*T**(-1);  1.68700E+03  Y
+      -9457.642+167.281367*T-27.196*T*LN(T)-4.20369E+30*T**(-9);  
+     3.60000E+03  N !
+ FUNCTION GBCCSI 298.15 47000-22.5*T+GHSERSI;     3600 N !
+ FUNCTION GFCCSI 298.15 51000-21.8*T+GHSERSI;     3600 N !
+ FUNCTION GLIQSI 298.15 42533.751+107.13742*T-22.8317533*T*LN(T)
+ -1.912904E-3*T**2-0.003552E-6*T**3+176667*T**(-1)
+ +2.0931E-21*T**7; 1687.0 Y
+ 40370.523+137.722298*T-27.196*T*LN(T); 3600.0 N ! 
+ FUNCTION GHCPSI 298.15 49200-20.8*T+GHSERSI; 3600.0 N !
+$
+$ Fe-Si--------------------------------------------------------------------
+
+ FUNCTION FSL0BCC 298.15  -27809+11.62*T;                 6000   N !
+ FUNCTION FESIW1  298.15  1260*R;                         6000   N !
+ FUNCTION FSL1BCC 298.15  -11544;                         6000   N !
+ FUNCTION FSL2BCC 298.15  3890;                           6000   N !
+ FUNCTION ETCFESI 298.15  63;                             6000   N !
+ FUNCTION U1FESI 298.15 0.0; 6000 N !
+ FUNCTION U3FESI 298.15 0.0; 6000 N !
+ FUNCTION U4FESI 298.15 0.0; 6000 N !
+ FUNCTION L04FESI 298.15 U3FESI;  6000 N !
+ FUNCTION L14FESI 298.15 U4FESI;  6000 N !
+ FUNCTION FESI3 298.15 3*U1FESI;  6000 N !
+ FUNCTION FE2SI2 298.15 4*U1FESI; 6000 N !
+ FUNCTION FE3SI 298.15 3*U1FESI;  6000 N !
+ FUNCTION GB2ZNVA    2.98150E+02  25222.7027;   6.00000E+03   N !
+ FUNCTION LB2ZNVA    2.98150E+02  -2257.4895;   6.00000E+03   N !
+
+$$-------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT SPECIE 3 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA !
+$----------------------------------------------------------------------------
+$-------------------------------BINARY SYSTEM--------------------------------
+$----------------------------------------------------------------------------
+$Fe-Si
+$-------------------------------FESI----------------------------------------
+ PHASE FESI  %  2 1   1 !
+ CONSTITUENT FESI  :FE:SI:  !
+ PARAM G(FESI,FE:SI;0)  298.15  -72761.2+4.44*T+GHSERFE
+ +GHSERSI#;   6000.0  N !
+$-------------------------------FE2SI----------------------------------------
+ PHASE FE2SI  %  2 2   1 !
+ CONSTITUENT FE2SI  :FE:SI:  !
+ PARAM G(FE2SI,FE:SI;0)  298.15  -71256.6-10.62*T+2*GHSERFE
+ +GHSERSI#;   6000.0  N !
+$-------------------------------FE3SI7----------------------------------------
+ PHASE FESI2_H  %  2 3   7 !
+ CONSTITUENT FESI2_H  :FE : SI :  !
+ PARAM G(FESI2_H,FE:SI;0)  298.15  -196490-9.2*T+3*GHSERFE
+ +7*GHSERSI#;   6000.0  N !
+$-------------------------------FESI2----------------------------------------
+ PHASE FESI2_L  %  2 1   2 !
+ CONSTITUENT FESI2_L  :FE:SI:  !
+ PARAM G(FESI2_L,FE:SI;0)  298.15 -82149+10.44*T+GHSERFE
+ +2*GHSERSI#;  6000.0  N !
+$-------------------------------FE5SI3----------------------------------------
+ PHASE FE5SI3  %  2 5   3 !
+    CONSTITUENT FE5SI3  :FE : SI% :  !
+   PARAMETER G(FE5SI3,FE:SI;0)  2.98150E+02  -241144+2.16*T+5*GHSERFE#
+  +3*GHSERSI#;   6.00000E+03   N REF: 0 !
+$$-----------------------------DIAMOND_A4------------------------------------
+ PHASE DIAMOND_A4  %  1  1.0  !
+ CONSTITUENT DIAMOND_A4  :SI%,ZN :  !
+ PARAM G(DIAMOND_A4,SI;0)  298.15  +GHSERSI#;       6000 N !
+ PARAM G(DIAMOND_A4,ZN;0)  298.15  +30*T+GHSERZN#;  6000 N !
+ PARAM G(DIAMOND_A4,SI,ZN;0)  298.15  +100*T;       6000 N !
+
+
+$---------------------------------- PHASE-------------------------------------
+$$----------------------------三元参数----------------------------------------
+$$-------------------------solution phase------------------------------------- 
+$-------------------------------LIQUID----------------------------------------
+ PHASE LIQUID  %  1  1.0  !
+ CONSTITUENT LIQUID  :FE,SI,ZN :  !
+ PARAM G(LIQUID,SI;0)  298.15  +50696.4-30.0994*T
+  +2.09307E-21*T**7+GHSERSI#;  1.68700E+03  Y
+   +49828.2-29.5591*T+4.20369E+30*T**(-9)+GHSERSI#;  6000  N !
+ PARAMETER G(LIQUID,FE;0)  298.15  +GLIQFE#;           6000   N !
+ PARAMETER G(LIQUID,ZN;0)  298.15  +GLIQZN#;           6000   N !
+ PARAM G(LIQUID,FE,SI;0)  298.15  -164434.6+41.9773*T; 6000   N !
+ PARAM G(LIQUID,FE,SI;1)  298.15  -21.523*T;           6000   N !
+ PARAM G(LIQUID,FE,SI;2)  298.15  -18821.542+22.07*T;  6000   N !
+ PARAM G(LIQUID,FE,SI;3)  298.15  9695.8;              6000   N !
+ PARAMETER G(LIQUID,FE,ZN;0)  298.15  20696.507;       6000   N !
+ PARAMETER G(LIQUID,FE,ZN;1)  298.15  14782.019-8.9767560*T;
+                                                       6000   N !
+ PARAMETER G(LIQUID,FE,ZN;2)  298.15  -11266.699+7.3942419*T;
+                                                       6000   N !
+ PARAM G(LIQUID,SI,ZN;0)  298.15  7829.25;             6000   N !
+ PARAM G(LIQUID,SI,ZN;1)  298.15  -3338.18;            6000   N !
+ PARAM G(LIQUID,SI,ZN;2)  298.15  -891.33;             6000   N !
+
+$
+$-------------------------------DELTA ---------------------------------------
+ PHASE DELTA  %  4 .058   .18   .525   .237 !
+ CONSTITUENT DELTA  :FE:FE,SI,ZN:ZN:ZN:  !
+ PARAMETER G(DELTA,FE:FE:ZN:ZN;0)  298.15  -2658.8743+.238*GHSERFE#
+  +.762*GHSERZN#;                                         6000  N !
+ PARAMETER G(DELTA,FE:ZN:ZN:ZN;0)  298.15  -2098.9962+.058*GHSERFE#
+  +.942*GHSERZN#;                                         6000  N !
+ PARAMETER G(DELTA,FE:Si:ZN:ZN;0)  298.15   5.31873926E+04-1.06072226E+01*T
+       +.058*GHSERFE#+0.762*GHSERZN#+0.18*GHSERSI#;      6000  N !
+ PARAMETER G(DELTA,FE:FE,ZN:ZN:ZN;0)  298.15  -6566.3394+5.1380630*T;   
+                                                          6000  N !
+ PARAMETER G(DELTA,FE:SI,ZN:ZN:ZN;0)  298.15  -6.42289631E+04;   
+                                                          6000  N !
+ PARAMETER G(DELTA,FE:SI,ZN:ZN:ZN;1)  298.15  -2.16431529E+04;   
+                                                          6000  N !
+
+ PARAMETER G(DELTA,FE:FE,SI:ZN:ZN;0)  298.15  -8.38551154E+04;   
+                                                          6000  N !
+
+ PARAMETER G(DELTA,FE:FE,SI:ZN:ZN;1)  298.15   5.15912838E+04;   
+                                                          6000  N !
+$
+$--------------------------------FCC_A1---------------------------------------
+ TYPE_DEFINITION * GES A_P_D FCC_A1 MAGNETIC  -3.0    2.80000E-01 !
+ PHASE FCC_A1  %*  2  1   1 !
+ CONSTITUENT FCC_A1  :FE%,SI,ZN : VA% :  !
+ PARAMETER G(FCC_A1,FE:VA;0)     298.15  +GFCCFE#;         6000 N !
+ PARAMETER TC(FCC_A1,FE:VA;0)    298.15  -201;             6000 N !
+ PARAMETER BMAGN(FCC_A1,FE:VA;0) 298.15  -2.1;             6000 N !
+ PARAMETER G(FCC_A1,ZN:VA;0)     298.15  +GFCCZN#;         1700 N !
+ PARAMETER G(FCC_A1,FE,ZN:VA;0)  298.15  +11774.252+0.86683042*T; 
+                                                          6000 N !
+ PARAM G(FCC_A1,SI:VA;0)  298.15  +51000-21.8*T+GHSERSI#; 6000 N !
+ PARAM G(FCC_A1,FE,SI:VA;0)  298.15  -125247.7+41.166*T;  6000 N !
+ PARAM G(FCC_A1,FE,SI:VA;1)  298.15  -142707.6;           6000 N !
+ PARAM G(FCC_A1,FE,SI:VA;2)  298.15  +89907.3;            6000 N !
+ PARAM G(FCC_A1,SI,ZN:VA;0)  298.15  +80*T;   6000   N !
+
+$
+$
+$
+$
+$----------------------------------GAMMA----------------------------------------
+ PHASE GAMMA  %  4 .154   .154   .231   .461 !
+ CONSTITUENT GAMMA  :FE,ZN : FE,ZN : FE,SI,ZN : ZN :  !
+ PARAMETER G(GAMMA,FE:FE:FE:ZN;0)  298.15  +0.539*GHSERFE#
+  +0.461*GHSERZN#;                                         6000  N REF0 !
+ PARAMETER G(GAMMA,ZN:FE:FE:ZN;0)  298.15  +0.385*GHSERFE#
+  +0.615*GHSERZN#;                                         6000  N REF0 !
+ PARAMETER G(GAMMA,FE:ZN:FE:ZN;0)  298.15  -5883.5577+3.0932090*T
+  +.385*GHSERFE#+.615*GHSERZN#;                           6000  N REF0 !
+ PARAMETER G(GAMMA,ZN:ZN:FE:ZN;0)  298.15  4689.6066+0.231*GHSERFE#
+  +0.769*GHSERZN#;                                        6000  N REF0 !
+ PARAMETER G(GAMMA,FE:FE:ZN:ZN;0)  298.15  +0.308*GHSERFE#
+  +0.692*GHSERZN#;                                         6000  N REF0 !
+ PARAMETER G(GAMMA,ZN:FE:ZN:ZN;0)  298.15  +.154*GHSERFE#
+  +.846*GHSERZN#;                                          6000  N REF0 !
+ PARAMETER G(GAMMA,FE:ZN:ZN:ZN;0)  298.15  -2661.6129+.154*GHSERFE#
+  +.846*GHSERZN#;                                          6000  N REF0 !
+ PARAMETER G(GAMMA,ZN:ZN:ZN:ZN;0)  298.15  +4830.0580-6.9361478*T
+  +GHSERZN#;                                               6000  N REF0 !
+ PARAMETER G(GAMMA,ZN:ZN:SI:ZN;0)  298.15  5500+0.231*GHSERSI#
+  +0.769*GHSERZN#;                                         6000  N REF0 !
+ PARAMETER G(GAMMA,FE:ZN:SI:ZN;0)  298.15  1.51413773E+04+0.231*GHSERSI#
+  +0.615*GHSERZN#+0.154*GHSERFE#;                          6000  N REF0 !
+ PARAMETER G(GAMMA,ZN:FE:SI:ZN;0)  298.15  -9.6413773E+03+0.231*GHSERSI#
+  +0.615*GHSERZN#+0.154*GHSERFE#;                          6000  N REF0 !
+ PARAMETER G(GAMMA,FE:FE:SI:ZN;0)  298.15 +0.231*GHSERSI#
+  +0.461*GHSERZN#+0.308*GHSERFE#;                          6000  N REF0 !
+
+ PARAMETER G(GAMMA,FE:ZN:FE,ZN:ZN;0)  298.15  -8619.0736+8.7278572*T;  
+                                      6000  N REF0 !
+ PARAMETER G(GAMMA,FE:ZN:FE,SI:ZN;0)  298.15  -2.48492604E+04;                                           
+                                                           6000  N REF0 !
+ PARAMETER G(GAMMA,FE:ZN:SI,ZN:ZN;0)  298.15  -3.76311075E+04;                                           
+                                                           6000  N REF0 !
+$
+$------------------------------------GAMMA1-----------------------------------
+ PHASE GAMMA1  %  3 .137   .118   .745 !
+ CONSTITUENT GAMMA1  :FE : FE,SI,ZN : ZN :  !
+ PARAMETER G(GAMMA1,FE:FE:ZN;0)  298.15  -6804.9287+3.2481647*T
+  +.255*GHSERFE#+.745*GHSERZN#;                          6000   N REF0 !
+ PARAMETER G(GAMMA1,FE:ZN:ZN;0)  298.15  -3507.8523+.137*GHSERFE#
+  +.863*GHSERZN#;                                        6000   N REF0 !
+ PARAMETER G(GAMMA1,FE:SI:ZN;0)  298.15   -8800+.137*GHSERFE#
+  +.745*GHSERZN#+0.118*GHSERSI#;                         6000   N REF0 !
+
+ PARAMETER G(GAMMA1,FE:FE,ZN:ZN;0)  298.15  -2448.0226+4.3133201*T;   
+                                                         6000   N REF0 !
+$
+$
+$
+$  
+$--------------------------------ZETA---------------------------------------
+ PHASE ZETA  %  3 .072   .856   .072 !
+ CONSTITUENT ZETA  :FE,VA : ZN : SI,VA,ZN :  !
+ PARAMETER G(ZETA,FE:ZN:VA;0)  298.15  980.40464+.072*GHSERFE#
+  +.856*GHSERZN#;                                     6000   N REF0 !
+ PARAMETER G(ZETA,FE:ZN:ZN;0)  298.15  -2722.7359+.072*GHSERFE#
+  +.928*GHSERZN#;                                     6000   N REF0 !
+ PARAMETER G(ZETA,FE:ZN:SI;0)  298.15  -3200+.072*GHSERSI#
+  +0.856*GHSERZN#+0.072*GHSERFE#;                      6000   N REF0 !
+ PARAMETER G(ZETA,VA:ZN:VA;0)  298.15  81.080640+.856*GHSERZN#;   
+                                                      6000   N REF0 !
+ PARAMETER G(ZETA,VA:ZN:SI;0)  298.15 1700+.072*GHSERSI#
+  +0.856*GHSERZN#;                                   6000   N REF0 !
+ PARAMETER G(ZETA,VA:ZN:ZN;0)  298.15  763.04277+.928*GHSERZN#;   
+                                                      6000   N REF0 !
+$------------------------------------------------------------------------
+$--------------------------------BCC_A2---------------------------------------
+ TYPE_DEFINITION & GES A_P_D BCC_A2 MAGNETIC  -1.0    4.00000E-01 !
+ PHASE BCC_A2  %&  2 1   3 !
+ CONSTITUENT BCC_A2  :FE,SI,ZN,VA : VA :  !
+ PARAMETER G(BCC_A2,FE:VA;0)  298.15  +GHSERFE#;   6000  N REF0 !
+ PARAMETER TC(BCC_A2,FE:VA;0) 298.15  1043;        6000  N REF0 !
+ PARAMETER BMAGN(BCC_A2,FE:VA;0)  298.15  2.22;    6000  N REF0 !
+ PARAMETER G(BCC_A2,ZN:VA;0)  298.15  +GBCCZN#;    6000  N REF0 !
+ PARAMETER G(BCC_A2,VA:VA;0)  298.15  0;    6000  N REF0 !
+ PARAMETER G(BCC_A2,FE,VA:VA;0)  298.15  150000;    6000  N REF0 !
+ PARAMETER G(BCC_A2,FE,ZN:VA;0)  298.15  -1684.7191+9.9210735*T;
+                                                        6000  N REF0 !
+ PARAMETER G(BCC_A2,FE,ZN:VA;1)  298.15  8461.5520-5.6063704*T;
+                                                        6000  N REF0 !
+ PARAMETER TC(BCC_A2,FE,ZN:VA;0)  298.15  5.0430000E+02; 
+                                                        6000  N REF0 !
+ PARAM G(BCC_A2,SI:VA;0)  298.15  +47000-22.5*T+GHSERSI#;  6000   N !
+ PARAM G(BCC_A2,SI,VA:VA;0) 298.15  60000;   6000  N !
+ PARAM G(BCC_A2,FE,SI:VA;0)  298.15  4*FSL0BCC-4*FESIW1;  6000 N !
+ PARAM G(BCC_A2,FE,SI:VA;1)  298.15  8*FSL1BCC;           6000 N !
+ PARAM G(BCC_A2,FE,SI:VA;2)  298.15  16*FSL2BCC;          6000 N !
+ PARAM TC(BCC_A2,FE,SI:VA;1) 298.15  8*ETCFESI;           6000 N !
+ PARAM G(BCC_A2,SI,ZN:VA;0)  298.15  +80*T;               6000 N !
+ PARAM G(BCC_A2,VA,ZN:VA;0)  298.15  +GB2ZNVA#+LB2ZNVA#;    6000  N REF0 ! 
+ PARAM G(BCC_A2,FE,SI,ZN:VA;0)  298.15  -170000;     6000 N !
+$
+$--------------------------------BCC_B2--------------------------------------
+ TYPE_DEFINITION ) GES A_P_D BCC_B2 DIS_PART BCC_A2,,,!
+ TYPE_DEFINITION W IF (FE AND SI) THEN
+ GES AMEND_PHASE_DESCR BCC_B2 COMP_SETS 2 FE:FE:VA !
+  TYPE_DEFINITION W IF (FE AND SI) THEN
+ GES AMEND_PHASE_DESCR BCC_B2 MAJ 1 FE:FE:VA !
+  TYPE_DEFINITION W IF (FE AND SI) THEN
+ GES AMEND_PHASE_DESCR BCC_B2 MAJ 2 FE:SI:VA !
+ PHASE BCC_B2 %)W  3  0.5   0.5  3 !
+ CONSTITUENT BCC_B2  :FE%,SI,ZN,VA : FE%,SI,ZN,VA : VA :  !
+ PARA G(BCC_B2,SI:FE:VA;0) 298.15 -2*FESIW1#; 6000 N !
+ PARA G(BCC_B2,FE:SI:VA;0)  298.15  -2*FESIW1#;   6000  N !
+ PARA G(BCC_B2,SI:SI:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,VA:SI:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,VA:FE:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,ZN:VA:VA;0) 298.15 +0.5*GB2ZNVA#-0.5*LB2ZNVA#; 6000 N!
+ PARA G(BCC_B2,VA:ZN:VA;0) 298.15 +0.5*GB2ZNVA#-0.5*LB2ZNVA#; 6000 N!
+ PARA G(BCC_B2,VA:VA:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,SI:VA:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,FE:VA:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,ZN:SI:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,SI:ZN:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,ZN:ZN:VA;0) 298.15 0; 6000 N!
+ pARA G(BCC_B2,FE:FE:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,ZN:FE:VA;0) 298.15 0; 6000 N!
+ PARA G(BCC_B2,FE:ZN:VA;0) 298.15 0; 6000 N!
+$
+$
+$
+$$------------------------------HCP_ZN----------------------------------------
+ PHASE HCP_ZN  %  2 1   .5 !
+ CONSTITUENT HCP_ZN  :FE,SI,ZN% : VA% :  !
+ PARAM G(HCP_ZN,SI:VA;0)     298.15  +49201-20.8*T+GHSERSI; 6000   N !
+ PARAMETER G(HCP_ZN,ZN:VA;0)  298.15 +GHSERZN#;  6000 N  REF0 !
+ PARAMETER G(HCP_ZN,FE:VA;0)  2.98140E+02  0;  6000  N REF0 ! 
+ PARAM G(HCP_ZN,SI,ZN:VA;0)  298.15  +80*T;   6000   N !
+ PARAM G(HCP_ZN,FE,ZN:VA;0)  298.15  23601.6208;    6000  N  REF0 !
+$-----------------------------------------------------------------------
+$$------------------------------HCP_A3--------------------------------------
+ TYPE_DEFINITION + GES A_P_D HCP_A3 MAGNETIC  -3.0    2.80000E-01 !
+ PHASE HCP_A3  %+  2 1   .5 !
+ CONSTITUENT HCP_A3  :FE,SI,ZN% : VA% :  !
+ PARAM G(HCP_A3,ZN:VA;0) 298.15 2970-1.57*T+GHSERZN;   6000 N !
+ PARAM G(HCP_A3,SI:VA;0)  298.15  +49200-20.8*T+GHSERSI; 6000   N !
+ PARAM L(HCP_A3,FE,ZN:VA;0) 298.15 11774.2521+0.866830418*T; 6000 N !
+ PARAM L(HCP_A3,FE,SI:VA;0) 298.15 -123468+41.116*T; 6000 N !
+ PARAM L(HCP_A3,FE,SI:VA;1) 298.15 -142708; 6000 N !
+ PARAM L(HCP_A3,FE,SI:VA;2) 298.15 89907; 6000 N !
+ PARAM G(HCP_A3,SI,ZN:VA;0)  298.15  +80*T;   6000  N  !
+ PARAM G(HCP_A3,FE:VA;0)  298.15  -3705.78+12.591*T-1.15*T*LN(T)
+  +6.4E-04*T**2+GHSERFE#;  1.81100E+03  Y
+ -3957.199+5.24951*T+4.9251E+30*T**(-9)+GHSERFE#;  6000  N !
+$$$ DATABASE-INFO 'FOR THE fe-si-zn SYSTEM' !
+ 
+$------------------------------------------------------------------------
+
+$$$ DATABASE-INFO 'FOR THE fe-si-zn SYSTEM' !
+ 

@@ -1,0 +1,197 @@
+$
+$ O3 and O2 structural LICOO2-COO2 systems
+$
+$ written by Keke Chang, Bengt Hallstedt, et al.
+$ -----------------------------------------------------------------------------
+$ Comments
+$ 
+$ In this TDB file, "V" does NOT stand for Vanadium but an imaginary element 
+$ to mimic the preserved Vacancy.
+$ Defining only V(vacancy) and Li, the diagram can be simply calucliated as 
+$ a V-Li binary phase diagram.   
+$ -----------------------------------------------------------------------------
+$                 
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT CO   HCP_A3                    5.8933E+01  0.0000E+00  0.0000E+00!
+ ELEMENT LI   BCC_A2                    6.9410E+00  4.6233E+03  2.9095E+01!
+ ELEMENT O    1/2_MOLE_O2(G)            1.5999E+01  4.3410E+03  1.0252E+02!
+ ELEMENT V    BCC_A2                    1.0000E+01  1.0000E+03  1.0000E+00!
+$ -----------------------------------------------------------------------------
+$ Phase definitions
+$
+$ The disordered O3 phase
+$
+ PHASE O3LIMO2D   % 1 1 !
+ CONST O3LIMO2D  : LI V : !
+$
+$ The disordered contribution to the ordered O3 phase, same as O3LIMO2D +10J
+$
+ PHASE O3LIMO2   % 1 1 !
+ CONST O3LIMO2  : LI V : !
+$
+$ The ordering contribution to the O3 phase
+$
+ PHASE O3_ORDER %O 2 0.5 0.5 !
+ CONST O3_ORDER : LI V : LI V : !
+$
+$ The H1_3 phase
+$
+ PHASE H13 % 2  0.5 0.5 !
+ CONST H13 : LI V : V : !
+$
+$ The O1 phase
+$
+ PHASE O1 % 1 1 !
+ CONST O1 : LI V : !
+$
+$ The disordered O2 phase  
+$
+ PHASE O2LIMO2D % 1 1 !
+ CONST O2LIMO2D : LI V : !
+$
+$ The disordered contribution to the ordered O2 phase, same as O2LIMO2D +10J
+$
+ PHASE O2LIMO2 % 1 1 !
+ CONST O2LIMO2 : LI V : !
+$
+$ The ordering contribution to the O2 phase
+$
+ PHASE O2_ORDER %( 2 0.5 0.5 !
+ CONST O2_ORDER : LI V : LI V : !
+$
+$ The disordered T#2 phase  
+$
+ PHASE T2D % 1 1 !
+ CONST T2D : LI V : !
+$
+$ The disordered contribution to the ordered T#2 phase, same as T2D +10J
+$
+ PHASE T2 % 1 1 !
+ CONST T2 : LI V : !
+$
+$ The ordering contribution to the O2 phase
+$
+ PHASE T2_ORDER  %) 2 0.5 0.5 !
+ CONST T2_ORDER  : LI V : LI V : !
+$
+$ The O6 phase
+$
+ PHASE O6 % 1 1 !
+ CONST O6 : LI V : !
+$ ------------------------------------------------------------------------------
+$ Element data
+$ ------------------------------------------------------------------------------
+$
+ FUNCTION GHSERCO    298.15  +310.241+133.36601*T-25.0861*T*LN(T)
+       -.002654739*T**2-1.7348E-07*T**3+72527*T**(-1);                 1768  Y
+       -17197.666+253.28374*T-40.5*T*LN(T)+9.3488E+30*T**(-9);  6000 N 91Din !
+$
+ FUNCTION GHSERLI   200.00  -10583.817+217.637482*T-38.940488*T*LN(T)
+       +0.035466931*T**2-1.9869816E-05*T**3+159994*T**(-1);           453.6  Y
+              -559579.123+10547.8799*T-1702.88865*T*LN(T)
+       +2.25832944*T**2-5.71066077E-04*T**3+33885874*T**(-1);           500  Y
+              -9062.994+179.278285*T-31.2283718*T*LN(T)
+       +0.002633221*T**2-4.38058E-07*T**3-102387*T**(-1);       3000 N 91Din !
+$     
+ FUNCTION GHSEROO    298.15  -3480.87-25.503038*T-11.136*T*LN(T)
+     -.005098888*T**2+6.61846E-07*T**3-38365*T**(-1);                   1000 Y
+      -6568.763+12.65988*T-16.8138*T*LN(T)-5.95798E-04*T**2+6.781E-09*T**3
+     +262905*T**(-1);                                                   3300 Y
+      -13986.728+31.259625*T-18.9536*T*LN(T)-4.25243E-04*T**2
+     +1.0721E-08*T**3+4383200*T**(-1);                          6000 N 91Din !
+$     
+ FUNCTION GHSERV    298.15  +0;                                      6000 N  !
+$ ----------------------------------------------------------------------------- 
+ TYPE_DEFINITION % SEQ *!
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+ TYPE_DEF O GES AMEND_PHASE_DESCRIPTION O3_ORDER DIS_PART O3LIMO2 !
+ TYPE_DEF ( GES AMEND_PHASE_DESCRIPTION O2_ORDER DIS_PART O2LIMO2,,,!
+ TYPE_DEF ) GES AMEND_PHASE_DESCRIPTION T2_ORDER DIS_PART T2,,,!
+$ -----------------------------------------------------------------------------
+$
+$ O3 structural LICOO2-COO2 system
+$
+ FUNCTION GO3LICOO2   298.15  -727800+552.55*T
+                -87.71*T*LN(T)-0.01070*T**2+9.96E5*T**(-1);           6000 N !
+ FUNCTION GO3COO2     298.15  -285900+195*T+GHSERCO+2*GHSEROO;        6000 N !
+ FUNCTION GH13        298.15  -9500+11*T+0.5*GO3LICOO2+0.5*GO3COO2;   6000 N !
+$
+ PAR  G(O3LIMO2,LI;0)   298.15  +GO3LICOO2;                           6000 N !
+ PAR  G(O3LIMO2,V;0)    298.15  +GO3COO2;                             6000 N !
+ PAR  L(O3LIMO2,LI,V;0) 298.15  -60000;                               6000 N !
+ PAR  L(O3LIMO2,LI,V;1) 298.15  +8000+30*T;                           6000 N !
+$
+ PAR  G(O3LIMO2D,LI;0)   298.15 -10+GO3LICOO2;                        6000 N !
+ PAR  G(O3LIMO2D,V;0)    298.15 -10+GO3COO2;                          6000 N !
+ PAR  L(O3LIMO2D,LI,V;0) 298.15 -60000;                               6000 N !
+ PAR  L(O3LIMO2D,LI,V;1) 298.15 +8000+30*T;                           6000 N !
+$
+ PAR  L(O3_ORDER,LI:LI;0)   298.15 +0;                                6000 N !
+ PAR  L(O3_ORDER,V:V;0)     298.15 +0;                                6000 N !
+ PAR  L(O3_ORDER,LI:V;0)    298.15 -225-7.97*T;                       6000 N !
+ PAR  L(O3_ORDER,V:LI;0)    298.15 -225-7.97*T;                       6000 N !
+ PAR  L(O3_ORDER,LI,V:*;0)  298.15 +0;                                6000 N !
+ PAR  L(O3_ORDER,*:LI,V;0)  298.15 +0;                                6000 N !
+$
+ PAR  G(H13,LI:V;0)   298.15 +GH13;                                   6000 N !
+ PAR  G(H13,V:V;0)    298.15 -700+GO3COO2;                            6000 N !
+ PAR  L(H13,LI,V:V;0) 298.15 -37800+12*T;                            6000 N !
+ PAR  L(H13,LI,V:V;1) 298.15 +15000;                                  6000 N !
+$
+ PAR  G(O1,V;0)      298.15 -4100+GO3COO2;                            6000 N !
+$ -----------------------------------------------------------------------------
+$
+$ O2 structural LICOO2-COO2 system
+$
+ FUNCTION GO2LICOO2   298.15  +8200+GO3LICOO2;                        6000 N !
+ FUNCTION GO2COO2     298.15  -282730+195*T+GHSERCO+2*GHSEROO;        6000 N !
+$
+ PAR  G(O2LIMO2,LI;0)   298.15 +GO2LICOO2;                            6000 N !
+ PAR  G(O2LIMO2,V;0)    298.15 +GO2COO2;                              6000 N !
+ PAR  L(O2LIMO2,LI,V;0) 298.15 -72105+28*T;                           6000 N !
+ PAR  L(O2LIMO2,LI,V;1) 298.15 +11080+30*T;                           6000 N !
+$
+ PAR  G(O2LIMO2D,LI;0)   298.15 -10+GO2LICOO2;                        6000 N !
+ PAR  G(O2LIMO2D,V;0)    298.15 -10+GO2COO2;                          6000 N !
+ PAR  L(O2LIMO2D,LI,V;0) 298.15 -72105+28*T;                          6000 N !
+ PAR  L(O2LIMO2D,LI,V;1) 298.15 +11080+30*T;                          6000 N !
+$
+ PAR  L(O2_ORDER,LI:LI;0)   298.15 +0;                                6000 N !
+ PAR  L(O2_ORDER,V:V;0)     298.15 +0;                                6000 N !
+ PAR  L(O2_ORDER,LI:V;0)    298.15 -5450+4.8*T;                       6000 N !
+ PAR  L(O2_ORDER,V:LI;0)    298.15 -5450+4.8*T;                       6000 N !
+ PAR  L(O2_ORDER,LI,V:*;0)  298.15 +0;                                6000 N !
+ PAR  L(O2_ORDER,*:LI,V;0)  298.15 +0;                                6000 N !
+$
+ PAR  G(T2,LI;0)   298.15   +8309+6*T+GO2LICOO2;                      6000 N !
+ PAR  G(T2,V;0)    298.15   +13902+7*T+GO2COO2;                       6000 N !
+ PAR  L(T2,LI,V;0)   298.15 -131310+26*T;                             6000 N !
+ PAR  L(T2,LI,V;1)   298.15 +8000;                                    6000 N !
+$
+ PAR  G(T2D,LI;0)   298.15   -10+8309+6*T+GO2LICOO2;                  6000 N !
+ PAR  G(T2D,V;0)    298.15   -10+13902+7*T+GO2COO2;                   6000 N !
+ PAR  L(T2D,LI,V;0)   298.15 -131310+26*T;                            6000 N !
+ PAR  L(T2D,LI,V;1)   298.15 +8000;                                   6000 N !
+$
+ PAR  L(T2_ORDER,LI:LI;0)   298.15 +0;                                6000 N !
+ PAR  L(T2_ORDER,V:V;0)     298.15 +0;                                6000 N !
+ PAR  L(T2_ORDER,LI:V;0)    298.15 -80-8.27*T;                        6000 N !
+ PAR  L(T2_ORDER,V:LI;0)    298.15 -80-8.27*T;                        6000 N !
+ PAR  L(T2_ORDER,LI,V:*;0)  298.15 +0;                                6000 N !
+ PAR  L(T2_ORDER,*:LI,V;0)  298.15 +0;                                6000 N !
+$
+ PAR  G(O6,LI;0)   298.15   +900+24.6*T+GO2LICOO2;                    6000 N !
+ PAR  G(O6,V;0)    298.15   +280+10.5*T+GO2COO2;                      6000 N !
+ PAR  L(O6,LI,V;0) 298.15   -90403-7*T;                               6000 N !
+ PAR  L(O6,LI,V;1) 298.15   +20*T;                                    6000 N !
+$ ----------------------------------------------------------------------------- 
+ LIST-OF-REFERENCE
+ NUMBER  SOURCE
+  Null   'Unknown source'
+  91Din  'A.T. Dinsdale, Calphad, 15, 317-425(1991).'
+!
+
+
+
+

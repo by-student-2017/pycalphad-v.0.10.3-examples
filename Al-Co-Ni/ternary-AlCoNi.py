@@ -4,7 +4,7 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-tdb_file = 'mmc1.TDB' # from TDBDB (https://avdwgroup.engin.brown.edu/)
+tdb_file = 'Liu_2016.TDB' # from TDBDB (Liu et al. (2016))
 ELA = 'Co' # x-axis
 ELB = 'Ni' # lower left side
 ELC = 'Al' # y-axis

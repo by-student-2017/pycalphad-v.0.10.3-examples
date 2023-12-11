@@ -4,12 +4,14 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-#tdb_file = 'altiv_Lu.tdb' # from CPDDB
-tdb_file = 'AlTiV.TDB' # from TDBDB (Lindahl et al. (2015))
+tdb_file = 'altiv_Lu.tdb' # from CPDDB
+#tdb_file = 'AlTiV.TDB' # from TDBDB (Lindahl et al. (2015))
+#tdb_file = 'PrecHiMn-04.tdb' # from TDBDB (Hallstedt et al. (2017)) (not recommend for Al-Ti-V system)
+#tdb_file = 'Ti-M.TDB_V2.txt' # from TDBDB (Hu et al. (2018)) (not recommend for Al-Ti-V system)
 ELA = 'Al' # x-axis
 ELB = 'V'  # lower left side
 ELC = 'Ti' # y-axis
-Temp = 1473 # [K]
+Temp = 1073 # [K]
 #------User input area--------
 
 img_comps = ELA+ELB+ELC

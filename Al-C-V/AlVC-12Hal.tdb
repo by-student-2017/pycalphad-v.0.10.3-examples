@@ -1,0 +1,299 @@
+$
+$ Database for Al-V-C from B. Hallstedt 2012
+$
+$ ------------------------------------------------------------------------------
+ TEMP-LIM 298.15 6000.00 !
+$
+$ELEMENT NAME  REF. STATE               ATOMIC MASS H298-H0    S298    !
+$
+ ELEMENT VA   VACUUM                      0.0          0.0      0.0    ! 
+ ELEMENT AL   FCC_A1                     26.98154   4540.      28.30   ! 
+ ELEMENT V    BCC_A2                     50.9415    4507.0     30.89   ! 
+ ELEMENT C    GRAPHITE                   12.011     1054.0      5.7423 ! 
+$ ------------------------------------------------------------------------------
+$ Phase definitions
+$
+ PHASE LIQUID:L % 1 1 !
+ CONST LIQUID:L : AL C V : !
+$
+$ Fcc (cF4, Fm-3m) and MeX (cF8, Fm-3m)
+$
+ PHASE FCC_A1 %A 2 1 1 !
+ CONST FCC_A1 : AL% V : C VA% : !
+$
+$ Bcc (cI2, Im-3m)
+$
+ PHASE BCC_A2 %B 2 1 3 !
+ CONST BCC_A2 : AL V% : C VA% : !
+$
+$ Hcp (hP2, P6_3/mmc) and Me2X (NiAs-type, hP4, P6_3/mmc, B8_1)
+$
+ PHASE HCP_A3 %A 2 1 0.5 !
+ CONST HCP_A3 : AL V : C VA% : !
+$
+$ Prototype C (cF8, Fd-3m)
+$
+ PHASE DIAMOND_A4 % 1 1 !
+ CONST DIAMOND_A4 : C : !
+$
+$ Prototype C (hP4, P6_3/mmc)
+$
+ PHASE GRAPHITE_A9 % 1 1 !
+ CONST GRAPHITE_A9 : C : !
+$
+$ Prototype Al4C3 (hR7, R-3m)
+$
+ PHASE AL4C3_D71 % 2 4 3 !
+ CONST AL4C3_D71 : AL : C : !
+$
+$ Prototype Al21V2 (cF176, Fd-3m)
+$
+ PHASE AL10V % 2 10 1 !
+ CONST AL10V : AL : V : !
+$
+$ Prototype Al45V7 (mC104, C2/m)
+$
+ PHASE AL7V % 2 7 1 !
+ CONST AL7V : AL : V : !
+$
+$ Prototype Al23V4 (hP54, P6_3/mmc)
+$
+ PHASE AL23V4 % 2 23 4 !
+ CONST AL23V4 : AL : V : !
+$
+$ Prototype Al3Ti (tI8, I4/mmm)
+$
+ PHASE AL3V_D022 % 2 3 1 !
+ CONST AL3V_D022 : AL : V : !
+$
+$ Prototype Cu5Zn8 (cI52, I-43m, gamma-brass)
+$
+ PHASE AL8V5_D82 % 2 8 5 !
+ CONST AL8V5_D82 : AL : V : !
+$
+$ Prototype Cr2AlC (hP8, P6_3/mmc), MAX-phase n=1
+$
+ PHASE V2ALC % 3 2 1 1 !
+ CONST V2ALC : V : AL : C : !
+$
+$ Prototype Ti3SiC2 (hP12, P6_3/mmc), MAX-phase n=2
+$
+ PHASE V3ALC2 % 3 3 1 2 !
+ CONST V3ALC2 : V : AL : C : !
+$
+$ Prototype Ti4AlN3 (hP16, P6_3/mmc), MAX-phase n=3
+$ (Prototype CsYb3Se4 according to Springer Materials)
+$
+ PHASE V4ALC3 % 4 4 1 2 1 !
+ CONST V4ALC3 : V : AL : C : C VA : !
+$ 
+$ Prototype Sc2Te3 (hR8, R-3m), zeta-carbide
+$ (Prototype V4C3 (hR20, R-3m) seems to be obsolete)
+$
+ PHASE V3C2 % 2 3 2 !
+ CONST V3C2 : V : C : !
+$ ------------------------------------------------------------------------------
+$ Defaults
+$
+ DEFAULT-COM DEFINE_SYSTEM_ELEMENT VA !
+ TYPE-DEF % SEQ * !
+ TYPE-DEF A GES AMEND_PHASE_DESCRIPTION @ MAGNETIC -3 0.28 !
+ TYPE-DEF B GES AMEND_PHASE_DESCRIPTION @ MAGNETIC -1 0.4 !
+ FUNCTION ZERO      298.15  0;                                         6000 N !
+ FUNCTION UN_ASS    298.15  0;                                         6000 N !
+ FUNCTION R         298.15  +8.31451;                                  6000 N !
+$ ------------------------------------------------------------------------------
+$ Element data
+$ ------------------------------------------------------------------------------
+$ Al
+$
+ PAR  G(FCC_A1,AL:VA),,                 +GHSERAL;                2900 N 91Din !
+ PAR  G(BCC_A2,AL:VA),,                 +GHSERAL+10083-4.813*T;  2900 N 91Din !
+ PAR  G(HCP_A3,AL:VA),,                 +GHSERAL+5481-1.8*T;     2900 N 91Din !
+ PAR  G(LIQUID,AL),,                    +GLIQAL;                 2900 N 91Din !
+$
+ FUNCTION GHSERAL   298.15  -7976.15+137.093038*T-24.3671976*T*LN(T)
+       -0.001884662*T**2-8.77664E-07*T**3+74092*T**(-1);
+       700.00  Y  -11276.24+223.048446*T-38.5844296*T*LN(T)
+       +0.018531982*T**2 -5.764227E-06*T**3+74092*T**(-1);
+       933.47  Y  -11278.378+188.684153*T-31.748192*T*LN(T)
+       -1.230524E+28*T**(-9);
+      2900.00  N !
+ FUNCTION GLIQAL    298.15  +11005.029-11.841867*T+GHSERAL+7.9337E-20*T**7;
+       933.47  Y  -795.996+177.430178*T-31.748192*T*LN(T);
+      2900.00  N !
+ FUNCTION GBCCAL    298.15  +GHSERAL+10083-4.813*T;                    2900 N !
+$ ------------------------------------------------------------------------------
+$ C
+$
+ PAR  G(GRAPHITE,C),,                   +GHSERCC;,,                   N 91Din !
+ PAR  G(DIAMOND_A4,C),,                 +GDIACC;,,                    N 91Din !
+ PAR  G(LIQUID,C),,                     +GHSERCC+117369-24.63*T;,,    N 91Din !
+$
+ FUNCTION GHSERCC   298.15  -17368.441+170.73*T-24.3*T*LN(T)
+       -4.723E-04*T**2+2562600*T**(-1)-2.643E+08*T**(-2)+1.2E+10*T**(-3);
+      6000.00  N !
+ FUNCTION GDIACC    298.15  -16359.441+175.61*T-24.31*T*LN(T)
+       -4.723E-04*T**2+2698000*T**(-1)-2.61E+08*T**(-2)+1.11E+10*T**(-3);
+      6000.00  N !
+$ ------------------------------------------------------------------------------
+$ V
+$
+ PAR  G(BCC_A2,V:VA),,                  +GHSERVV;                4000 N 91Din !
+ PAR  G(FCC_A1,V:VA),,                  +GHSERVV+7500+1.7*T;     4000 N 91Din !
+ PAR  G(HCP_A3,V:VA),,                  +GHSERVV+4000+2.4*T;     4000 N 91Din !
+ PAR  G(CBCC_A12,V:VA),,                +GHSERVV+9000;           4000 N 91Din !
+ PAR  G(CUB_A13,V:VA),,                 +GHSERVV+10000;          4000 N 91Din !
+ PAR  G(LIQUID,V),,                     +GLIQVV;                 4000 N 91Din !
+$
+ FUNCTION GHSERVV   298.15  -7930.43+133.346053*T-24.134*T*LN(T)
+       -0.003098*T**2+1.2175E-07*T**3+69460*T**(-1);
+       790.00  Y  -7967.842+143.291093*T-25.9*T*LN(T)
+       +6.25E-05*T**2-6.8E-07*T**3;
+      2183.00  Y  -41689.864+321.140783*T-47.43*T*LN(T)+6.44389E+31*T**(-9);
+      4000.00  N !
+ FUNCTION GLIQVV    298.15  +20764.117-9.455552*T+GHSERVV-5.19136E-22*T**7;
+      2183.00  Y  -19617.51+311.055983*T-47.43*T*LN(T);
+      4000.00  N !
+$ ------------------------------------------------------------------------------
+$ Binary systems
+$ ------------------------------------------------------------------------------
+$ Al-C
+$
+$ From J. Groebner et al. 1995 (included in LB Vol. 1).
+$ 
+$ A misprint in the parameter list was corrected in 96Gro.
+$ No parameters for fcc are included in 95Gro or 96Gro.
+$
+$ Reasonable parameters for fcc and bcc added by Connetable et al. 2008
+$
+$ Checked against LB and paper. Checked at 6000 K.
+$
+ PAR  L(LIQUID,AL,C;0),,                +40861.02-33.21138*T;,,       N 95Gro !
+$
+$PAR  G(FCC_A1,AL:C),,                  +GHSERAL+GHSERCC+80*T;,,      N COST !
+$PAR  L(FCC_A1,AL:C,VA;0),,             +80*T;,,                      N COST !
+ PAR  G(FCC_A1,AL:C),,                  +GHSERAL+GHSERCC+81000;,,     N 08Con !
+ PAR  L(FCC_A1,AL:C,VA;0),,             -80000+8*T;,,                 N 08Con !
+$
+ PAR  G(AL4C3_D71,AL:C),,               -286001.52+1030.27302*T
+             -161.709142*T*LN(T)-0.01152276*T**2+2450000*T**(-1)
+             +7E-07*T**3;,,                                           N 95Gro !
+$
+$ metastable
+$
+$PAR  G(BCC_A2,AL:C),,                  +GHSERAL+3*GHSERCC+600000;,,  N 06Hal !
+$PAR  L(BCC_A2,AL:C,VA;0),,             +ZERO;,,                      N 06Hal !
+ PAR  G(BCC_A2,AL:C),,                  +GHSERAL+3*GHSERCC
+             +100000+80*T;,,                                          N 08Con !
+ PAR  L(BCC_A2,AL:C,VA;0),,             +130000+14*T;,,               N 08Con !
+$
+$ As a matter of coincidence the Gibbs energy of hcp is similar to that of fcc
+$ without using any parameters.
+$
+ PAR  G(HCP_A3,AL:C),,                  +ZERO;,,                      N !
+ PAR  L(HCP_A3,AL:C,VA;0),,             +ZERO;,,                      N !
+$ ------------------------------------------------------------------------------
+$ Al-V
+$
+$ From N. Saunders 1998 (included in LB Vol. 1)
+$
+$ Checked against paper and LB. Checked at 6000 K.
+$
+$ The invariant temperatures are correct in LB but not quite in the COST report.
+$ AlV3 with Cr3Si structure is probably stable, but not modelled.
+$
+ PAR  L(LIQUID,AL,V;0),,                -50725+9*T;,,                 N 98Sau7 !
+ PAR  L(LIQUID,AL,V;1),,                -15000+8*T;,,                 N 98Sau7 !
+$
+ PAR  L(FCC_A1,AL,V:VA;0),,             -69800+15*T;,,                N 98Sau7 !
+ PAR  L(FCC_A1,AL,V:VA;1),,             -8000;,,                      N 98Sau7 !
+$
+ PAR  L(BCC_A2,AL,V:VA;0),,             -95000+20*T;,,                N 98Sau7 !
+ PAR  L(BCC_A2,AL,V:VA;1),,             -6000;,,                      N 98Sau7 !
+$
+ PAR  G(AL10V,AL:V),,                   +10*GHSERAL+GHSERVV
+             -111221+18.909*T;,,                                      N 98Sau7 !
+ PAR  G(AL7V,AL:V),,                    +7*GHSERAL+GHSERVV
+             -108800+16.8*T;,,                                        N 98Sau7 !
+ PAR  G(AL23V4,AL:V),,                  +23*GHSERAL+4*GHSERVV
+             -430650+64.665*T;,,                                      N 98Sau7 !
+ PAR  G(AL3V_D022,AL:V),,               +3*GHSERAL+GHSERVV
+             -104308+15.2*T;,,                                        N 98Sau7 !
+ PAR  G(AL8V5_D82,AL:V),,               +8*GHSERAL+5*GHSERVV
+             -294320-13*T;,,                                          N 98Sau7 !
+$
+$ metastable
+$
+ PAR  L(HCP_A3,AL,V:VA;0),,             -95000+20*T;,,                N COST !
+ PAR  L(HCP_A3,AL,V:VA;1),,             -6000;,,                      N COST !
+$ ------------------------------------------------------------------------------
+$ V-C
+$
+$ From W. Huang 1991 (included in LB Vol. 2)
+$
+$ Checked against LB and paper. Checked at 6000 K.
+$
+$ Wrong sign for L(FCC_A1,V:C,VA;1) in the paper.
+$
+$ There is a very small (stable) liquid miscibility gap close to C at 4716
+$ to 4748 K.
+$
+ PAR  L(LIQUID,C,V;0),,                 -284196+38.952*T;,,           N 91Hua1 !
+ PAR  L(LIQUID,C,V;1),,                 +96335-17.775*T;,,            N 91Hua1 !
+ PAR  L(LIQUID,C,V;2),,                 +102050;,,                    N 91Hua1 !
+$
+ PAR  G(BCC_A2,V:C),,                   +GHSERVV+3*GHSERCC+108449;,,  N 91Hua1 !
+ PAR  L(BCC_A2,V:C,VA;0),,              -297868;,,                    N 91Hua1 !
+$
+ PAR  G(FCC_A1,V:C),,                   -117302+262.57*T
+             -41.756*T*LN(T)-0.00557101*T**2+590546*T**(-1);,,        N 91Hua1 !
+ PAR  L(FCC_A1,V:C,VA;0),,              -74811+10.201*T;,,            N 91Hua1 !
+ PAR  L(FCC_A1,V:C,VA;1),,              -30394;,,                     N 91Hua1 !
+$
+ PAR  G(HCP_A3,V:C),,                   -85473+182.441*T
+             -30.551*T*LN(T)-0.00538998*T**2+229029*T**(-1);,,        N 91Hua1 !
+ PAR  L(HCP_A3,V:C,VA;0),,              +12430-3.986*T;,,             N 91Hua1 !
+$
+ PAR  G(V3C2,V:C),,                     +3*GHSERVV+2*GHSERCC
+             -260341+16.897*T;,,                                      N 91Hua1 !
+$ ------------------------------------------------------------------------------
+$ Ternary system
+$
+$ From B. Hallstedt 2012
+$
+ PAR  G(V2ALC,V:AL:C),,                 +2*GHSERVV+GHSERAL+GHSERCC
+             -198000;,,                                               N 12Hal !
+$
+ PAR  G(V4ALC3,V:AL:C:C),,              +4*GHSERVV+GHSERAL+3*GHSERCC
+             -378000;,,                                               N 12Hal !
+ PAR  G(V4ALC3,V:AL:C:VA),,             +4*GHSERVV+GHSERAL+2*GHSERCC
+             -300000;,,                                               N 12Hal !
+ PAR  L(V4ALC3,V:AL:C:C,VA;0),,         -50000;,,                     N 12Hal !
+$
+$ metastable
+$
+ PAR  G(V3ALC2,V:AL:C),,                +3*GHSERVV+GHSERAL+2*GHSERCC
+             -285000;,,                                               N 12Hal !
+$ ------------------------------------------------------------------------------
+$
+$
+ LIST-OF-REFERENCE
+ NUMBER  SOURCE
+  Null   'Unknown source'
+  Same   'Same or similar interaction as in the corresponding stable phase'
+  REFLAV 'Laves phase convention: G(LAVES,X:X)=+3*GHSERXX+15000'
+  COST   'COST 507 database, 1998'
+  91Din  'A.T. Dinsdale, Calphad, 15, 317-425(1991).'
+  91Hua1 'W. Huang, Z. Metallkd., 82, 174-81(1991); V-C'
+  95Gro  'J. Groebner, H.L. Lukas, F. Aldinger,
+          J. Alloys Compd., 220, 8-14(1995); Al-C'
+  96Gro  'J. Groebner, H.L. Lukas, F. Aldinger,
+          Calphad, 20, 247-54(1996); Al-Si-C'
+  98Sau7 'N. Saunders, COST 507, Final report round 2, 1998; Al-V'
+  06Hal  'B. Hallstedt, D. Music, Z. Sun,
+          Int. J. Mater. Res., 97, 539-42(2006); Al-Cr-C'
+  08Con  'D. Connetable, J. Lacaze, P. Maugis, B. Sundman,
+          Calphad, 32, 361-70(2008); Al-Fe-C'
+  12Hal  'B. Hallstedt, Calphad, 2012; Al-V-C'
+!
