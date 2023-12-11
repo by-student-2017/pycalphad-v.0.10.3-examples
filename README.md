@@ -148,6 +148,7 @@ Acknowledgment
 - ATSUMITEC Co., Ltd.
 - RIKEN
 - Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
+- I received permission from Dr. T. Abe of NIMS to post the revised version of TDB. I would like to express my gratitude to you. (11/Dec/2023 12.04)
 
 
 PC specs used for test
