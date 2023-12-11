@@ -4,11 +4,12 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-tdb_file = 'nsiti_ma.tdb' # from CPDDB
+#tdb_file = 'nsiti_ma.tdb' # from CPDDB (Ma et al. (2005))
+tdb_file = 'PrecHiMn-04.tdb' # from CPDDB (Hallstedt et al. (2017))
 ELA = 'N'  # x-axis
 ELB = 'Ti' # lower left side
 ELC = 'Si' # y-axis
-Temp = 1673 # [K]
+Temp = 1073 # [K]
 #------User input area--------
 
 img_comps = ELA+ELB+ELC
