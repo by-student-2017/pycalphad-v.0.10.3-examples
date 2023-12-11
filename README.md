@@ -117,6 +117,7 @@ mv mmc1.TDB Qiu_2015.TDB
 sudo apt -y install nkf
 nkf -w Qiu_2015.TDB > Qiu_2015_en.TDB
 python3 ternary-AlMgZn.py
+# need "nkf" for "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xfc in position 193546: invalid start byte"
 ```
 - Al-Mg-Zn (almgzn_hay.tdb from CPDDB at 15:00 Dec/08/2023): read error
 ```
