@@ -4,9 +4,8 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-#tdb_file = 'cost507R.TDB' # from OpenCALPHAD
-#tdb_file = 'modified_almgzn_hay.tdb' # from CPDDB (modifiled)
-tdb_file = 'Qiu_2015_en.TDB' # from CPDDB (modifiled)
+tdb_file = 'modified_almgzn_hay.tdb' # from CPDDB (modifiled)
+#tdb_file = 'Qiu_2015_en.TDB' # from CPDDB (modifiled)
 ELA = 'Mg' # x-axis
 ELB = 'Al' # lower left side
 ELC = 'Zn' # y-axis

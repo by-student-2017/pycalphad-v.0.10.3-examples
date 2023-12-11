@@ -51,7 +51,7 @@ $                                                                       T.A.
 $ Modified Line (Line numbers after correction are in parentheses) for PyCALPHAD
 $ Line 170 (173): "3000 Unary5.0 N !" => "3000 N  Unary5 !"
 $ LIne 205 (208): => "CONSTITUENT ALMG_G  :MG : AL,MG,ZN : AL,MG,ZN : !"
-$  remove "6000 N 2019Hay"                                              M.I.
+$  remove "6000 N 2019Hay"                                       By STUDENT
 $ ------------------------------------------------------------------------------
 
  ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
