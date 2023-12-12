@@ -6,11 +6,10 @@ from pycalphad import variables as v
 #------User input area--------
 tdb_file = 'Ca-V-O.TDB' # from TDBDB (Yang, Mao and Selleby (2017)) 
 ELA = 'Ca' # x-axis
-ELB = 'O'  # lower left side
-ELC = 'V'  # y-axis
-Temp = 273 + 600 # [K]
+ELB = 'V'  # lower left side
+ELC = 'O'  # y-axis
+Temp = 273 + 500 # [K]
 #------User input area--------
-# It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
 
 img_comps = ELA+ELB+ELC
 
@@ -21,7 +20,7 @@ ELC = ELC.upper ()
 tdb = Database(tdb_file)
 comps = [ELA, ELB, ELC, 'VA']
 phases = list(tdb.phases.keys())
-conds = {v.T: Temp, v.P:101325, v.X(ELA): (0,1,0.015), v.X(ELC): (0,1,0.015)}
+conds = {v.T: Temp, v.P:101325, v.X(ELA): (1e-4,1,0.015), v.X(ELC): (1e-4,1,0.015)} # 0 => 1e-4 for ZeroDivisionError: float division
 
 ternplot(tdb, comps, phases, conds, x=v.X(ELA), y=v.X(ELC))
 
