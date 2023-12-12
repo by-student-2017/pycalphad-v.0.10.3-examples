@@ -4,12 +4,13 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-tdb_file = 'Liu_2016.TDB' # from TDBDB (Liu et al. (2016))
-ELA = 'Co' # x-axis
-ELB = 'Ni' # lower left side
-ELC = 'Al' # y-axis
-Temp = 273 + 1300 # [K]
+tdb_file = 'C-Mo-W-N.tdb' # from TDBDB (Zhang et al. (2018)) C-Mo-W-N quaternary system
+ELA = 'C' # x-axis
+ELB = 'Mo' # lower left side
+ELC = 'W'  # y-axis
+Temp = 273 + 1000 # [K]
 #------User input area--------
+# It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
 
 img_comps = ELA+ELB+ELC
 
