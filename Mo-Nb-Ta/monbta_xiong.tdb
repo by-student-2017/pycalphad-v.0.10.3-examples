@@ -1,0 +1,111 @@
+$ MoNbTa
+$
+$ -----------------------------------------------------------------------------
+$ 2015.7.9
+$ 
+$ TDB file created by K.Hashimoto, T.Abe and Y.Sawada,
+$
+$ Thermodynamics Modeling Group , National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi (at) nims.go.jp
+$ Copyright (C) NIMS 2015
+$
+$ -----------------------------------------------------------------------------
+$ The parameter set is taken from
+$ Thermodynamic assessment of the Mo-Nb-Ta system 
+$ W.Xiong, Y.Du, Y.Liu, B.Y.Huang, H.H.Xu, H.L.Chen, Z.Pan
+$ CALPHAD 28 (2004) 133-140.
+$
+$ -----------------------------------------------------------------------------
+$ Comment
+$  Lattice stability is taken from Unary 5.0 in this TDB instead of 91Din.
+$ In this paper, it is written as "The ternary parameters are not necessary 
+$ to reproduce ternary data"; we added them as zero (assessed zero).
+$                                                               T.A. 
+$ -----------------------------------------------------------------------------
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT MO   BCC_A2                    9.5940E+01  4.5890E+03  2.8560E+01!
+ ELEMENT NB   BCC_A2                    9.2906E+01  5.2200E+03  3.6270E+01!
+ ELEMENT TA   BCC_A2                    1.8095E+02  5.6819E+03  4.1472E+01!
+$
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR PURE AND OTHERS
+$------------------------------------------------------------------------------
+ FUNCTION GHSERMO  298.15
+    -7746.302+131.9197*T-23.56414*T*LN(T)-3.443396E-3*T**2+0.566283E-6*T**3
+    +65812*T**(-1)-0.130927E-9*T**4;  2896.00 Y
+    -30556.41+283.559746*T-42.63829*T*LN(T)-4849.315E30*T**(-9); 
+        5000.00 N !  $Unery5.0
+ 
+ FUNCTION GLIQMO 298.15
+    +41831.347-14.694912*T+424.519E-24*T**7+GHSERMO; 2896 Y
+    +3538.963+271.6697*T-42.63829*T*LN(T);  5000.00 N !$Unary5.0
+    
+ FUNCTION GHSERNB  298.15
+    -8519.353+142.045475*T-26.4711*T*LN(T)+0.203475E-3*T**2-0.35012E-6*T**3
+    +93399*T**(-1);  2750.00 Y
+    -37669.3+271.720843*T-41.77*T*LN(T)+1528.238E29*T**(-9);   6000.00 N !
+ 
+ FUNCTION GLIQNB 298.15
+    +29781.555-10.816418*T-306.098E-25*T**7+GHSERNB; 2750 Y
+    -7499.398+260.756148*T-41.77*T*LN(T);  6000.00 N !  $Unary5.0
+
+ FUNCTION GHSERTA  298.15
+    -7285.889+119.139857*T-23.7592624*T*LN(T)-2.623033E-3*T**2+0.170109E-6*T**3
+    -3293*T**(-1);  1300.00 Y
+    -22389.955+243.88676*T-41.137088*T*LN(T)+6.167572E-3*T**2-0.655136E-6*T**3
+    +2429586*T**(-1);  2500.00 Y
+    +229382.886-722.59722*T+78.5244752*T*LN(T)-17.983376E-3*T**2
+    +0.195033E-6*T**3-93813648*T**(-1);  3290.00 Y
+    -1042384.014+2985.491246*T-362.1591318*T*LN(T)+43.117795E-3*T**2
+    -1.055148E-6*T**3+554714342*T**(-1);  6000.00 N ! $Unary5.0
+ 
+ FUNCTION GLIQTA   298.15
+    +21875.086+111.561128*T-23.7592624*T*LN(T)-2.623033E-3*T**2+0.170109E-6*T**3
+    -3293*T**(-1);  1000.00 Y
+    +43884.339-61.981795*T+0.0279523*T*LN(T)-12.330066E-3*T**2+0.614599E-6*T**3
+    -3523338*T**(-1);  3290.00 Y
+    -6314.543+258.110873*T-41.84*T*LN(T);  6000.00 N ! $Unary5.0
+
+$ -----------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR LIQUID PHASE
+$------------------------------------------------------------------------------
+ PHASE LIQUID %  1  1.0  !
+    CONSTITUENT LIQUID :MO,NB,TA :  !
+   PARAMETER G(LIQUID,MO;0)    298.15  +GLIQMO;                        5000 N !
+   PARAMETER G(LIQUID,NB;0)    298.15  +GLIQNB;                        6000 N !
+   PARAMETER G(LIQUID,TA;0)    298.15  +GLIQTA;                        6000 N !
+   PARAMETER G(LIQUID,MO,TA;0) 298.15  +13978.9;                       6000 N !
+   PARAMETER G(LIQUID,MO,TA;1) 298.15  +577.5;                         6000 N !
+   PARAMETER G(LIQUID,NB,TA;0) 298.15  +0.0;                           6000 N !
+   PARAMETER G(LIQUID,MO,NB;0) 298.15  +15253.7;                       6000 N !
+   PARAMETER G(LIQUID,MO,NB;1) 298.15  +10594.2;                       6000 N !
+   PARAMETER G(LIQUID,MO,NB,TA;0) 298.15  +0;                          6000 N !
+   PARAMETER G(LIQUID,MO,NB,TA;1) 298.15  +0;                          6000 N !
+   PARAMETER G(LIQUID,MO,NB,TA;2) 298.15  +0;                          6000 N !
+
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR BCC_A2 PHASE
+$------------------------------------------------------------------------------
+ PHASE BCC_A2  %  1   1.0  !
+    CONSTITUENT BCC_A2  :MO,NB,TA :  !
+  PARAMETER G(BCC_A2,MO;0)     298.15  +GHSERMO;                       5000 N !
+  PARAMETER G(BCC_A2,NB;0)     298.15  +GHSERNB;                       6000 N !
+  PARAMETER G(BCC_A2,TA;0)     298.15  +GHSERTA;                       6000 N !
+  PARAMETER G(BCC_A2,MO,TA;0)  298.15  -75129.2+30*T;                  6000 N !
+  PARAMETER G(BCC_A2,MO,TA;1)  298.15  +6039.24;                       6000 N !
+  PARAMETER G(BCC_A2,NB,TA;0)  298.15  +1298.03;                       6000 N !
+  PARAMETER G(BCC_A2,MO,NB;0)  298.15  -68202.6+29.85596*T;            6000 N !
+  PARAMETER G(BCC_A2,MO,NB;1)  298.15  +8201.3;                        6000 N !
+  PARAMETER G(BCC_A2,MO,NB,TA;0)  298.15  +0;                          6000 N !
+  PARAMETER G(BCC_A2,MO,NB,TA;1)  298.15  +0;                          6000 N !
+  PARAMETER G(BCC_A2,MO,NB,TA;2)  298.15  +0;                          6000 N !
+$
+$------------------------------------------------------------------------------
+$MoNbTa
