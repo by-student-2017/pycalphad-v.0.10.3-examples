@@ -4,11 +4,11 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-tdb_file = 'co-fe-sb.TDB' # from TDBDB (Li et al. (2014))
-ELA = 'Co' # x-axis
-ELB = 'Fe' # lower left side
-ELC = 'Sb' # y-axis
-Temp = 273 + 1150 # [K]
+tdb_file = 'Co-Cr-C-2014-05-30.TDB' # from TDBDB (Kaplan et al. (2014))
+ELA = 'C'  # x-axis
+ELB = 'Co' # lower left side
+ELC = 'Cr' # y-axis
+Temp = 273 + 1000 # [K]
 #------User input area--------
 # It is preferable to specify elements in "ELA, ELB and ELC" in alphabetical order.
 
