@@ -4,11 +4,12 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-tdb_file = 'Lia_2016.tdb' # from TDBDB (Liang and Schmid-Fetzer (2016))
-ELA = 'Zn' # x-axis
+#tdb_file = 'alcusi_hal.tdb' # from CPDDB
+tdb_file = 'AlCuSi-15Hal-final.tdb' # from TDBDB (Hallstedt et al. (2016))
+ELA = 'Al' # x-axis
 ELB = 'Cu' # lower left side
-ELC = 'Al' # y-axis
-Temp = 573 # [K]
+ELC = 'Si' # y-axis
+Temp = 273 + 500 # [K]
 #------User input area--------
 
 img_comps = ELA+ELB+ELC

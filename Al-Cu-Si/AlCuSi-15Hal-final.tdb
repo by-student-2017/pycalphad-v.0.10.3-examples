@@ -1,0 +1,441 @@
+$
+$ Database for Al-Cu-Si from B. Hallstedt et al. 2015
+$
+$ B. Hallstedt, J. Grobner, M. Hampl, R. Schmid-Fetzer, manuscript, 2015.
+$
+$ ------------------------------------------------------------------------------
+ TEMP-LIM 298.15 6000.00 !
+$
+$ELEMENT NAME  REF. STATE               ATOMIC MASS H298-H0    S298    !
+$
+ ELEMENT VA   VACUUM                      0.0          0.0      0.0    ! 
+ ELEMENT AL   FCC_A1                     26.98154   4540.      28.30   ! 
+ ELEMENT CU   FCC_A1                     63.546     5004.      33.15   !
+ ELEMENT SI   DIAMOND_A4                 28.0855    3217.      18.81   ! 
+$ ------------------------------------------------------------------------------
+$ Phase definitions
+$
+ PHASE LIQUID:L % 1 1 !
+ CONST LIQUID:L : AL CU SI : !
+$
+$ Fcc (cF4, Fm-3m) and MeX (cF8, Fm-3m)
+$
+ PHASE FCC_A1 %A 2 1 1 !
+ CONST FCC_A1 : AL CU SI : VA : !
+$
+$ Bcc (cI2, Im-3m)
+$
+ PHASE BCC_A2 %B 2 1 3 !
+ CONST BCC_A2 : AL CU SI : VA : !
+$
+$ Hcp (hP2, P6_3/mmc) and Me2X (NiAs-type, hP4, P6_3/mmc, B8_1)
+$
+ PHASE HCP_A3 %A 2 1 0.5 !
+ CONST HCP_A3 : AL CU SI : VA : !
+$
+$ Prototype C (cF8, Fd-3m)
+$
+ PHASE DIAMOND_A4 % 2 1 1 !
+ CONST DIAMOND_A4 : AL SI% : CU VA : !
+$
+$ Prototype Al2Cu (tI12, I4/mcm), theta
+$
+ PHASE AL2CU_C16 % 2 2 1 !
+ CONST AL2CU_C16 : AL : AL CU% : !
+$
+$ Prototype Al2Cu (oF24, Fmmm)
+$ AL2CU_PRIME is metastable in Al-Cu. This is presumably theta-prime.
+$
+ PHASE AL2CU_PRIME % 2 2 1 !
+ CONST AL2CU_PRIME : AL : CU : !
+$
+$ Prototype AlCu(h) (oC32, Cmmm), high T
+$
+ PHASE ALCU_ETA_1 % 2 1 1 !
+ CONST ALCU_ETA_1 : AL% CU : CU : !
+$
+$ Prototype AlCu(r) (mC20, C2/m), low T
+$
+ PHASE ALCU_ETA_2 % 2 0.48 0.52 !
+ CONST ALCU_ETA_2 : AL : CU : !
+$
+$ Prototype Al9Cu11(h) (oF88, Fmm2), zeta-1, high T
+$ Prototype Al9Cu11(r) (oI24, Imm2), zeta-2, low T
+$
+ PHASE AL9CU11 % 2 9 11 !
+ CONST AL9CU11 : AL% CU : CU : !
+$
+$ Prototype InNi2 (hP6, P6_3/mmc), epsilon-2
+$
+ PHASE ALCU_B82 % 2 1 1 !
+ CONST ALCU_B82 : AL% CU : CU : !
+$
+$ Prototype Al5Cu8 (hR52, R3m) also known as Al2Cu3 and Al17Cu33, delta
+$ gamma-brass according to LB-structure
+$
+ PHASE AL5CU8 % 2 5 8 !
+ CONST AL5CU8 : AL : CU : !
+$
+$ Prototype Cu5Zn8 (cI52, I-43m), gamma-2/gamma-0, high-T
+$
+ PHASE GAMMA_D82 % 3 4 6 16 !
+ CONST GAMMA_D82 : CU : CU : AL CU SI : !
+$
+$ Prototype Al4Cu9 (cP52, P-43m), gamma-1, low-T
+$
+ PHASE GAMMA_D83 % 3 4 6 16 !
+ CONST GAMMA_D83 : CU : CU : AL CU SI : !
+$
+$ Prototype Al3Ti (tI8, I4/mmm) alpha-2
+$
+ PHASE ALCU3_D022 % 2 0.23 0.77 !
+ CONST ALCU3_D022 : AL : CU : !
+$
+$ Prototype beta-Mn (cP20, P4_132), gamma
+$
+ PHASE CU33SI7_A13 % 2 33 7 !
+ CONST CU33SI7_A13 : CU : AL SI% : !
+$
+$ Pearson tP* (delta)
+$
+ PHASE CU33SI7_HT % 2 33 7 !
+ CONST CU33SI7_HT : CU : AL SI% : !
+$
+$ Prototype Cu15Si4 (cI76, I-43d), epsilon
+$
+ PHASE CU15SI4_D86 % 2 15 4 !
+ CONST CU15SI4_D86 : CU : AL SI% : !
+$
+$ Pearson hR* (R-3m), distorted bcc?, eta
+$
+ PHASE CU3SI_LT % 2 0.77 0.23 !
+ CONST CU3SI_LT : CU : AL SI% : !
+$
+$ Prototype Cu3Si (it) (hR9, R-3), eta-prime
+$
+ PHASE CU3SI_MT % 2 0.765 0.235 !
+ CONST CU3SI_MT : CU : AL SI% : !
+$
+$ Long-period superlattice, Pearson oC*, eta-doubleprime
+$
+ PHASE CU3SI_HT % 2 0.76 0.24 !
+ CONST CU3SI_HT : CU : AL SI% : !
+$ ------------------------------------------------------------------------------
+$ Defaults
+$
+ DEFINE-SYSTEM-DEFAULT ELEMENT 2 !
+ DEFAULT-COM DEFINE_SYSTEM_ELEMENT VA !
+ TYPE-DEF % SEQ * !
+ TYPE-DEF A GES AMEND_PHASE_DESCRIPTION @ MAGNETIC -3 0.28 !
+ TYPE-DEF B GES AMEND_PHASE_DESCRIPTION @ MAGNETIC -1 0.4 !
+ FUNCTION ZERO      298.15  0;                                         6000 N !
+ FUNCTION UN_ASS    298.15  0;                                         6000 N !
+ FUNCTION R         298.15  +8.31451;                                  6000 N !
+$ ------------------------------------------------------------------------------
+$ Element data
+$ ------------------------------------------------------------------------------
+$ Al
+$
+$ BCT_A5 and DIAMOND_A4 added in unary 3.0
+$
+ PAR  G(FCC_A1,AL:VA),,                 +GHSERAL;                2900 N 91Din !
+ PAR  G(BCC_A2,AL:VA),,                 +GHSERAL+10083-4.813*T;  2900 N 91Din !
+ PAR  G(HCP_A3,AL:VA),,                 +GHSERAL+5481-1.8*T;     2900 N 91Din !
+$PAR  G(CBCC_A12,AL:VA),,               +GHSERAL
+$            +10083.4-4.813*T;                                   2900 N 91Din !
+$PAR  G(CUB_A13,AL:VA),,                +GHSERAL
+$            +10920.44-4.8116*T;                                 2900 N 91Din !
+$PAR  G(BCT_A5,AL),,                    +GHSERAL+10083-4.813*T;  2900 N SGCOST !
+ PAR  G(DIAMOND_A4,AL:VA),,             +GHSERAL+30*T;           2900 N SGCOST !
+ PAR  G(LIQUID,AL),,                    +GLIQAL;                 2900 N 91Din !
+$
+ PAR  G(AL2CU_C16,AL:AL),,              +3*GBCCAL;,,                  N 98Sau2 !
+$
+ FUNCTION GHSERAL   298.15  -7976.15+137.093038*T-24.3671976*T*LN(T)
+       -0.001884662*T**2-8.77664E-07*T**3+74092*T**(-1);
+       700.00  Y  -11276.24+223.048446*T-38.5844296*T*LN(T)
+       +0.018531982*T**2 -5.764227E-06*T**3+74092*T**(-1);
+       933.47  Y  -11278.378+188.684153*T-31.748192*T*LN(T)
+       -1.230524E+28*T**(-9);
+      2900.00  N !
+ FUNCTION GLIQAL    298.15  +11005.029-11.841867*T+GHSERAL+7.9337E-20*T**7;
+       933.47  Y  -795.996+177.430178*T-31.748192*T*LN(T);
+      2900.00  N !
+ FUNCTION GBCCAL    298.15  +GHSERAL+10083-4.813*T;                    2900 N !
+$ ------------------------------------------------------------------------------
+$ Cu
+$
+$ BCT_A5 from 00Moo not included in unary
+$ CBCC_A12 and CUB_A13 not included in unary
+$
+ PAR  G(FCC_A1,CU:VA),,                 +GHSERCU;                3200 N 91Din !
+ PAR  G(BCC_A2,CU:VA),,                 +GHSERCU+4017-1.255*T;   3200 N 91Din !
+ PAR  G(HCP_A3,CU:VA),,                 +GHSERCU+600+0.2*T;      3200 N 91Din !
+$PAR  G(BCT_A5,CU),,                    +GHSERCU+4184;           3200 N 00Moo !
+$PAR  G(CBCC_A12,CU:VA),,               +GHSERCU+3556;           2000 N 03Mie2 !
+$PAR  G(CUB_A13,CU:VA),,                +GHSERCU+2092;           2000 N 03Mie2 !
+ PAR  G(LIQUID,CU),,                    +GLIQCU;                 3200 N 91Din !
+$
+ PAR  G(ALCU_ETA_1,CU:CU),,             +2*GHSERCU+4770+9*T;,,        N 15Lia2 !
+ PAR  G(AL9CU11,CU:CU),,                +20*GBCCCU;,,                 N 15Lia2 !
+ PAR  G(ALCU_B82,CU:CU),,               +2*GHSERCU+14850+30.1*T;,,    N 15Lia2 !
+ PAR  G(GAMMA_D82,CU:CU:CU),,           +26*GHSERCU+2600;,,           N 15Lia2 !
+ PAR  G(GAMMA_D83,CU:CU:CU),,           +26*GHSERCU+2600;,,           N 15Lia2 ! 
+$
+ FUNCTION GHSERCU   298.15  -7770.458+130.485235*T-24.112392*T*LN(T)
+       -0.00265684*T**2+1.29223E-07*T**3+52478*T**(-1);
+      1357.77  Y  -13542.026+183.803828*T-31.38*T*LN(T)+3.64167E+29*T**(-9);
+      3200.00  N !
+ FUNCTION GLIQCU    298.15  +12964.735-9.511904*T+GHSERCU-5.8489E-21*T**7;
+      1357.77  Y  -46.545+173.881484*T-31.38*T*LN(T);
+      3200.00  N !
+ FUNCTION GBCCCU    298.15  +GHSERCU+4017-1.255*T;                     3200 N !
+$ ------------------------------------------------------------------------------
+$ Si
+$
+ PAR  G(DIAMOND_A4,SI:VA),,             +GHSERSI;                3600 N 91Din !
+ PAR  G(FCC_A1,SI:VA),,                 +GHSERSI+51000-21.8*T;   3600 N 91Din !
+ PAR  G(BCC_A2,SI:VA),,                 +GHSERSI+47000-22.5*T;   3600 N 91Din !
+ PAR  G(HCP_A3,SI:VA),,                 +GHSERSI+49200-20.8*T;   3600 N 91Din !
+$PAR  G(CBCC_A12,SI:VA),,               +GHSERSI+50208-20.377*T; 3600 N 91Din !
+$PAR  G(CUB_A13,SI:VA),,                +GHSERSI+47279-20.377*T; 3600 N 91Din !
+ PAR  G(LIQUID,SI),,                    +GLIQSI;                 3600 N 91Din !
+$
+ FUNCTION GHSERSI   298.15  -8162.609+137.236859*T-22.8317533*T*LN(T)
+       -0.001912904*T**2-3.552E-09*T**3+176667*T**(-1);
+      1687.00  Y  -9457.642+167.281367*T-27.196*T*LN(T)-4.20369E+30*T**(-9);
+      3600.00  N !
+ FUNCTION GLIQSI    298.15  +50696.36-30.099439*T+GHSERSI+2.09307E-21*T**7;
+      1687.00  Y  +40370.523+137.722298*T-27.196*T*LN(T);
+      3600.00  N !
+ FUNCTION GBCCSI    298.15  +GHSERSI+47000-22.5*T;               3600 N 91Din !
+$ ------------------------------------------------------------------------------
+$ Binary systems
+$ ------------------------------------------------------------------------------
+$ Al-Cu
+$
+$ S.-M. Liang, R. Schmid-Fetzer, 51, 252-60 (2015).
+$
+$ Checked against paper. Checked at 6000K.
+$
+$ Many compound energies and interactions are the same or very similar
+$ to those of 98Sau2 and 04Wit.
+$
+$ The A2-DO3 equilibrium should be modelled. A2 orders metastably
+$ below 833K at 74 at-% Cu, but not symmetrically about 75% Cu.
+$
+$ The HCP_A3 phase is much too unstable in the Al-Cu binary. Its stability
+$ must be very close to that of FCC_A1 around x(Cu)=0.8. Otherwise Al-Cu-Si
+$ cannot be modelled.
+$
+ PAR  L(LIQUID,AL,CU;0),,               -67094+8.555*T;,,             N 04Wit !
+ PAR  L(LIQUID,AL,CU;1),,               +32148-7.118*T;,,             N 04Wit !
+ PAR  L(LIQUID,AL,CU;2),,               +5915-5.889*T;,,              N 04Wit !
+ PAR  L(LIQUID,AL,CU;3),,               -7290+5.5*T;,,                N 15Lia2 !
+$
+ PAR  L(FCC_A1,AL,CU:VA;0),,            -53520+2*T;,,                 N 98Sau2 !
+ PAR  L(FCC_A1,AL,CU:VA;1),,            +39005-2.368*T;,,             N 15Lia2 !
+ PAR  L(FCC_A1,AL,CU:VA;2),,            +1210;,,                      N 15Lia2 !
+$
+ PAR  L(BCC_A2,AL,CU:VA;0),,            -73537+3.98*T;,,              N 15Lia2 !
+ PAR  L(BCC_A2,AL,CU:VA;1),,            +51696-12*T;,,                N 15Lia2 !
+$
+ PAR  G(AL2CU_C16,AL:CU),,              +2*GHSERAL+GHSERCU
+             -48361+8*T;,,                                            N 15Lia2 !
+ PAR  L(AL2CU_C16,AL:AL,CU;0),,         +2211;,,                      N 98Sau2 !
+$
+ PAR  G(ALCU_ETA_1,AL:CU),,             +GHSERAL+GHSERCU
+             -39431+1.9*T;,,                                          N 15Lia2 !
+ PAR  G(ALCU_ETA_1,AL,CU:CU;0),,        +ZERO;,,                      N 15Lia2 !
+ PAR  G(ALCU_ETA_1,AL,CU:CU;1),,        -43168-18.5*T;,,              N 15Lia2 !
+$
+ PAR  G(ALCU_ETA_2,AL:CU),,             +0.48*GHSERAL+0.52*GHSERCU
+             -20987+1.62*T;,,                                         N 15Lia2 !
+$
+ PAR  G(AL9CU11,AL:CU),,                +9*GHSERAL+11*GHSERCU
+             -424720+20*T;,,                                          N 15Lia2 !
+ PAR  L(AL9CU11,AL,CU:CU;0),,           +ZERO;,,                      N 15Lia2 !
+ PAR  L(AL9CU11,AL,CU:CU;1),,           -413300+100*T;,,              N 15Lia2 !
+$
+ PAR  G(ALCU_B82,AL:CU),,               +GHSERAL+GHSERCU
+             -40326+4.1*T;,,                                          N 15Lia2 !
+ PAR  L(ALCU_B82,AL,CU:CU;0),,          -56870-55*T;,,                N 15Lia2 !
+$
+ PAR  G(AL5CU8,AL:CU),,                 +5*GHSERAL+8*GHSERCU
+             -278450+5.2*T;,,                                         N 15Lia2 !
+$
+ PAR  G(GAMMA_D82,CU:CU:AL),,           +10*GHSERCU+16*GHSERAL
+             -94322.4+389.508*T;,,                                    N 15Lia2 !
+ PAR  L(GAMMA_D82,CU:CU:AL,CU;0),,      -1451526.6-859.628*T;,,       N 15Lia2 !
+ PAR  L(GAMMA_D82,CU:CU:AL,CU;1),,      -1516652.4-92*T;,,            N 15Lia2 !
+$
+ PAR  G(GAMMA_D83,CU:CU:AL),,           +10*GHSERCU+16*GHSERAL
+             -94322.4+389.508*T;,,                                    N 15Lia2 !
+ PAR  L(GAMMA_D83,CU:CU:AL,CU;0),,      -1613680-708*T;,,             N 15Lia2 !
+ PAR  L(GAMMA_D83,CU:CU:AL,CU;1),,      -1585780-100*T;,,             N 15Lia2 !
+$
+ PAR  G(ALCU3_D022,AL:CU),,             +0.23*GHSERAL+0.77*GHSERCU
+             -13904.9-3*T;,,                                          N 15Lia2 !
+$
+$ Metastable
+$
+ PAR  L(HCP_A3,AL,CU:VA;0),,            -63990+2*T;,,                 N 15Hal !
+ PAR  L(HCP_A3,AL,CU:VA;1),,            +34590-2*T;,,                 N 15Hal !
+ PAR  L(HCP_A3,AL,CU:VA;2),,            +1170;,,                      N 15Hal !
+$PAR  L(HCP_A3,AL,CU:VA;0),,            -53520+2*T;,,                 N Same !
+$PAR  L(HCP_A3,AL,CU:VA;1),,            +38590-2*T;,,                 N Same !
+$PAR  L(HCP_A3,AL,CU:VA;2),,            +1170;,,                      N Same !
+$PAR  L(HCP_A3,AL,CU:VA;0),,            -43225.5769+10*T;,,           N 09He !
+$PAR  L(HCP_A3,AL,CU:VA;1),,            +60000;,,                     N 09He !
+$PAR  L(HCP_A3,AL,CU:VA;0),,            +38107;,,                     N COST !
+$
+ PAR  G(AL2CU_PRIME,AL:CU),,            +2*GHSERAL+GHSERCU
+             -46500+6.5*T;,,                                          N COST !
+$
+ PAR  G(CU33SI7_A13,CU:AL),,            +33*GHSERCU+7*GHSERAL
+             -460000;,,                                               N 15Hal !
+ PAR  G(CU33SI7_HT,CU:AL),,             +33*GHSERCU+7*GHSERAL
+             -460000;,,                                               N 15Hal !
+ PAR  G(CU15SI4_D86,CU:AL),,            +15*GHSERCU+4*GHSERAL
+             -228000;,,                                               N 15Hal !
+ PAR  G(CU3SI_LT,CU:AL),,               +0.77*GHSERCU+0.23*GHSERAL
+             -13000;,,                                                N 15Hal !
+ PAR  G(CU3SI_MT,CU:AL),,               +0.765*GHSERCU+0.235*GHSERAL
+             -13000;,,                                                N 15Hal !
+ PAR  G(CU3SI_HT,CU:AL),,               +0.76*GHSERCU+0.24*GHSERAL
+             -13000;,,                                                N 15Hal !
+ PAR  G(DIAMOND_A4,AL:CU),,             +UN_ASS;,,                    N 15Hal !
+$ ------------------------------------------------------------------------------
+$ Al-Si
+$
+$ From H. Feufel et al. 1997 (included in LB Vol. 1 and COST II)
+$
+$ H. Feufel, T. Goedecke, H.L. Lukas, F. Aldinger,
+$ J. Alloys Compd., 247, 31-42(1997).
+$
+$ Parameters (except hcp) have also been published in J. Groebner, H.L. Lukas,
+$ F. Aldinger, Calphad, 20, 247-54(1996) (Al-Si-C).
+$
+$ Checked against LB and paper. Checked at 6000 K.
+$
+ PAR  L(LIQUID,AL,SI;0),,               -11340.1-1.23394*T;,,         N 97Feu !
+ PAR  L(LIQUID,AL,SI;1),,               -3530.93+1.35993*T;,,         N 97Feu !
+ PAR  L(LIQUID,AL,SI;2),,               +2265.39;,,                   N 97Feu !
+$
+ PAR  L(FCC_A1,AL,SI:VA;0),,            -3143.78+0.39297*T;,,         N 97Feu !
+$
+ PAR  L(DIAMOND_A4,AL,SI:VA;0),,        +113246.16-47.55509*T;,,      N 96Gro !
+$
+$ Metastable
+$
+ PAR  L(BCC_A2,AL,SI:VA),,              -3143.78+0.39297*T;,,         N 15Hal !
+$
+$PAR  L(HCP_A3,AL,SI:VA;0),,            +4000;,,                      N 09He !
+ PAR  L(HCP_A3,AL,SI:VA;0),,            -3143.78+0.39297*T;,,         N 97Feu !
+$ ------------------------------------------------------------------------------
+$ Cu-Si
+$
+$ B. Hallstedt, J. Grobner, M. Hampl, R. Schmid-Fetzer, manuscript, 2015
+
+ PAR  L(LIQUID,CU,SI;0),,               -37776+3.47*T;,,              N 15Hal !
+ PAR  L(LIQUID,CU,SI;1),,               -44866+14.53*T;,,             N 15Hal !
+ PAR  L(LIQUID,CU,SI;2),,               -40866+8.62*T;,,              N 15Hal !
+ PAR  L(LIQUID,CU,SI;3),,               -10060;,,                     N 15Hal !
+ PAR  L(LIQUID,CU,SI;4),,               +17550;,,                     N 15Hal !
+$
+ PAR  L(FCC_A1,CU,SI:VA;0),,            -32244+20*T;,,                N 15Hal !
+ PAR  L(FCC_A1,CU,SI:VA;1),,            -43581-28.5*T;,,              N 15Hal !
+$
+ PAR  L(HCP_A3,CU,SI:VA;0),,            -26218+11*T;,,                N 15Hal !
+ PAR  L(HCP_A3,CU,SI:VA;1),,            -60756-15.4*T;,,              N 15Hal !
+$
+ PAR  L(BCC_A2,CU,SI:VA;0),,            -19744+11*T;,,                N 15Hal !
+ PAR  L(BCC_A2,CU,SI:VA;1),,            -88450-9*T;,,                 N 15Hal !
+$
+ PAR  G(DIAMOND_A4,SI:CU),,             +GHSERSI+GHSERCU+100000;,,    N 15Hal !
+ PAR  L(DIAMOND_A4,SI:CU,VA;0),,        +47230-30.23*T;,,             N 15Hal !
+$
+ PAR  G(CU33SI7_A13,CU:SI),,            +33*GHSERCU+7*GHSERSI
+             -156240-163.2*T;,,                                       N 15Hal !
+ PAR  G(CU33SI7_HT,CU:SI),,             +33*GHSERCU+7*GHSERSI
+             -90160-228.8*T;,,                                        N 15Hal !
+ PAR  G(CU15SI4_D86,CU:SI),,            +15*GHSERCU+4*GHSERSI
+             -88065-77.9*T;,,                                         N 15Hal !
+ PAR  G(CU3SI_LT,CU:SI),,               +0.77*GHSERCU+0.23*GHSERSI
+             -4770-4*T;,,                                             N 15Hal !
+ PAR  G(CU3SI_MT,CU:SI),,               +0.765*GHSERCU+0.235*GHSERSI
+             -4060-4.88*T;,,                                          N 15Hal !
+ PAR  G(CU3SI_HT,CU:SI),,               +0.76*GHSERCU+0.24*GHSERSI
+             -2885-6.23*T;,,                                          N 15Hal !
+$
+$ metastable
+$
+ PAR  G(GAMMA_D82,CU:CU:SI),,           +10*GHSERCU+16*GHSERSI
+             +750000-360*T;,,                                         N 15Hal !
+ PAR  L(GAMMA_D82,CU:CU:CU,SI;0),,      -950000;,,                    N 15Hal !
+ PAR  L(GAMMA_D82,CU:CU:CU,SI;1),,      -900000;,,                    N 15Hal !
+ PAR  L(GAMMA_D82,CU:CU:CU,SI;2),,      +1000000;,,                   N 15Hal !
+$
+ PAR  G(GAMMA_D83,CU:CU:SI),,           +10*GHSERCU+16*GHSERSI
+             +750000-360*T;,,                                         N 15Hal !
+ PAR  L(GAMMA_D83,CU:CU:CU,SI;0),,      -950000;,,                    N 15Hal !
+ PAR  L(GAMMA_D83,CU:CU:CU,SI;1),,      -900000;,,                    N 15Hal !
+ PAR  L(GAMMA_D83,CU:CU:CU,SI;2),,      +1000000;,,                   N 15Hal !
+$ ------------------------------------------------------------------------------
+$ Ternary system
+$
+$ B. Hallstedt, J. Grobner, M. Hampl, R. Schmid-Fetzer, manuscript, 2015
+$
+ PAR  L(LIQUID,AL,CU,SI;0),,            +40000;,,                     N 15Hal !
+ PAR  L(LIQUID,AL,CU,SI;1),,            +50000;,,                     N 15Hal !
+ PAR  L(LIQUID,AL,CU,SI;2),,            -10000;,,                     N 15Hal !
+$
+ PAR  L(FCC_A1,AL,CU,SI:VA;0),,         +ZERO;,,                      N 15Hal !
+$
+ PAR  L(BCC_A2,AL,CU,SI:VA;0),,         +60000;,,                     N 15Hal !
+$
+ PAR  L(HCP_A3,AL,CU,SI:VA;0),,         -3400+7*T;,,                  N 15Hal !
+$
+ PAR  L(GAMMA_D82,CU:CU:AL,SI;0),,      +ZERO;,,                      N 15Hal !
+ PAR  L(GAMMA_D82,CU:CU:AL,CU,SI;0),,   +ZERO;,,                      N 15Hal !
+ PAR  L(GAMMA_D82,CU:CU:AL,CU,SI;1),,   -4400000;,,                   N 15Hal !
+ PAR  L(GAMMA_D82,CU:CU:AL,CU,SI;2),,   +ZERO;,,                      N 15Hal !
+$
+ PAR  L(GAMMA_D83,CU:CU:AL,SI;0),,      +ZERO;,,                      N 15Hal !
+ PAR  L(GAMMA_D83,CU:CU:AL,CU,SI;0),,   +ZERO;,,                      N 15Hal !
+ PAR  L(GAMMA_D83,CU:CU:AL,CU,SI;1),,   -4700000;,,                   N 15Hal !
+ PAR  L(GAMMA_D83,CU:CU:AL,CU,SI;2),,   +ZERO;,,                      N 15Hal !
+$
+ PAR  L(CU33SI7_A13,CU:AL,SI;0),,       -75000;,,                     N 15Hal !
+ PAR  L(CU33SI7_HT,CU:AL,SI;0),,        -75000;,,                     N 15Hal !
+ PAR  L(CU15SI4_D86,CU:AL,SI;0),,       -30000;,,                     N 15Hal !
+ PAR  L(CU3SI_LT,CU:AL,SI;0),,          -2500;,,                      N 15Hal !
+ PAR  L(CU3SI_MT,CU:AL,SI;0),,          -2500;,,                      N 15Hal !
+ PAR  L(CU3SI_HT,CU:AL,SI;0),,          -2500;,,                      N 15Hal !
+$ ------------------------------------------------------------------------------
+$
+$
+ LIST-OF-REFERENCE
+ NUMBER  SOURCE
+  Null   'Unknown source'
+  Same   'Same or similar interaction as in the corresponding stable phase'
+  REFLAV 'Laves phase convention: G(LAVES,X:X)=+3*GHSERXX+15000'
+  COST   'COST 507 database, 1998'
+  SGCOST 'COST 507 database, SGTE unary database V.3.0, 1996; Al, B, Nd, Ti, Zn'
+  91Din  'A.T. Dinsdale, Calphad, 15, 317-425(1991).'
+  96Gro  'J. Groebner, H.L. Lukas, F. Aldinger,
+          Calphad, 20, 247-54(1996); Al-Si-C'
+  97Feu  'H. Feufel, T. Goedecke, H.L. Lukas, F. Aldinger,
+          J. Alloys Compd., 247, 31-42(1997); Al-Si'
+  98Sau2 'N. Saunders, COST 507, Final report round 2, 1998; Al-Cu'
+  00Moo  'K.-W. Moon, W.J. Boettinger, U.R. Kattner, F.S. Biancaniello,
+          C.A. Handwerker, J. Electron. Mater., 29, 1122-36(2000); Cu'
+  03Mie2 'J. Miettinen, Calphad, 27, 103-14(2003); Cu-Mn'
+  04Wit  'V. Witusiewicz, U. Hecht, S.G. Fries, S. Rex,
+          J. Alloys Compd., 385, 133-43(2004); Al-Cu'
+  09He   'C.-Y. He, Y. Du, H.-L. Chen, H. Xu,
+          Calphad, 33, 200-10(2009); Al-Cu-Si'
+  15Hal  'B. Hallstedt, J. Grobner, M. Hampl, R. Schmid-Fetzer,
+          manuscript, 2015; Cu-Si, Al-Cu-Si'
+  15Lia2 'S.-M. Liang, R. Schmid-Fetzer, Calphad, 51, 252-60 (2015); Al-Cu'
+!
