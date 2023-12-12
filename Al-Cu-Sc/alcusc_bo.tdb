@@ -1,0 +1,276 @@
+$ AlCuSc
+$
+$ TDB-file for the thermodynamic assessment of the Al-Cu-Sc system
+$
+$------------------------------------------------------------------------------
+$ 2015.12.3
+$ 
+$ TDB file created by T.Abe, K.Hashimoto and Y.Sawada
+$
+$ Thermodynamics Modeling Group, National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi @nims.go.jp
+$ Copyright (C) NIMS 2015
+$
+$ PARAMETERS ARE TAKEN FROM
+$ Thermodynamic analysis of Al-Sc,Cu-Sc and Al-Cu-Sc System
+$ H.Bo, L.B.Liu, Z.P.Jin, J.Alloys.Compd., 490 (2010) 318-325
+
+$------------------------------------------------------------------------------
+$ Comments
+$ * Gibbs energy of Pure elements are taken from Unary5.0
+$ * Al-Cu : Parameters taken from
+$           [2004Wit] V.T.Witusiewicz, U.Hecht, S.G.Fries, S.Rex,
+$                     J.Alloy.Compd.385 (2004) 133-143
+$ * Cu-Sc : Parameter of CUSC
+$           -44705+13.5*T==>-47705+13.5*T 
+$                                                                  T.A.
+$------------------------------------------------------------------------------
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01!
+ ELEMENT CU   FCC_A1                    6.3546E+01  5.0041E+03  3.3150E+01!
+ ELEMENT SC   HCP_A3                    4.4956E+01  0.0000E+00  0.0000E+00 !
+ 
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR PURE AND OTHERS
+$------------------------------------------------------------------------------
+ FUNCTION GHSERAL 298.15
+  -7976.15+137.093038*T-24.3671976*T*LN(T)-1.884662E-3*T**2-0.877664E-6*T**3
+  +74092*T**(-1); 700 Y
+  -11276.24+223.048446*T-38.5844296*T*LN(T)+18.531982E-3*T**2-5.764227E-6*T**3
+  +74092*T**(-1); 933.473 Y
+  -11278.361+188.684136*T-31.748192*T*LN(T)-1230.622E25*T**(-9);
+  2900 N ! $Unary5.0
+ 
+ FUNCTION GHCPAL 298.15 5481-1.8*T+GHSERAL; 2900 N ! $Unary5.0
+
+ FUNCTION GBCCAL 298.15 10083-4.813*T+GHSERAL; 2900 N ! $Unary5.0
+ 
+ FUNCTION GLIQAL 298.15 11005.045-11.84185*T+79.337E-21*T**7+GHSERAL; 933.473 Y
+  -795.991+177.430209*T-31.748192*T*LN(T); 2900 N ! $Unary5.0
+
+ FUNCTION GHSERCU  298.15
+  -7770.458+130.485235*T-24.112392*T*LN(T)-2.65684E-3*T**2+0.129223E-6*T**3
+  +52478*T**(-1);  1357.77 Y
+  -13542.026+183.803828*T-31.38*T*LN(T)+364.167E27*T**(-9);
+  3200.00 N ! $Unary5.0
+
+ FUNCTION GHCPCU 298.15 600+0.2*T+GHSERCU; 3200 N ! $Unary5.0
+ 
+ FUNCTION GBCCCU 298.15 4017-1.255*T+GHSERCU; 3200 N ! $Unary5.0
+ 
+ FUNCTION GLIQCU 298.15 12964.735-9.511904*T-584.89E-23*T**7+GHSERCU; 1357.77 Y
+  -46.545+173.881484*T-31.38*T*LN(T); 3200 N !
+
+ FUNCTION GHSERSC  298.15
+  -8689.547+153.48097*T-28.1882*T*LN(T)+3.21892E-3*T**2-1.64531E-6*T**3
+  +72177*T**(-1);   800.00 Y
+  -7511.295+132.759582*T-24.9132*T*LN(T)-0.573295E-3*T**2-0.859345E-6*T**3;
+  1608.00 Y
+  261143.04-1817.922454*T+241.4410508*T*LN(T)-117.529396E-3*T**2+8.7398E-6*T**3
+  -50607159*T**(-1);  2000.00 Y
+  -30515.246+286.474338*T-44.2249*T*LN(T);  3200.00 N ! $Unary5.0
+ 
+ FUNCTION GBCCSC   298.15
+  -6709.819+152.456835*T-28.1882*T*LN(T)+3.21892E-3*T**2-1.64531E-6*T**3
+  +72177*T**(-1);   800.00 Y
+  -5531.567+131.735447*T-24.9132*T*LN(T)-0.573295E-3*T**2-0.859345E-6*T**3;
+  1000.00 Y
+  230161.408-2004.054685*T+276.7666402*T*LN(T)-167.120107E-3*T**2
+  +15.637371E-6*T**3-33783257*T**(-1);  1608.00 Y
+  -25928.011+283.642312*T-44.2249*T*LN(T);  3200.00 N ! $Unary5.0
+ 
+ FUNCTION GLIQSC   298.15
+  +6478.66+45.427539*T-10.7967803*T*LN(T)-20.636524E-3*T**2+2.13106E-6*T**3
+  -158106*T**(-1);  1608.00 Y
+  -11832.111+275.871695*T-44.2249*T*LN(T);  3200.00 N ! $Unary5.0
+
+ FUNCTION GFCCSC 298.15 5000+GHSERSC; 3200 N ! $Unary5.0
+ 
+ 
+$------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+ 
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR LIQUID PHASE
+$------------------------------------------------------------------------------
+ PHASE LIQUID:L %  1  1.0  !
+    CONSTITUENT LIQUID:L :AL,CU,SC :  !
+   PARAMETER G(LIQUID,AL;0)    298.15  +GLIQAL;                        2900 N !
+   PARAMETER G(LIQUID,CU;0)    298.15  +GLIQCU;                        3200 N !
+   PARAMETER G(LIQUID,SC;0)    298.15  +GLIQSC;                        3200 N !
+   PARAMETER G(LIQUID,AL,SC;0) 298.15  -131778+3.639*T;                6000 N !
+   PARAMETER G(LIQUID,AL,SC;1) 298.15  -20126+8.877*T;                 6000 N !
+   PARAMETER G(LIQUID,AL,SC;2) 298.15  +50985-24.917*T;                6000 N !
+   PARAMETER G(LIQUID,AL,CU;0) 298.15  -67094+8.555*T;        6000 N ! $2004Wit
+   PARAMETER G(LIQUID,AL,CU;1) 298.15  +32148-7.118*T;        6000 N ! $2004Wit
+   PARAMETER G(LIQUID,AL,CU;2) 298.15  +5915-5.889*T;         6000 N ! $2004Wit
+   PARAMETER G(LIQUID,AL,CU;3) 298.15  -8175+6.049*T;         6000 N ! $2004Wit
+   PARAMETER G(LIQUID,CU,SC;0) 298.15  -96000+45.799*T;                6000 N !
+   PARAMETER G(LIQUID,CU,SC;1) 298.15  -12417+5.869*T;                 6000 N !
+   PARAMETER G(LIQUID,CU,SC;2) 298.15  +12271-9.715*T;                 6000 N !
+   PARAMETER G(LIQUID,AL,CU,SC;0) 298.15  -58000;                      6000 N !
+
+$------------------------------------------------------------------------------
+ PHASE FCC  %  1 1 !
+   CONSTITUENT FCC  :AL,CU,SC : !
+   PARAMETER G(FCC,AL;0)     298.15  +GHSERAL;                         2900 N !
+   PARAMETER G(FCC,CU;0)     298.15  +GHSERCU;                         3200 N !
+   PARAMETER G(FCC,SC;0)     298.15  +GFCCSC;                          3200 N !
+   PARAMETER G(FCC,AL,SC;0)  298.15  -109500+2.5*T;                    6000 N !
+   PARAMETER G(FCC,AL,CU;0)  298.15  -53520+2*T;              6000 N ! $2004Wit
+   PARAMETER G(FCC,AL,CU;1)  298.15  +38590-2*T;              6000 N ! $2004Wit
+   PARAMETER G(FCC,AL,CU;2)  298.15  +1170;                   6000 N ! $2004Wit
+   PARAMETER G(FCC,CU,SC;0)  298.15  -3890;                            6000 N !
+
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR BCC
+$------------------------------------------------------------------------------
+ PHASE BCC  %  1 1 !
+    CONSTITUENT BCC  :AL,CU,SC : !
+   PARAMETER G(BCC,AL;0)  298.15  +GBCCAL;                             2900 N !
+   PARAMETER G(BCC,CU;0)  298.15  +GBCCCU;                             3200 N !
+   PARAMETER G(BCC,SC;0)  298.15  +GBCCSC;                             3200 N !
+   PARAMETER G(BCC,AL,SC;0)  298.15 -113589;                           6000 N !
+   PARAMETER G(BCC,AL,CU;0)  298.15 -73554+4*T;               6000 N ! $2004Wit
+   PARAMETER G(BCC,AL,CU;1)  298.15 +51500-11.84*T;           6000 N ! $2004Wit
+   PARAMETER G(BCC,CU,SC;0)  298.15 +6001;                             6000 N !
+   
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR HCP
+$------------------------------------------------------------------------------
+ PHASE HCP  %  1 1 !
+    CONSTITUENT HCP  :AL,CU,SC :  !
+   PARAMETER G(HCP,AL;0)  298.15  +GHCPAL;                             2900 N !
+   PARAMETER G(HCP,CU;0)  298.15  +GHCPCU;                             3200 N !
+   PARAMETER G(HCP,SC;0)  298.15  +GHSERSC;                            3200 N !
+   PARAMETER G(HCP,AL,SC;0)  298.15 -106397;                           6000 N !
+   PARAMETER G(HCP,CU,SC;0)  298.15 +14500-3*T;                        6000 N !
+
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR COMPOUND
+$------------------------------------------------------------------------------
+$AL2CU:θModel(Al)2(Al,Cu)1
+ PHASE  THETA %  2   2   1 !
+  CONSTITUENT THETA  :AL : AL,CU :  !
+   PARAMETER G(THETA,AL:AL;0)  298.15
+    +30249-14.439*T+3*GHSERAL;                                6000 N ! $2004Wit
+   PARAMETER G(THETA,AL:CU;0)  298.15
+    -47406+6.75*T+2*GHSERAL+GHSERCU;                          6000 N ! $2004Wit
+   PARAMETER G(THETA,AL:AL,CU;0)  298.15 +2211;               6000 N ! $2004Wit
+
+$ALCU:ηModel(Al,Cu)1(Cu)1
+ PHASE ETA  %  2   1   1 !
+  CONSTITUENT ETA  :AL,CU : CU :  !
+   PARAMETER G(ETA,AL:CU;0) 298.15
+    -40560+3.14*T+GHSERAL+GHSERCU;                            6000 N ! $2004Wit
+   PARAMETER G(ETA,CU:CU;0) 298.15 +8034-2.51*T+2*GHSERCU;    6000 N ! $2004Wit
+   PARAMETER G(ETA,AL,CU:CU;0) 298.15 -25740-20*T;            6000 N ! $2004Wit
+
+$ALCU:εModel(Al,Cu)1(Cu)1
+ PHASE EPSIRON  %  2   1   1 !
+  CONSTITUENT EPSIRON  :AL,CU : CU :  !
+   PARAMETER G(EPSIRON,AL:CU;0) 298.15
+    -36976+1.2*T+GHSERAL+GHSERCU;                             6000 N ! $2004Wit
+   PARAMETER G(EPSIRON,CU:CU;0) 298.15
+    +8034-2.51*T+2*GHSERCU;                                   6000 N ! $2004Wit
+   PARAMETER G(EPSIRON,AL,CU:CU;0) 298.15 +7600-24*T;         6000 N ! $2004Wit
+   PARAMETER G(EPSIRON,AL,CU:CU;1) 298.15 -72000;             6000 N ! $2004Wit
+
+$AL9CU11:ζModel(Al)9(Cu)11
+ PHASE ZETA  %  2   9    11 !
+  CONSTITUENT ZETA  :AL : CU :  !
+   PARAMETER G(ZETA,AL:CU;0)  298.15
+    -420000+18*T+9*GHSERAL+11*GHSERCU;                        6000 N ! $2004Wit
+      
+$AL2CU3:δModel(Al)2(Cu)3
+ PHASE DELTA  %  2   2    3 !
+  CONSTITUENT DELTA  :AL : CU :  !
+   PARAMETER G(DELTA,AL:CU;0)  298.15
+    -106700+3*T+2*GHSERAL+3*GHSERCU;                          6000 N ! $2004Wit
+
+$AL5CU8:γD83Model(Al)4(Al,Cu)1(Cu)8
+ PHASE GAMMA_D83 %  3    4   1   8 !
+  CONSTITUENT GAMMA_D83 :AL : AL,CU : CU : !
+   PARAMETER G(GAMMA_D83,AL:AL:CU;0)  298.15
+    -277739+215*T-30*T*Ln(T)+5*GHSERAL+8*GHSERCU;             6000 N ! $2004Wit
+   PARAMETER G(GAMMA_D83,AL:CU:CU;0)  298.15 
+    -280501+379.6*T-52*T*Ln(T)+4*GHSERAL+9*GHSERCU;           6000 N ! $2004Wit
+   PARAMETER G(GAMMA_D83,AL:AL,CU:CU;0) 298.15 0.0;           6000 N ! $2004Wit
+
+$AL5CU8:γModel(Al)4(Al,Cu)1(Cu)8
+ PHASE GAMMA %  3    4   1   8 !
+  CONSTITUENT GAMMA :AL : AL,CU : CU : !
+   PARAMETER G(GAMMA,AL:AL:CU;0)  298.15
+    -219258-45.5*T+5*GHSERAL+8*GHSERCU;                       6000 N ! $2004Wit
+   PARAMETER G(GAMMA,AL:CU:CU;0)  298.15
+    -200460-58.5*T+4*GHSERAL+9*GHSERCU;                       6000 N ! $2004Wit
+   PARAMETER G(GAMMA,AL:AL,CU:CU;0) 298.15 0.0;               6000 N ! $2004Wit
+
+$AL3SC
+ PHASE AL3SC  % 2   3   1 !
+  CONSTITUENT AL3SC  :AL : SC :  !
+   PARAMETER G(AL3SC,AL:SC;0) 298.15  -156700+7.2*T+3*GHSERAL+GHSERSC; 6000 N !
+
+$AL2SC
+ PHASE AL2SC  % 2   2   1 !
+  CONSTITUENT AL2SC  :AL : SC :  !
+   PARAMETER G(AL2SC,AL:SC;0) 298.15  -142500+8.8*T+2*GHSERAL+GHSERSC; 6000 N !
+
+$ALSC
+ PHASE ALSC  % 2   1   1 !
+  CONSTITUENT ALSC  :AL : SC :  !
+   PARAMETER G(ALSC,AL:SC;0) 298.15  -94100+6.4*T+GHSERAL+GHSERSC;     6000 N !
+
+$ALSC2
+ PHASE ALSC2  % 2   1   2 !
+  CONSTITUENT ALSC2  :AL : SC :  !
+   PARAMETER G(ALSC2,AL:SC;0) 298.15  -112484+1.6*T+GHSERAL+2*GHSERSC; 6000 N !
+
+$CU4SC
+ PHASE CU4SC  % 2   4   1 !
+  CONSTITUENT CU4SC  :CU : SC :  !
+   PARAMETER G(CU4SC,CU:SC;0) 298.15  -64156+13*T+4*GHSERCU+GHSERSC;   6000 N !
+
+$CU2SC
+ PHASE CU2SC  % 2   2   1 !
+  CONSTITUENT CU2SC  :CU : SC :  !
+   PARAMETER G(CU2SC,CU:SC;0) 298.15  -58500+17*T+2*GHSERCU+GHSERSC;   6000 N !
+
+$CUSC(-44705+13.5*T==>-47705+13.5*T)
+ PHASE CUSC  % 2   1   1 !
+  CONSTITUENT CUSC  :CU : SC :  !
+   PARAMETER G(CUSC,CU:SC;0) 298.15  -47705+13.5*T+GHSERCU+GHSERSC;    6000 N !
+
+$ In paper
+$ PHASE CUSC  % 2   1   1 !
+$  CONSTITUENT CUSC  :CU : SC :  !
+$   PARAMETER G(CUSC,CU:SC;0) 298.15  -44705+13.5*T+GHSERCU+GHSERSC;   6000 N !
+
+$τmodel 1
+ PHASE TAU1  % 3  0.6154  0.3077 0.0769 !
+  CONSTITUENT TAU1  :AL,CU : CU :  SC : !
+   PARAMETER G(TAU1,AL:CU:SC;0) 298.15
+     -25280+0.6154*GHSERAL+0.3077*GHSERCU+0.0769*GHSERSC;              6000 N !
+   PARAMETER G(TAU1,CU:CU:SC;0) 298.15
+     +2500+0.9231*GHSERCU+0.0769*GHSERSC;                              6000 N !
+   PARAMETER G(TAU1,AL,CU:CU:SC;0) 298.15 -32900;                      6000 N !
+
+$τmodel 2
+ PHASE TAU2  % 3  0.6154  0.3077 0.0769 !
+  CONSTITUENT TAU2  :AL,CU : AL,CU :  SC : !
+   PARAMETER G(TAU2,AL:CU:SC;0) 298.15
+     -25220+0.6154*GHSERAL+0.3077*GHSERCU+0.0769*GHSERSC;              6000 N !
+   PARAMETER G(TAU2,CU:AL:SC;0) 298.15
+     -2800+0.6154*GHSERCU+0.3077*GHSERAL+0.0769*GHSERSC;               6000 N !
+   PARAMETER G(TAU2,AL:AL:SC;0) 298.15
+     -2800+0.9231*GHSERAL+0.0769*GHSERSC;                              6000 N !
+   PARAMETER G(TAU2,CU:CU:SC;0) 298.15
+     +2500+0.9231*GHSERCU+0.0769*GHSERSC;                              6000 N !
+   PARAMETER G(TAU2,AL,CU:AL:SC;0) 298.15 -33160;                      6000 N !
+   PARAMETER G(TAU2,AL,CU:CU:SC;0) 298.15 -33160;                      6000 N !
+   PARAMETER G(TAU2,AL:AL,CU:SC;0) 298.15 -2800;                       6000 N !
+   PARAMETER G(TAU2,CU:AL,CU:SC;0) 298.15 -2800;                       6000 N !
