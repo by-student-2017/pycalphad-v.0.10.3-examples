@@ -1,0 +1,238 @@
+$ CeLaMg
+$
+$ TDB-file for the thermodynamic assessment of the Ce-La-Mg system
+$
+$------------------------------------------------------------------------------
+$ 2014.2.12
+$ 
+$ TDB file created by K.Hashimoto, T.Abe and Y.sawada
+$
+$ Thermodynamics Modeling Group , National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi @nims.go.jp
+$ Copyright (C) NIMS 2014
+$
+$ PARAMETERS ARE TAKEN FROM 
+$  10Guo:
+$  A thermodynamic description of the Ce-La-Mg system,
+$  C.Guo, Z.Du, C.Li, Int.J.Mat.Res., 101 (2010) 1424-1431.
+$  08Guo:
+$  Thermodynamic description of the Ce-Mg-Y and Mg-Nd-Y systems 
+$  C.Guo, Z.Du, C.Li, Int.J.Mat.Res., 99 (2008) 650-668.
+$  98Cac:
+$  G.Cacciamani, G.Borzone, R.Ferro, COST507, (1998) 137-140.
+$  06Du:
+$  Thermodynamic modeling of the La-Mg-Y system and Mg-based alloys database,
+$  Z.Du, C.Guo, C.Li, W.Zhang, Rare Metals, 25 (2006) 492-500.
+$------------------------------------------------------------------------------
+$                  
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT CE   FCC_A1                    1.4012E+02  7.2802E+03  6.9454E+01!
+ ELEMENT LA   DHCP                      1.3891E+02  0.0000E+00  0.0000E+00!
+ ELEMENT MG   HCP_A3                    2.4305E+01  4.9980E+03  3.2671E+01!
+
+$------------------------------------------------------------------------------
+ FUNCTION GHSERCE   298.15
+    -7160.519+84.23022*T-22.3664*T*LN(T)-6.7103E-3*T**2-0.320773E-6*T**3
+    -18117*T**(-1);                                                    1000 Y
+    -79678.506+659.4604*T-101.3224803*T*LN(T)+26.046487E-3*T**2
+    -1.930297E-6*T**3+11531707*T**(-1);                                2000 Y
+    -14198.639+190.370192*T-37.6978*T*LN(T);                    4000 N ! $Unary
+    
+ FUNCTION GCEBCC    298.15
+    -1354.69-5.21501*T-7.7305867*T*LN(T)-29.098402E-3*T**2+4.784299E-6*T**3
+    -196303*T**(-1);                                                   1000 Y
+    -12101.106+187.449688*T-37.6142*T*LN(T);                           1072 Y
+    -11950.375+186.333811*T-37.4627992*T*LN(T)-0.057145E-3*T**2
+    +0.002348E-6*T**3-25897*T**(-1);                            4000 N ! $Unary
+    
+ FUNCTION GCELIQ    298.15
+    +4117.865-11.423898*T-7.5383948*T*LN(T)-29.36407E-3*T**2+4.827734E-6*T**3
+    -198834*T**(-1);                                                   1000 Y
+    -6730.605+183.023193*T-37.6978*T*LN(T);                     4000 N ! $Unary
+    
+$Unary(Ver4.4)
+  FUNCTION GHSERLA   298.15
+     -7968.403+120.284604*T-26.34*T*LN(T)-1.295165E-3*T**2;               550 Y
+     -3381.413+59.06113*T-17.1659411*T*LN(T)-8.371705E-3*T**2+0.68932E-6*T**3
+     -399448*T**(-1);                                                    2000 Y
+     -15608.882+181.390071*T-34.3088*T*LN(T);                          4000 N !
+ 
+  FUNCTION GLAFCC    298.15
+     -6109.797+89.878761*T-21.7919*T*LN(T)-4.045175E-3*T**2-0.525865E-6*T**3;
+                                                                         1134 Y
+     -124598.976+955.878375*T-139.3467411*T*LN(T)+42.032405E-3*T**2
+     -3.066199E-6*T**3+20994153*T**(-1);                                 2000 Y
+     -12599.386+178.54399*T-34.3088*T*LN(T);                           4000 N !
+
+  FUNCTION GLABCC   298.15
+     -3952.161+88.072353*T-21.7919*T*LN(T)-4.045175E-3*T**2-0.525865E-6*T**3;
+                                                                          800 Y
+     +321682.673-3565.082518*T+513.4407077*T*LN(T)-387.295093E-3*T**2
+     +49.547989E-6*T**3-36581228*T**(-1);                                1134 Y
+     -16377.894+218.492988*T-39.5388*T*LN(T);                            1193 Y
+     -136609.91+1123.343974*T-163.4130738*T*LN(T)+53.968535E-3*T**2
+     -4.056395E-6*T**3+21167204*T**(-1);                                 2000 Y
+     -8205.988+174.836315*T-34.3088*T*LN(T);                           4000 N !
+
+ FUNCTION GLALIQ   298.15
+    +5332.653+18.23012*T-11.0188191*T*LN(T)-20.171603E-3*T**2+2.93775E-6*T**3
+    -133541*T**(-1);                                                     1134 Y
+    -3942.004+171.018431*T-34.3088*T*LN(T);                            4000 N !
+
+ FUNCTION GHSERMG    298.15  -8367.34+143.675547*T-26.1849782*T*LN(T)
+    +4.858E-04*T**2-1.393669E-06*T**3+78950*T**(-1);                      923 Y
+    -14130.185+204.716215*T-34.3088*T*LN(T)+1.038192E+28*T**(-9);
+                                                                3000 N ! $Unary
+
+ FUNCTION GMGLIQ  298.15  +8202.243-8.83693*T+GHSERMG#-8.0176E-20*T**7;   923 Y
+    -5439.869+195.324057*T-34.3088*T*LN(T);                     3000 N ! $Unary
+
+ FUNCTION GMGBCC     298.15 +3100-2.1*T+GHSERMG;                3000 N ! $Unary
+     
+ FUNCTION GMGFCC     298.15 +2600-0.9*T+GHSERMG;                3000 N ! $Unary
+   
+$------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR LIQUID PHASE
+$------------------------------------------------------------------------------
+ PHASE LIQUID  %  1  1.0  !
+    CONSTITUENT LIQUID  :CE,LA,MG :  !
+  PARAMETER G(LIQUID,CE;0)     298.15  +GCELIQ;                        4000 N !
+  PARAMETER G(LIQUID,LA;0)     298.15  +GLALIQ;                        4000 N !
+  PARAMETER G(LIQUID,MG;0)     298.15  +GMGLIQ;                        3000 N !
+  PARAMETER G(LIQUID,CE,MG;0)  298.15  -39381.2+16.3405*T;      6000 N ! $98Cac
+  PARAMETER G(LIQUID,CE,MG;1)  298.15  +25338.6-11.8689*T;      6000 N ! $98Cac
+  PARAMETER G(LIQUID,CE,MG;2)  298.15  -15106.9;                6000 N ! $98Cac
+  PARAMETER G(LIQUID,LA,MG;0)  298.15  -36462.5+12.1291*T;      6000 N ! $06Du
+  PARAMETER G(LIQUID,LA,MG;1)  298.15  +26159.0-14.9613*T;      6000 N ! $06Du
+  PARAMETER G(LIQUID,LA,MG;2)  298.15  -13283.1;                6000 N ! $06Du
+  PARAMETER G(LIQUID,CE,LA,MG;0)  298.15  0;                    6000 N ! $10Guo
+  PARAMETER G(LIQUID,CE,LA,MG;1)  298.15  0;                    6000 N ! $10Guo
+  PARAMETER G(LIQUID,CE,LA,MG;2)  298.15  +80000.0;             6000 N ! $10Guo
+
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR BCC
+$------------------------------------------------------------------------------
+ TYPE_DEFINITION ) GES A_P_D B2 DIS_PART BCC ,,, !  
+  PHASE BCC % 2   1   3 !
+    CONSTITUENT BCC :CE,LA,MG : VA : !
+  PARAMETER G(BCC,CE:VA;0)     298.15  +GCEBCC;                 4000 N !
+  PARAMETER G(BCC,LA:VA;0)     298.15  +GLABCC;                 4000 N !
+  PARAMETER G(BCC,MG:VA;0)     298.15  +GMGBCC;                 3000 N !
+  PARAMETER G(BCC,CE,MG:VA;0)  298.15  -46074.7+24.0406*T;      6000 N ! $08Guo
+  PARAMETER G(BCC,CE,MG:VA;1)  298.15  +58879.2-53.4006*T;      6000 N ! $08Guo
+  PARAMETER G(BCC,CE,MG:VA;2)  298.15  -6601.1;                 6000 N ! $08Guo
+  PARAMETER G(BCC,LA,MG:VA;0)  298.15  -36627.2+13.7758*T;      6000 N ! $06Du
+  PARAMETER G(BCC,LA,MG:VA;1)  298.15  +53155.1-45.1962*T;      6000 N ! $06Du
+  PARAMETER G(BCC,LA,MG:VA;2)  298.15  -6412.5;                 6000 N ! $06Du
+  PARAMETER G(BCC,CE,LA,MG:VA;0)  298.15  0;                    6000 N ! $10Guo
+  PARAMETER G(BCC,CE,LA,MG:VA;1)  298.15  0;                    6000 N ! $10Guo
+  PARAMETER G(BCC,CE,LA,MG:VA;2)  298.15  +80000.0;             6000 N ! $10Guo
+
+  PHASE B2 %) 3   0.5  0.5   3!
+    CONSTITUENT B2 :CE,LA,MG : CE,LA,MG : VA:!
+  PARAMETER G(B2,CE:CE:VA;0)     298.15  +0;                             4000 N !
+  PARAMETER G(B2,LA:LA:VA;0)     298.15  +0;                             4000 N !
+  PARAMETER G(B2,MG:MG:VA;0)     298.15  +0;                             4000 N !
+  PARAMETER G(B2,CE:MG:VA;0)     298.15  -28056.3+1.9744*T;        4000 N ! $08Guo
+  PARAMETER G(B2,MG:CE:VA;0)     298.15  -28056.3+1.9744*T;        4000 N ! $08Guo
+  PARAMETER G(B2,LA:MG:VA;0)     298.15  -27089.5+3.2549*T;        4000 N ! $06Du
+  PARAMETER G(B2,MG:LA:VA;0)     298.15  -27089.5+3.2549*T;        4000 N ! $06Du
+  PARAMETER G(B2,MG:CE,MG:VA;0)  298.15  -26337.6-1.0552*T;        4000 N ! $08Guo
+  PARAMETER G(B2,CE,MG:MG:VA;0)  298.15  -26337.6-1.0552*T;        4000 N ! $08Guo
+  PARAMETER G(B2,MG:CE,MG:VA;1)  298.15  +4620.1;                  4000 N ! $08Guo
+  PARAMETER G(B2,CE,MG:MG:VA;1)  298.15  +4620.1;                  4000 N ! $08Guo
+  PARAMETER G(B2,LA:LA,MG:VA;0)  298.15  -20883.3;                 4000 N ! $06DU
+  PARAMETER G(B2,LA,MG:LA:VA;0)  298.15  -20883.3;                 4000 N ! $06DU
+  PARAMETER G(B2,LA:LA,MG:VA;1)  298.15  -9259.8;                  4000 N ! $06DU
+  PARAMETER G(B2,LA,MG:LA:VA;1)  298.15  -9259.8;                  4000 N ! $06DU
+  PARAMETER G(B2,MG:CE,LA:VA;0)  298.15  +6000.0;                  4000 N ! $10GUO
+  PARAMETER G(B2,CE,LA:MG:VA;0)  298.15  +6000.0;                  4000 N ! $10GUO
+
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR HCP
+$------------------------------------------------------------------------------
+ PHASE HCP %  2  1   1  !
+    CONSTITUENT HCP :CE,LA,MG :VA:  !
+  PARAMETER G(HCP,CE:VA;0)   298.15  +GHSERCE+300;              4000 N ! $Unary
+  PARAMETER G(HCP,LA:VA;0)   298.15  +GHSERLA+303.4;            4000 N ! $06Du
+  PARAMETER G(HCP,MG:VA;0)   298.15  +GHSERMG;                  3000 N !
+  PARAMETER G(HCP,CE,MG:VA;0)   298.15  -10000.0;               6000 N ! $10Guo
+  PARAMETER G(HCP,CE,MG:VA;1)   298.15  +10000.0;               6000 N ! $10Guo
+  PARAMETER G(HCP,LA,MG:VA;0)   298.15  -10000.0;               6000 N ! $10Guo
+
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR DHCP
+$------------------------------------------------------------------------------
+ PHASE DHCP  %  1  1.0  !
+    CONSTITUENT DHCP  :CE,LA,MG : !
+  PARAMETER G(DHCP,CE;0)       298.15  +GHSERCE-122.539+0.433*T;
+                                                                4000 N ! $Unary
+  PARAMETER G(DHCP,LA;0)       298.15  +GHSERLA;                4000 N !
+  PARAMETER G(DHCP,MG;0)       298.15  +GHSERMG+5000.0;         3000 N ! $08Guo
+  PARAMETER G(DHCP,CE,LA;0)    298.15  +100.0;                  6000 N ! $10Guo
+  PARAMETER G(DHCP,LA,MG;0)    298.15  -11533.8;                6000 N ! $10Guo
+
+$------------------------------------------------------------------------------
+$ FUNCTIONS FOR FCC
+$------------------------------------------------------------------------------
+ PHASE FCC  %  2  1  1 !
+    CONSTITUENT FCC :CE,LA,MG:  VA :!
+  PARAMETER G(FCC,CE:VA;0)     298.15  +GHSERCE;                       4000 N !
+  PARAMETER G(FCC,LA:VA;0)     298.15  +GLAFCC;                        4000 N !
+  PARAMETER G(FCC,MG:VA;0)     298.15  +GMGFCC;                        3000 N !
+  PARAMETER G(FCC,CE,MG:VA;0)  298.15  +6847.8-4.0624*T;        3000 N ! $08Guo
+  PARAMETER G(FCC,CE,MG:VA;1)  298.15  -22567.1;                3000 N ! $08Guo
+  PARAMETER G(FCC,LA,MG:VA;0)  298.15  -25889.8+20.2896*T;      3000 N ! $06Du
+  PARAMETER G(FCC,LA,MG:VA;1)  298.15  +34892.7-47.5880*T;      3000 N ! $06Du
+
+$------------------------------------------------------------------------------
+$ PARAMETERS FOR  COMPOUND
+$------------------------------------------------------------------------------
+ PHASE RMG2  %  2  1   2 !
+    CONSTITUENT RMG2  : CE,LA : MG : !
+  PARAMETER G(RMG2,CE:MG;0)  298.15  -42757.8+5.4372*T
+     +GHSERCE+2*GHSERMG;                                        6000 N ! $08Guo
+  PARAMETER G(RMG2,LA:MG;0)  298.15  -56141.8+17.9342*T
+     +GHSERLA+2*GHSERMG;                                        6000 N ! $06Du
+
+ PHASE RMG3  %  2 1   3 !
+    CONSTITUENT RMG3  : CE,LA,MG : MG : !
+  PARAMETER G(RMG3,CE:MG;0)  298.15  -70520.9+20.8830*T
+     +GHSERCE+3*GHSERMG;                                        6000 N ! $08Guo
+  PARAMETER G(RMG3,LA:MG;0)  298.15  -77118.3+27.6920*T
+     +GHSERLA+3*GHSERMG;                                        6000 N ! $06Du
+  PARAMETER G(RMG3,MG:MG;0)  298.15  +4*GHSERMG+12400-8.4*T;    6000 N ! $08Guo
+  PARAMETER G(RMG3,CE,MG:MG;0)  298.15  +7941.8;                6000 N ! $08Guo
+  PARAMETER G(RMG3,LA,MG:MG;0)  298.15  -1000.0;                6000 N ! $06Du
+
+ PHASE R5MG41  %  2  5    41 !
+    CONSTITUENT R5MG41  : CE,LA : MG : !
+ PARAMETER G(R5MG41,CE:MG;0)  298.15  -408287.2+109.9791*T
+     +5*GHSERCE+41*GHSERMG;                                     6000 N ! $
+ PARAMETER G(R5MG41,LA:MG;0)  298.15  -409161.6+100.1828*T
+     +5*GHSERLA+41*GHSERMG;                                     6000 N ! $06Du
+
+ PHASE RMG12  %  2   1   12 !
+    CONSTITUENT RMG12  : CE,LA : MG : !
+ PARAMETER G(RMG12,CE:MG;0)     298.15  -81647.9+18.5839*T
+     +GHSERCE+12*GHSERMG;                                       6000 N ! $
+ PARAMETER G(RMG12,LA:MG;0)     298.15  -82461.8+17.4299*T
+     +GHSERLA+12*GHSERMG;                                       6000 N ! $06Du
+ PARAMETER G(RMG12,CE,LA:MG;0)  298.15  +1000.0+2.0000*T;       6000 N ! $
+
+ PHASE R2MG17  %  2  2   17 !
+    CONSTITUENT R2MG17  : CE,LA : MG : !
+ PARAMETER G(R2MG17,CE:MG;0)  298.15  -148023.2+26.1329*T
+     +2*GHSERCE+17*GHSERMG;                                     6000 N ! $
+ PARAMETER G(R2MG17,LA:MG;0)  298.15  -163834.5+39.4861*T
+     +2*GHSERLA+17*GHSERMG;                                     6000 N ! $06Du
+$
+$ END OF LINE
+ 

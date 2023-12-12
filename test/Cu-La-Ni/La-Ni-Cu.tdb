@@ -1,0 +1,176 @@
+$-----------------------------------------------------------------------------------------------------------------------
+$ 2009 05 07
+$-----------------------------------------------------------------------------------------------------------------------
+
+ELEMENT Cu	FCC_A1                       63.546           5004          33.15 !
+Element La      DHCP                         0.138906         6665          56.902 !
+Element Ni      FCC_A1                       58.693           4787          29.796 !
+ELEMENT Va	Vacancy                           0              0              0 !
+
+FUNCTION G_Cu_BCC  298.15  -3753.46+129.23*T-24.1124*T*LN(T)-0.00265684*T**2+52478*T**(-1)+1.29223e-007*T**3; 1357.77 Y
+	-9525.03+182.549*T-31.38*T*LN(T)+3.642e+029*T**(-9); 3200 N !
+
+FUNCTION G_Cu_FCC_A1  298.15  -7770.46+130.485*T-24.1124*T*LN(T)-0.00265684*T**2+52478*T**(-1)+1.29223e-007*T**3; 1357.77 Y
+	-13542+183.804*T-31.38*T*LN(T)+3.642e+029*T**(-9); 3200 N !
+
+FUNCTION G_Cu_LIQUID  298.15  5194.28+120.973*T-24.1124*T*LN(T)-0.00265684*T**2+52478*T**(-1)+1.29223e-007*T**3-5.849e-021*T**7; 1357.77 Y
+	-46.545+173.881*T-31.38*T*LN(T); 3200 N !
+
+FUNCTION G_La_DHCP  298.15 -7968.4+120.285*T-26.34*T*ln(T)-0.00129517*T**2; 550 Y
+        -3381.41+59.0611*T-17.1659*T*ln(T)-0.00837171*T**2+6.8932e-007*T**3-399448*T**(-1); 2000 Y
+        -15608.9+181.39*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_La_LIQUID  298.15 5332.65+18.2301*T-11.0188*T*ln(T)-0.0201716*T**2+2.93775e-006*T**3-133541*T**(-1); 1134 Y
+        -3942+171.018*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_La_FCC  298.15 -6109.8+89.8788*T-21.7919*T*ln(T)-0.00404517*T**2-5.25865e-007*T**3; 1134 Y
+        -124599+955.878*T-139.347*T*ln(T)+0.0420324*T**2-3.0662e-006*T**3+2.09942e+007*T**(-1); 2000 Y
+        -12599.4+178.544*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_La_BCC  298.15 -3952.16+88.0724*T-21.7919*T*ln(T)-0.00404517*T**2-5.25865e-007*T**3; 800 Y
+        321683-3565.08*T+513.441*T*ln(T)-0.387295*T**2+4.9548e-005*T**3-3.65812e+007*T**(-1); 1134 Y
+        -16377.9+218.493*T-39.5388*T*ln(T); 1193 Y
+        -136610+1123.34*T-163.413*T*ln(T)+0.0539685*T**2-4.0564e-006*T**3+2.11672e+007*T**(-1); 2000 Y
+        -8205.99+174.836*T-34.3088*T*ln(T); 4000 N !
+
+FUNCTION G_Ni_LIQUID  298.15  11235.527+108.457*T-22.096*T*LN(T)-0.0048407*T**2-0.382318e-020*T**7; 1728 Y
+	-9549.775+268.598*T-43.100*T*LN(T); 3000 N !
+
+FUNCTION G_Ni_FCC  298.15  -5179.159+117.854*T-22.096*T*LN(T)-0.0048407*T**2; 1728 Y
+	-27840.655+279.135*T-43.100*T*LN(T)+1127.54e+028*T**(-9); 3000 N !
+
+FUNCTION G_Ni_HCP  298.15  -4133.159+119.109*T-22.096*T*LN(T)-0.0048407*T**2; 1728 Y
+	-26794.655+280.390*T-43.100*T*LN(T)+1127.54e+028*T**(-9); 3000 N !
+
+TYPE_DEFINITION A GES A_P_D Fcc MAGNETIC -3  0.28 !
+Phase FCC %A 1 1 1 !
+Constituent FCC : Cu, Ni, La : !
+Parameter G(FCC, Cu; 0) 298.15  G_Cu_FCC_A1; 6000 N !
+Parameter G(FCC, Ni; 0) 298.15  G_Ni_FCC; 6000 N !
+Parameter G(FCC, La; 0) 298.15  G_La_FCC; 6000 N !
+Parameter G(FCC, Cu, La; 0)  298.15  100000; 6000 N !
+Parameter G(FCC, Cu, Ni; 0)  298.15  8047.72+3.42217*T+935.5-0.732*T; 6000 N !
+Parameter G(FCC, Cu, Ni; 1)  298.15  -2041.30+0.99714*T+594.90-0.317*T; 6000 N !
+Parameter TC(FCC, Cu, Ni; 0) 298.15  633.0; 6000 N !
+Parameter BMAGN(FCC, Cu, Ni; 0) 298.15  0.52; 6000 N !
+
+Phase BCC % 1 1 !
+Constituent BCC : Cu, La : !
+Parameter G(BCC, Cu; 0) 298.15  G_Cu_BCC; 6000 N !
+Parameter G(BCC, La; 0) 298.15  G_La_BCC; 6000 N !
+Parameter G(BCC, Cu, La; 0)  298.15  100000; 6000 N !
+
+Phase DHCP % 1 1 !
+Constituent DHCP : Cu, La : !
+Parameter G(DHCP, Cu; 0) 298.15  G_Cu_FCC_A1+5000; 6000 N !
+Parameter G(DHCP, La; 0) 298.15  G_La_DHCP; 6000 N !
+Parameter G(DHCP, Cu, La; 0)  298.15  100000; 6000 N !
+
+Phase Liquid % 1 1 !
+Constituent Liquid : Cu, Ni, La : !
+Parameter G(Liquid, Cu; 0) 298.15  G_Cu_LIQUID; 6000 N !
+Parameter G(Liquid, La; 0) 298.15  G_La_LIQUID; 6000 N !
+Parameter G(Liquid, Ni; 0) 298.15  G_Ni_LIQUID; 6000 N !
+Parameter G(Liquid, Cu, La; 0)  298.15  -103584+342.112*T-40.1841*T*LN(T); 6000 N !
+Parameter G(Liquid, Cu, La; 1)  298.15  -70635+205.618*T-24.1452*T*LN(T); 6000 N !
+Parameter G(Liquid, Cu, La; 2)  298.15  -103936+450.826*T-52.4266*T*LN(T); 6000 N !
+Parameter G(Liquid, Ni, La; 0)  298.15  -116299+19.815*T; 6000 N !
+Parameter G(Liquid, Ni, La; 1)  298.15  -63813+40.941*T; 6000 N !
+Parameter G(Liquid, Cu, Ni; 0)  298.15  12048.61+1.29093*T; 6000 N !
+Parameter G(Liquid, Cu, Ni; 1)  298.15  -1861.61+0.94201*T; 6000 N !
+Parameter G(Liquid, Cu, Ni, La; 0)  298.15  -30086.94; 6000 N !
+Parameter G(Liquid, Cu, Ni, La; 1)  298.15  100000; 6000 N !
+Parameter G(Liquid, Cu, Ni, La; 2)  298.15  -40000; 6000 N !
+
+$ Phase (Cu,Ni)5La % 2 5 1 !
+$ Constituent (Cu,Ni)5La: Cu, Ni : La : !
+$ Parameter G((Cu,Ni)5La, Ni: La; 0)  298.15  G_La_DHCP+5*G_Ni_FCC-154674+30.622*T; 6000 N !
+$ Parameter G((Cu,Ni)5La, Cu: La; 0)  298.15  G_La_DHCP+5*G_Cu_FCC_A1-65041-0.019*T; 6000 N !
+$ Parameter G((Cu,Ni)5La, Cu, Ni: La; 0)  298.15  29354+30*T; 6000 N !
+$ (Cu,Ni)5La => CuNi5La
+Phase CuNi5La % 2 5 1 !
+Constituent CuNi5La : Cu, Ni : La : !
+Parameter G(CuNi5La, Ni: La; 0)  298.15  G_La_DHCP+5*G_Ni_FCC-154674+30.622*T; 6000 N !
+Parameter G(CuNi5La, Cu: La; 0)  298.15  G_La_DHCP+5*G_Cu_FCC_A1-65041-0.019*T; 6000 N !
+Parameter G(CuNi5La, Cu, Ni: La; 0)  298.15  29354+30*T; 6000 N !
+
+
+Phase Cu2La % 2 2 1 !
+Constituent Cu2La : Ni, Cu : La : !
+Parameter G(Cu2La, Cu:La; 0)  298.15  2*G_Cu_FCC_A1+G_La_DHCP-48445+3.484*T; 6000 N !
+Parameter G(Cu2La, Ni:La; 0)  298.15  2*G_Ni_FCC+G_La_DHCP+20000; 6000 N !
+Parameter G(Cu2La, Cu, Ni:La; 0)  298.15  -142075; 6000 N !
+Parameter G(Cu2La, Cu, Ni:La; 1)  298.15  -80250; 6000 N !
+
+Phase Ni3La % 2 3 1 !
+Constituent Ni3La : Ni, Cu : La : !
+Parameter G(Ni3La, Ni:La; 0)  298.15  G_La_DHCP+3*G_Ni_FCC-108154+15.857*T; 6000 N !
+Parameter G(Ni3La, Cu:La; 0)  298.15  G_La_DHCP+3*G_Cu_FCC_A1+20000; 6000 N !
+Parameter G(Ni3La, Ni, Cu:La; 0)  298.15  -94055.1+77.5*T; 6000 N !
+
+Phase AlFA_Ni7La2 % 2 7 2 !
+Constituent AlFA_Ni7La2 : Ni, Cu : La : !
+Parameter G(AlFA_Ni7La2, Ni:La; 0)  298.15  2*G_La_DHCP+7*G_Ni_FCC-239869+37.356*T; 6000 N !
+Parameter G(AlFA_Ni7La2, Cu:La; 0)  298.15  2*G_La_DHCP+7*G_Cu_FCC_A1+45000; 6000 N !
+Parameter G(AlFA_Ni7La2, Ni, Cu:La; 0)  298.15  -171558-115*T; 6000 N !
+
+Phase Ni3La7 % 2 3 7 !
+Constituent Ni3La7 : Ni : La : !
+Parameter G(Ni3La7, Ni:La; 0)  298.15  7*G_La_DHCP+3*G_Ni_FCC-180100+1.054*T; 6000 N !
+
+Phase NiLa % 2 1 1 !
+Constituent NiLa : Ni, Cu : La : !
+Parameter G(NiLa, Ni:La; 0)  298.15  G_La_DHCP+G_Ni_FCC-51390-0.055*T; 6000 N !
+Parameter G(NiLa, Cu:La; 0)  298.15  G_La_DHCP+G_Cu_FCC_A1+10000; 6000 N !
+Parameter G(NiLa, Ni, Cu:La; 0)  298.15  -27426; 6000 N !
+Parameter G(NiLa, Ni, Cu:La; 1)  298.15  13500; 6000 N !
+Parameter G(NiLa, Ni, Cu:La; 2)  298.15  -74500; 6000 N !
+
+Phase CuLa % 2 1 1 !
+Constituent CuLa : Cu, Ni : La : !
+Parameter G(CuLa, Cu:La; 0)  298.15  G_Cu_FCC_A1+G_La_DHCP-32457+10.856*T; 6000 N !
+Parameter G(CuLa, Ni:La; 0)  298.15  G_Ni_FCC+G_La_DHCP+10000; 6000 N !
+Parameter G(CuLa, Cu, Ni:La; 0)  298.15  5168.5; 6000 N !
+Parameter G(CuLa, Cu, Ni:La; 1)  298.15  -147168.5; 6000 N !
+
+Phase Ni3La2 % 2 3 2 !
+Constituent Ni3La2 : Ni, Cu : La : !
+Parameter G(Ni3La2, Ni:La; 0)  298.15  2*G_La_DHCP+3*G_Ni_FCC-138509+14.109*T; 6000 N !
+Parameter G(Ni3La2, Cu:La; 0)  298.15  2*G_La_DHCP+G_Cu_FCC_A1+25000; 6000 N !
+Parameter G(Ni3La2, Ni, Cu:La; 0)  298.15  -138245.9-30*T; 6000 N !
+
+Phase Ni16La7 % 2 16 7 !
+Constituent Ni16La7 : Ni, Cu : La : !
+Parameter G(Ni16La7, Ni:La; 0)  298.15  7*G_La_DHCP+16*G_Ni_FCC-639390+91.778*T; 6000 N !
+Parameter G(Ni16La7, Cu:La; 0)  298.15  7*G_La_DHCP+16*G_Cu_FCC_A1+18000-76.36375*T; 6000 N !
+Parameter G(Ni16La7, Ni, Cu:La; 0)  298.15  -506931.185+449.9*T; 6000 N !
+
+Phase NiLa3 % 2 1 3 !
+Constituent NiLa3 : Ni : La : !
+Parameter G(NiLa3, Ni:La; 0)  298.15  3*G_La_DHCP+G_Ni_FCC-60909-0.702*T; 6000 N !
+
+Phase BETA_Ni7La2 % 2 7 2 !
+Constituent BETA_Ni7La2 : Ni : La : !
+Parameter G(BETA_Ni7La2, Ni:La; 0)  298.15  2*G_La_DHCP+7*G_Ni_FCC-237259+35.267*T; 6000 N !
+
+Phase Cu37La3 % 2 37 3 !
+Constituent Cu37La3 : Cu : La : !
+Parameter G(Cu37La3, Cu:La; 0)  298.15  37*G_Cu_FCC_A1+3*G_La_DHCP-71251-129.229*T; 6000 N !
+
+Phase Cu4La % 2 4 1 !
+Constituent Cu4La : Cu : La : !
+Parameter G(Cu4La, Cu:La; 0)  298.15  4*G_Cu_FCC_A1+G_La_DHCP-66273+7.727*T; 6000 N !
+
+Phase BETA_Cu6La % 2 6 1 !
+Constituent BETA_Cu6La : Cu : La : !
+Parameter G(BETA_Cu6La, Cu:La; 0)  298.15  6*G_Cu_FCC_A1+G_La_DHCP-62804.804-7.569*T; 6000 N !
+
+Phase ALFA_Cu6La % 2 6 1 !
+Constituent ALFA_Cu6La : Cu : La : !
+Parameter G(ALFA_Cu6La, Cu:La; 0)  298.15  6*G_Cu_FCC_A1+G_La_DHCP-65039-3.10064*T; 6000 N !
+
+Phase Cu85La10Ni5 % 3 85 10 5 !
+Constituent Cu85La10Ni5 : Cu : La : Ni : !
+Parameter G(Cu85La10Ni5, Cu:La:Ni; 0)  298.15  85*G_Cu_FCC_A1+10*G_La_DHCP+5*G_Ni_FCC-757211-18*T; 6000 N !
+
+
