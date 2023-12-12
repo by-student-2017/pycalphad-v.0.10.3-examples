@@ -149,7 +149,6 @@ Line 1358-1373: Write "$" at the beginning of the line.
 ```
 - Folders related to hydrogen storage material: Mg-Mn-Ni, H-La-Ni
 - The test folder is a check to see if a ternary phase diagram can be drawn (including simple TDB file modifications). Normally, I would like to check whether the figure matches the figure in the paper, but since research funding in Japan is extremely uneven (therefore, the paper must be ordered based on copyright law), it is not easy to check. Another reason is that I don't have any achievements, so it's not easy to apply for research funding.
-- 
 
 
 Acknowledgment
