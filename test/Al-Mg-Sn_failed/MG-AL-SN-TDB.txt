@@ -1,0 +1,166 @@
+$ ****************************************************************************
+$ Database file written 2018- 4-28
+$ From database: USER                    
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01!
+ ELEMENT MG   HCP_A3                    2.4305E+01  4.9980E+03  3.2671E+01!
+ ELEMENT SN   BCT_A5                    1.1871E+02  6.3220E+03  5.1195E+01!
+ 
+ SPECIES MG2SN                       MG2SN1!
+$ ****************************************************************************
+ FUNCTION GLIQAL    298.15 +3028.879+125.251171*T-24.3671976*T*LN(T)
+     -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1)+7.9337E-20*T**7; 700 Y
+      -271.21+211.206579*T-38.5844296*T*LN(T)+.018531982*T**2
+     -5.764227E-06*T**3+74092*T**(-1)+7.9337E-20*T**7; 933.47 Y
+      -795.996+177.430178*T-31.748192*T*LN(T); 2900 N !
+ FUNCTION GLIQMG    298.15 -165.097+134.838617*T-26.1849782*T*LN(T)
+     +4.858E-04*T**2-1.393669E-06*T**3+78950*T**(-1)-8.0176E-20*T**7; 923 Y
+      -5439.869+195.324057*T-34.3088*T*LN(T); 3000 N !
+ FUNCTION GHSERAL   298.15 -7976.15+137.093038*T-24.3671976*T*LN(T)
+     -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1); 700 Y
+      -11276.24+223.048446*T-38.5844296*T*LN(T)+.018531982*T**2
+     -5.764227E-06*T**3+74092*T**(-1); 933.47 Y
+      -11278.378+188.684153*T-31.748192*T*LN(T)-1.230524E+28*T**(-9); 2900 N
+     !
+ FUNCTION GFCCMG    298.15 -5767.34+142.775547*T-26.1849782*T*LN(T)
+     +4.858E-04*T**2-1.393669E-06*T**3+78950*T**(-1); 923 Y
+      -11530.185+203.816215*T-34.3088*T*LN(T)+1.038192E+28*T**(-9); 3000 N !
+ FUNCTION GHCPAL    298.15 -2495.15+135.293038*T-24.3671976*T*LN(T)
+     -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1); 700 Y
+      -5795.24+221.248446*T-38.5844296*T*LN(T)+.018531982*T**2
+     -5.764227E-06*T**3+74092*T**(-1); 933.47 Y
+      -5797.378+186.884153*T-31.748192*T*LN(T)-1.230524E+28*T**(-9); 2900 N !
+ FUNCTION GHSERMG   298.15 -8367.34+143.675547*T-26.1849782*T*LN(T)
+     +4.858E-04*T**2-1.393669E-06*T**3+78950*T**(-1); 923 Y
+      -14130.185+204.716215*T-34.3088*T*LN(T)+1.038192E+28*T**(-9); 3000 N !
+ FUNCTION GLIQSN    100 -855.425+108.677684*T-25.858*T*LN(T)+5.1185E-04*T**2
+     -3.192767E-06*T**3+18440*T**(-1)+1.47031E-18*T**7; 250 Y
+      +1247.957+51.355548*T-15.961*T*LN(T)-.0188702*T**2+3.121167E-06*T**3
+     -61960*T**(-1)+1.47031E-18*T**7; 505.08 Y
+      +9496.31-9.809114*T-8.2590486*T*LN(T)-.016814429*T**2
+     +2.623131E-06*T**3-1081244*T**(-1); 800 Y
+      -1285.372+125.182498*T-28.4512*T*LN(T); 3000 N !
+ FUNCTION GFCCSN    298.15 +4150-5.2*T+GHSERSN#; 3000 N !
+ FUNCTION GHSERSN   100 -7958.517+122.765451*T-25.858*T*LN(T)
+     +5.1185E-04*T**2-3.192767E-06*T**3+18440*T**(-1); 250 Y
+      -5855.135+65.443315*T-15.961*T*LN(T)-.0188702*T**2+3.121167E-06*T**3
+     -61960*T**(-1); 505.08 Y
+      +2524.724+4.005269*T-8.2590486*T*LN(T)-.016814429*T**2
+     +2.623131E-06*T**3-1081244*T**(-1)-1.2307E+25*T**(-9); 800 Y
+      -8256.959+138.99688*T-28.4512*T*LN(T)-1.2307E+25*T**(-9); 3000 N !
+ FUNCTION GHCPSN    298.15 +3900-4.4*T+GHSERSN#; 3000 N !
+$ ****************************************************************************
+
+ FUNCTION UN_ASS 298.15 +0; 300 N !
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+
+$ ****************************************************************************
+
+ PHASE LIQUID  %  1  1.0  !
+    CONSTITUENT LIQUID  :AL,MG,MG2SN,SN :  !
+
+   PARAMETER G(LIQUID,AL;0)               298.15 +GLIQAL#; 2900 N !
+   PARAMETER G(LIQUID,MG;0)               298.15 +GLIQMG#; 3000 N !
+   PARAMETER G(LIQUID,MG2SN;0)            298.15 -66092.9+94.809*T
+  -11.576*T*LN(T)+2*GLIQMG#+GLIQSN#; 3000 N !
+   PARAMETER G(LIQUID,SN;0)               100 +GLIQSN#; 3000 N REF !
+   PARAMETER G(LIQUID,AL,MG;0)            298.15 -12000+8.566*T; 6000 N !
+   PARAMETER G(LIQUID,AL,MG;1)            298.15 +1894-3*T; 6000 N !
+   PARAMETER G(LIQUID,AL,MG;2)            298.15 +2000; 6000 N !
+   PARAMETER G(LIQUID,AL,MG,SN;0)         298.15 +0.0; 3000 N !
+   PARAMETER G(LIQUID,AL,MG,SN;1)         298.15 -137153.103; 3000 N !
+   PARAMETER G(LIQUID,AL,MG,SN;2)         298.15 +0.0; 3000 N !
+   PARAMETER G(LIQUID,AL,SN;0)            298.15 +15713.581-4.136*T; 3000 N !
+   PARAMETER G(LIQUID,AL,SN;1)            298.15 +4017.05-0.936*T; 6000 N !
+   PARAMETER G(LIQUID,AL,SN;2)            298.15 +2051.11-.2685*T; 6000 N !
+   PARAMETER G(LIQUID,AL,MG2SN;0)         298.15 34564.00; 6000 N !
+   PARAMETER G(LIQUID,MG,MG2SN;0)         298.15 +5970.6-8.744*T; 3000 N !
+   PARAMETER G(LIQUID,MG,SN;0)            298.15 -30841.1+.781*T; 3000 N !
+   PARAMETER G(LIQUID,MG2SN,SN;0)         298.15 -12468.2-4.815*T; 3000 N !
+
+$ ****************************************************************************
+
+ PHASE BCT_A5  %  1  1.0  !
+    CONSTITUENT BCT_A5  :AL,SN :  !
+
+   PARAMETER G(BCT_A5,AL;0)          298.15 +GHSERAL#+10083-4.813*T; 2900 N !
+   PARAMETER G(BCT_A5,SN;0)               100 +GHSERSN#; 3000 N !
+   PARAMETER G(BCT_A5,AL,SN;0)            298.15 +11643.66; 6000 N !
+
+$ ****************************************************************************
+
+ TYPE_DEFINITION & GES A_P_D FCC_A1 MAGNETIC  -3.0    2.80000E-01 !
+ PHASE FCC_A1  %&  2 1   1 !
+    CONSTITUENT FCC_A1  :AL,MG,SN : VA :  !
+
+   PARAMETER G(FCC_A1,AL:VA;0)            298.15 +GHSERAL#; 2900 N !
+   PARAMETER G(FCC_A1,MG:VA;0)            298.15 +GFCCMG#; 3000 N !
+   PARAMETER G(FCC_A1,SN:VA;0)            298.15 +GFCCSN#; 3000 N !
+   PARAMETER G(FCC_A1,AL,MG:VA;0)         298.15 +4971-3.5*T; 6000 N !
+   PARAMETER G(FCC_A1,AL,MG:VA;1)         298.15 +900+.423*T; 6000 N !
+   PARAMETER G(FCC_A1,AL,MG:VA;2)         298.15 +950; 6000 N !
+   PARAMETER G(FCC_A1,AL,SN:VA;0)         298.15 +76777.656-28.499*T; 6000 N !
+
+$ ****************************************************************************
+
+ TYPE_DEFINITION ' GES A_P_D HCP_A3 MAGNETIC  -3.0    2.80000E-01 !
+ PHASE HCP_A3  %'  2 1   .5 !
+    CONSTITUENT HCP_A3  :AL,MG%,SN : VA :  !
+
+   PARAMETER G(HCP_A3,AL:VA;0)            298.15 +GHCPAL#; 2900 N !
+   PARAMETER G(HCP_A3,MG:VA;0)            298.15 +GHSERMG#; 3000 N !
+   PARAMETER G(HCP_A3,SN:VA;0)            298.15 +GHCPSN#; 3000 N !
+   PARAMETER G(HCP_A3,AL,MG:VA;0)         298.15 +1950-2*T; 6000 N !
+   PARAMETER G(HCP_A3,AL,MG:VA;1)         298.15 +1480-2.08*T; 6000 N !
+   PARAMETER G(HCP_A3,AL,MG:VA;2)         298.15 +3500; 6000 N !
+   PARAMETER G(HCP_A3,AL,SN:VA;0)         298.15 +0; 6000 N !
+   PARAMETER G(HCP_A3,MG,SN:VA;0)         298.15 -26256.5+6.234*T; 6000 N !
+   PARAMETER G(HCP_A3,MG,SN:VA;1)         298.15 -31895.7; 6000 N !
+
+$ ****************************************************************************
+
+ PHASE MG2SN  %  2 2   1 !
+    CONSTITUENT MG2SN  :MG : AL,SN :  !
+
+   PARAMETER G(MG2SN,MG:AL;0)             298.15 +0.0; 6000 N !
+   PARAMETER G(MG2SN,MG:SN;0)             298.15 -96165.9+339.999*T
+  -66.285*T*LN(T)-.0121662*T**2+96000*T**(-1)+3.33828E-07*T**3; 3000 N !
+
+$ ****************************************************************************
+
+ PHASE ALMG_BETA  %  2 140   89 !
+    CONSTITUENT ALMG_BETA  :AL : MG :  !
+
+   PARAMETER G(ALMG_BETA,AL:MG;0)         298.15 -246175-675.55*T
+  +140*GHSERAL#+89*GHSERMG#; 6000 N !
+
+$ ****************************************************************************
+
+ PHASE ALMG_EPSILON  %  2 30   23 !
+    CONSTITUENT ALMG_EPSILON  :AL : MG :  !
+
+   PARAMETER G(ALMG_EPSILON,AL:MG;0)      298.15 -52565.4-173.1775*T
+  +30*GHSERAL#+23*GHSERMG#; 6000 N !
+
+$ ****************************************************************************
+
+ PHASE AL12MG17_A12  %  3 10   24   24 !
+    CONSTITUENT AL12MG17_A12  :MG% : AL,MG% : AL%,MG :  !
+
+   PARAMETER G(AL12MG17_A12,MG:AL:AL;0)   298.15 +195750-203*T+48*GHSERAL#
+  +10*GHSERMG#; 6000 N !
+   PARAMETER G(AL12MG17_A12,MG:MG:AL;0)   298.15 -105560-101.5*T+24*GHSERAL#
+  +34*GHSERMG#; 6000 N !
+   PARAMETER G(AL12MG17_A12,MG:AL:MG;0)   298.15 +568249.2-276.138*T
+  +24*GHSERAL#+34*GHSERMG#; 6000 N !
+   PARAMETER G(AL12MG17_A12,MG:MG:MG;0)   298.15 +266939.2-174.638*T
+  +58*GHSERMG#; 6000 N !
+   PARAMETER G(AL12MG17_A12,MG:AL:AL,MG;0) 298.15 +226200-29*T; 6000 N !
+   PARAMETER G(AL12MG17_A12,MG:MG:AL,MG;0) 298.15 +226200-29*T; 6000 N !
+
+$ ****************************************************************************
+
+ DATABASE_INFO FOR THE MG-AL-SN SYSTEM !

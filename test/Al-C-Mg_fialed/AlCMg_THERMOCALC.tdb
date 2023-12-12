@@ -1,0 +1,350 @@
+$******************************************************************************
+$ ELEMENTS
+$******************************************************************************
+
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01!
+ ELEMENT C    GRAPHITE                  1.2011E+01  1.0540E+03  5.7400E+00!
+ ELEMENT MG   HCP_A3                    2.4305E+01  4.9980E+03  3.2671E+01!
+
+$******************************************************************************
+$ SPECIES
+$******************************************************************************
+
+SPECIES             AL2                   AL2 !
+SPECIES             ALC                   (AL)1(C)1 !
+SPECIES              C2                   (C)2 !
+SPECIES              C3                   (C)3 !
+SPECIES              C4                   (C)4 !
+SPECIES              C5                   (C)5 !
+SPECIES              MG1                  MG!
+SPECIES              MG2                  MG2!
+
+$******************************************************************************
+$ FUNCTIONS
+$******************************************************************************
+
+Function RTLNP 298.15   +R*T*ln(1e-005*P); 6000 N !
+
+$ AL
+
+Function GGAS_AL 298    323672.1-25.7052*T-20.78*T*LN(T)
+-2.500E+04*T**(-1); 3000 N !
+Function GGAS_AL2 298   475536.1+24.0226*T-38.45*T*LN(T); 6000 N !
+
+  FUNCTION GHSERAL   298.15 -7976.15+137.093038*T-24.3671976*T*LN(T)
+      -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1); 700 Y
+      -11276.24+223.048446*T-38.5844296*T*LN(T)+.018531982*T**2
+      -5.764227E-06*T**3+74092*T**(-1); 933.47 Y
+      -11278.378+188.684153*T-31.748192*T*LN(T)-1.230524E+28*T**(-9); 2900 N !
+  FUNCTION GLIQAL    298.15 +GHSERAL#+11005.045-11.84185*T+7.9337E-20*T**7;
+      933.47 Y
+       -795.991+177.430209*T-31.748192*T*LN(T); 2900 N !
+  FUNCTION GHCPAL    298.15 +GHSERAL#+5481-1.8*T; 2900 N !
+
+$ C
+
+  FUNCTION GHSERCC   298.15 -17368.441+170.73*T-24.3*T*LN(T)-4.723E-04*T**2
+      +2562600*T**(-1)-2.643E+08*T**(-2)+1.2E+10*T**(-3); 6000 N !
+  FUNCTION GLIQCC    298.15 +GHSERCC#+117369-24.63*T; 6000 N !
+  FUNCTION GDIACC    298.15 -16359.441+175.61*T-24.31*T*LN(T)-4.723E-04*T**2
+      +2698000*T**(-1)-2.61E+08*T**(-2)+1.11E+10*T**(-3); 6000 N !
+Function GGAS_C 298    710343.93-16.42589*T-21.17510*T*LN(T)+4.0621E-04*T**2
+-7.4756E-08*T**3+6551.5*T**(-1)+3.6047E-12*T**4; 6000 N NIST !
+Function GGAS_C2 298   808275.74+553.23043*T-123.9092*T*LN(T)+1.74E-01*T**2
+-8.0850E-05*T**3+620149*T**(-1)+1.94E-08*T**4; 700 Y
+    831574.53+0.81490*T-30.50408*T*LN(T)-2.7229E-03*T**2+1.4223E-07*T**3
+    -407375*T**(-1)-5.4701E-12*T**4; 6000 N NIST !
+Function GGAS_C3 298   812863.38-57.39802*T-26.33364*T*LN(T)-1.0134E-02*T**2
+-4.6481E-07*T**3-233492.5*T**(-1)+4.2076E-10*T**4; 1000 Y
+    798268.94+68.79193*T-43.89853*T*LN(T)-2.7456E-03*T**2+1.3650E-07*T**3
+    +1939920.5*T**(-1)-4.0582E-12*T**4; 6000 N NIST !
+Function GGAS_C4 298      955437.73+30.63126*T-34.86640*T*LN(T)-4.2174E-02*T**2
++9.2747E-06*T**3+234072.0*T**(-1)-1.1523E-09*T**4; 1200 Y
+    924169.76+363.99983*T-84.02309*T*LN(T)-8.7324E-04*T**2+5.6807E-08*T**3
+    +4464224.0*T**(-1)-1.9128E-12*T**4; 6000 N NIST !
+Function GGAS_C5 298    959207.42+80.98296*T-43.06759*T*LN(T)-5.5497E-02*T**2
++1.2212E-05*T**3+400404.5*T**(-1)-1.5215E-09*T**4; 1200 Y
+    917922.31+519.95886*T-107.77570*T*LN(T)-1.1899E-03*T**2+7.7396E-08*T**3
+    +6008455.0*T**(-1)-2.6060E-12*T**4; 6000 N NIST !
+
+$ MG
+
+  FUNCTION GHSERMG   298.15 -8367.34+143.675547*T-26.1849782*T*LN(T)
+      +4.858E-04*T**2-1.393669E-06*T**3+78950*T**(-1); 923 Y
+      -14130.185+204.716215*T-34.3088*T*LN(T)+1.038192E+28*T**(-9); 3000 N !
+  FUNCTION GLIQMG    298.15 +GHSERMG#+8202.243-8.83693*T-8.0176E-20*T**7; 923
+      Y
+      -5439.869+195.324057*T-34.3088*T*LN(T); 3000 N !
+  FUNCTION GFCCMG    298.15 +GHSERMG#+2600-.9*T; 3000 N !
+
+  FUNCTION UN_ASS 298.15 +0; 300 N !
+
+$ Al C
+
+Function GGAS_ALC 298    679881.7-7.3355*T-32.26*T*LN(T); 6000 N !
+
+$******************************************************************************
+$ DEFAULT COMMANDS & TYPE_DEFINITION
+$******************************************************************************
+
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+
+ TYPE_DEFINITION ( GES A_P_D FCC_A1 MAGNETIC  -3.0    2.80000E-01 !
+ PHASE FCC_A1  %(  2 1   1 !
+ CONSTITUENT FCC_A1  :AL,MG : VA :  !
+
+ TYPE_DEFINITION ) GES A_P_D HCP_A3 MAGNETIC  -3.0    2.80000E-01 !
+ PHASE HCP_A3  %)  2 1   .5 !
+ CONSTITUENT HCP_A3  :AL,MG : VA :  !
+
+$******************************************************************************
+$ PHASES DESCRIPTION
+$******************************************************************************
+
+ PHASE GAS:G %  1  1.0  !
+ CONSTITUENT GAS:G :AL,AL2,C,C2,C3,C4,C5,ALC,MG,MG2 :  !
+
+ PHASE LIQUID  %  1  1.0  !
+ CONSTITUENT LIQUID  :AL,C,MG :  !
+
+ PHASE GRAPHITE  %  1  1.0  !
+ CONSTITUENT GRAPHITE  :C :  !
+
+ PHASE MG2C3  %  2 2   3 !
+ CONSTITUENT MG2C3  :MG : C :  !
+
+ PHASE MGC2  %  2 1   2 !
+ CONSTITUENT MGC2  :MG : C :  !
+
+ PHASE ALMG_EPS  %  2 23   30 !
+ CONSTITUENT ALMG_EPS  :MG : AL% :  !
+
+ PHASE ALMG_BETA  %  2 89   140 !
+ CONSTITUENT ALMG_BETA  :MG : AL% :  !
+
+ PHASE ALMG_GAMMA  %  3 5   12   12 !
+ CONSTITUENT ALMG_GAMMA  :MG : AL,MG% : AL%,MG :  !
+
+ PHASE AL4C3  %  3 2 2  3 !
+ CONSTITUENT AL4C3  :AL%,MG : AL : C :  !
+
+ PHASE AL2MGC2 % 3 2  1 2 !
+ CONSTITUENT AL2MGC2 :AL : MG : C :  !
+
+$******************************************************************************
+$ Al unary system
+$******************************************************************************
+
+PARA G(GAS,Al;0) 298    +GGAS_AL+RTLNP; 6000 N !
+PARA G(GAS,Al2;0) 298    +GGAS_AL2+RTLNP; 6000 N !
+
+PARA G(LIQUID,AL;0)        298.15 +GLIQAL#; 2900 N PUR3 !
+
+PARA G(FCC_A1,AL:VA;0)     298.15 +GHSERAL#; 2900 N PUR1 !
+
+PARA G(HCP_A3,AL:VA;0)     298.15 +GHCPAL#; 2900 N PUR3 !
+
+$******************************************************************************
+$ C unary system
+$******************************************************************************
+
+PARA G(GAS,C;0) 298    +GGAS_C+RTLNP; 6000 N !
+PARA G(GAS,C2;0) 298    +GGAS_C2+RTLNP; 6000 N !
+PARA G(GAS,C3;0) 298    +GGAS_C3+RTLNP; 6000 N !
+PARA G(GAS,C4;0) 298    +GGAS_C4+RTLNP; 6000 N !
+PARA G(GAS,C5;0) 298    +GGAS_C5+RTLNP; 6000 N !
+
+PARA G(LIQUID,C;0)         298.15 +GLIQCC#; 6000 N PUR3 !
+
+PARA G(GRAPHITE,C;0)       298.15 +GHSERCC#; 6000 N PUR1 !
+
+$******************************************************************************
+$ Mg unary system
+$******************************************************************************
+
+PARA G(GAS,MG;0)           298.15 +140901.5-9.357*T
+  -20.79*T*LN(T)+RTLNP#;   6.00000E+03   N CHE12 !
+PARA G(GAS,MG2;0)          298.15 +280355.0-77.4484*T
+  -24.3*T*LN(T)+RTLNP#;   6.00000E+03   N CHE12 !
+
+PARA G(LIQUID,MG;0)        298.15 +GLIQMG#; 3000 N PUR3 !
+
+PARA G(FCC_A1,MG:VA;0)     298.15 +GFCCMG#; 3000 N PUR3 !
+
+PARA G(HCP_A3,MG:VA;0)     298.15 +GHSERMG#; 3000 N PUR1 !
+
+$******************************************************************************
+$ AL-C binary system
+$******************************************************************************
+
+Parameter G(GAS,AlC;0) 298    +GGAS_ALC+RTLNP; 6000 N !
+
+PARA G(LIQUID,AL,C;0)   298.15 -4.8892E+04+1.15*T; 6000 N REF0 !
+PARA G(LIQUID,AL,C;1)   298.15 +3.2543E+04; 6000 N REF0 !
+
+PARA G(FCC_A1,AL:C;0)      298.15 +80*T+GHSERAL#+GHSERCC#; 6000 N COST507 !
+
+PARA G(AL4C3,AL:AL:C;0)      18
+
+    -209609.2+11.74423*T
+    -3.98514*T*LN(T)+0.137076*T**2+139.4*T**(-1)
+    -0.00098767*T**3; 60 Y
+
+    -207459.8-199.2384*T
+    +47.03837*T*LN(T)-0.413864*T**2-17175.6*T**(-1)
+    +0.000156251*T**3; 298.15 Y
+
+    -237336.07+643.8029*T-100.6823*T*LN(T)
+    -0.0839832*T**2+1133215*T**(-1)
+    +0.0000158781*T**3; 800 Y
+
+    -240446.3+866.8532*T-139.40526*T*LN(T)
+    -0.0194607*T**2; 3000 N REF1 !
+
+$******************************************************************************
+$ AL-MG binary system
+$******************************************************************************
+
+PARA G(LIQUID,AL,MG;0)        298.15  -12000+8.566*T; 6000 N COST507 !
+PARA G(LIQUID,AL,MG;1)        298.15  +1894-3*T; 6000 N COST507 !
+PARA G(LIQUID,AL,MG;2)        298.15  2000; 6000 N COST507 !
+
+PARA G(HCP_A3,AL,MG:VA;0)     298.15 +1950-2*T; 6000 N COST507 !
+PARA G(HCP_A3,AL,MG:VA;1)     298.15 +1480-2.08*T; 6000 N COST507 !
+PARA G(HCP_A3,AL,MG:VA;2)     298.15 +3500; 6000 N COST507 !
+
+PARA G(FCC_A1,AL,MG:VA;0)     298.15 +4971-3.5*T; 6000 N COST507 !
+PARA G(FCC_A1,AL,MG:VA;1)     298.15 +900+0.423*T; 6000 N COST507 !
+PARA G(FCC_A1,AL,MG:VA;2)     298.15 +950; 6000 N COST507 !
+
+PARA G(ALMG_EPS,MG:AL;0)      298.15 -52565.4-173.1775*T
+  +23*GHSERMG#+30*GHSERAL#; 6000 N COST507 !
+
+PARA G(ALMG_BETA,MG:AL;0)     298.15 -246175-675.55*T+89*GHSERMG#
+  +140*GHSERAL#; 6000 N COST507 !
+
+PARA G(ALMG_GAMMA,MG:AL:AL;0) 298.15 +97875-101.5*T+5*GHSERMG#
+  +24*GHSERAL#; 6000 N COST507 !
+PARA G(ALMG_GAMMA,MG:MG:AL;0) 298.15 -52780-50.75*T+17*GHSERMG#
+  +12*GHSERAL#; 6000 N COST507 !
+PARA G(ALMG_GAMMA,MG:AL:MG;0) 298.15 +284124.6-138.069*T
+  +17*GHSERMG#+12*GHSERAL#; 6000 N COST507 !
+PARA G(ALMG_GAMMA,MG:MG:MG;0) 298.15 +133469.6-87.319*T
+  +29*GHSERMG#; 6000 N COST507 !
+PARA G(ALMG_GAMMA,MG:AL:AL,MG;0)  298.15  +113100-14.5*T; 6000 N COST507 !
+PARA G(ALMG_GAMMA,MG:MG:AL,MG;0)  298.15  +113100-14.5*T; 6000 N COST507 !
+
+$******************************************************************************
+$ C-MG binary system
+$******************************************************************************
+
+PARA G(LIQUID,MG,C;0))     298.15 +0; 3000 N CHE12 !
+
+PARA G(FCC_A1,MG:C;0)      298.15 +0; 6000 N!
+
+PARA G(MG2C3,MG:C;0)       298.15 +35236.6+712.1276*T
+  -118.74*T*LN(T)-5.355E-03*T**2+1.25E06*T**(-1); 3000 N CHE12 !
+
+PARA G(MGC2,MG:C;0)        298.15 +61351.5+432.8930*T
+  -71.21*T*LN(T)-3.22E-03*T**2+7.5E05*T**(-1); 3000 N CHE12 !
+
+
+$******************************************************************************
+$ AL-C-MG ternary system
+$******************************************************************************
+
+PARA G(AL2MGC2,AL:MG:C;0) 50 -137023.17-130.2133*T
+    +31.64858*T*LN(T)-0.3098213*T**2-9339*T**(-1)
+    +0.0001233135*T**3; 298.15 Y
+    
+    -141504.37+95.31393*T-11.48743*T*LN(T)
+    -0.1688773*T**2+0.0000462193*T**3; 500 Y
+
+    -170910.3+715.88624*T-113.83391*T*LN(T)
+    -0.0099976*T**2+1599446*T**(-1); 3000 N REF0 !
+
+PARA G(AL4C3,MG:AL:C;0) 298.15 -1.354E+04
++2*GHSERAL#+2*GHSERMG#+3*GHSERCC#; 2000.00 N REF0 !
+PARA G(AL4C3,AL,MG:AL:C;0) 298.15 -2.0471E+05
++9.3252E+01*T; 3000.00 N REF0 !
+
+$******************************************************************************
+$ References
+$******************************************************************************
+
+LIST_OF_REFERENCES
+NUMBER  SOURCE
+    REF0     'This Work
+    PUR1     'PURE1 - SGTE Pure Elements (Unary) Database (Version 1.0),
+            developed by SGTE (Scientific Group Thermodata Europe), 1991-1992,
+             and provided by TCSAB (Jan. 1991). Also in: Dinsdale A. (1991):
+            SGTE data for pure elements, Calphad, 15, 317-425.'
+    PUR3     'PURE3 - SGTE Pure Elements (Unary) Database (Version 3.0),
+            developed by SGTE (Scientific Group Thermodata Europe), 1991-1996,
+             and provided by TCSAB (Aug. 1996). '
+    PUR4     'PURE4 - SGTE Pure Elements (Unary) Database (Version 4.6),
+            developed by SGTE (Scientific Group Thermodata Europe), 1991-2008,
+             and provided by TCSAB (Jan. 2008). '
+    PUR5     'PURE5 - SGTE Pure Elements (Unary) Database (Version 5.1),
+            developed by SGTE (Scientific Group Thermodata Europe), 1991-2010,
+             and provided by TCSAB (Jun. 2010). '
+    CHE12   'CHE12 - Chen H-L. et al. (2012): The Mg-C phase equilibria and
+             their thermodynamic basis, IJMR, vol. 103, n. 11, pp. 1294-1301.'
+  !
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

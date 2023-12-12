@@ -1,0 +1,222 @@
+$Al-SI-ZN
+$
+$ TDB-file for the thermodynamic assessment of the Al-SI-ZN system
+$
+$-----------------------------------------------------------------------------
+$ 2015.02.17
+$ 
+$ TDB file created by T.Abe, T.Bolotova
+$
+$ Particle Simulation and Thermodynamics Group, National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi(=)nims.go.jp (=)=@
+$ Copyright (C) NIMS 2015
+$
+$ PARAMETERS ARE TAKEN FROM
+$  A CRITICAL THERMODYNAMIC EVALUATION OF THE SYSTEMS SI-ZN AND AL-SI-ZN
+$  M.H.G. Jacobs and P.J. Spencer
+$  Calphad Vol. 20, No. 3, pp. 307-320, 1996
+$
+$ GAS parameters are taken from  
+$ SGTE Substance version3
+$
+$ Database file written 2015- 2-17
+$ From database: SSUB3 
+$
+$LIST_OF_REFERENCES
+$ NUMBER  SOURCE
+$   REF188  AL1<G> CODATA KEY VALUES SGTE ** 
+$         ALUMINIUM <GAS> 
+$         Cp values similar in Codata Key Values and IVTAN Vol. 3
+$	REF444  AL2<G> CHATILLON(1992) 
+$	         Enthalpy of formation for Al1<g> taken from Codata Key Values. 
+$	         Enthalpy of form. from TPIS dissociation energy mean value 
+$	         corrected with new fef from Sunil K.K. and Jordan K.D. 
+$	         (J.Phys. Chem. 92(1988)2774) ab initio calculations.
+$	   REF8643 SI1<G> T.C.R.A.S. Class: 1 
+$	         SILICON <GAS>
+$	   REF8672 SI2<G> T.C.R.A.S. Class: 5 
+$	         SILICON <DIATOMIC GAS>
+$	   REF8694 SI3<G> T.C.R.A.S. Class: 6 
+$	         SILICON <TRIATOMIC GAS>
+$	   REF8881 ZN1<G> T.C.R.A.S Class: 1 
+$	         Data provided by T.C.R.A.S. October 1996
+$	   REF165  AL1 JANAF THERMOCHEMICAL TABLES SGTE ** 
+$	         ALUMINIUM 
+$	         AT WEIGHT 26.9815 - U.D. 30/10/85 CODATA KEY VALUES FOR 298.15K
+$	   REF8636 SI1 JANAF THERMOCHEMICAL TABLES SGTE ** 
+$	         SILICON 
+$	         PUBLISHED BY JANAF AT 12/66 . MPT FROM NBS BULL. (IPTS-68) 
+$	         --U.D. 31/10/85
+$	   REF8875 ZN1 HULTGREN SELECTED VAL. 1973 SGTE ** 
+$	         ZINC 
+$	         STANDARD STATE : CODATA KEY VALUE.
+$	  ! 
+$ ------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+$------------------------------------------------------------------------------
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01 !
+ ELEMENT SI   DIAMOND_A4                2.8085E+01  3.2175E+03  1.8820E+01 !
+ ELEMENT ZN   HCP_A3                    6.5390E+01  5.6568E+03  4.1631E+01 !
+
+ SPECIES AL2                         AL2!
+ SPECIES SI2                         SI2!
+ SPECIES SI3                         SI3!
+
+ FUNCTION F163T      2.98150E+02  +323947.58-25.1480948*T-20.859*T*LN(T)
+     +4.5665E-05*T**2-3.942E-09*T**3-24275.5*T**(-1);  4.30000E+03  Y
+      +342017.234-54.0526114*T-17.7891*T*LN(T)+6.822E-05*T**2
+     -1.91111667E-08*T**3-14782200*T**(-1);  8.20000E+03  Y
+      +542396.07-411.214335*T+22.2419*T*LN(T)-.00349619*T**2+4.0491E-08*T**3
+     -2.0366965E+08*T**(-1);  1.00000E+04  N !
+ FUNCTION F624T      2.98150E+02  +496408.232+35.4797382*T-41.6397*T*LN(T)
+     +.00249636*T**2-4.90507333E-07*T**3+85390.3*T**(-1);  9.00000E+02  Y
+      +497613.221+17.3681302*T-38.85476*T*LN(T)-2.249805E-04*T**2
+     -9.49003167E-09*T**3-5287.23*T**(-1);  2.80000E+03  N !
+ FUNCTION F15370T    2.98150E+02  +444169.766-27.9507107*T-21.04097*T*LN(T)
+     +3.7970425E-04*T**2-9.73407167E-08*T**3-61797.2*T**(-1);  2.00000E+03  Y
+      +437545.354-12.9504911*T-22.5648*T*LN(T)-2.428964E-04*T**2
+     +1.1169705E-08*T**3+2760718.5*T**(-1);  5.50000E+03  Y
+      +405256.153+76.2660203*T-33.14557*T*LN(T)+.0012877205*T**2
+     -3.00107333E-08*T**3+21167395*T**(-1);  1.00000E+04  N !
+ FUNCTION F15390T    2.98150E+02  +572963.738+3.71111536*T-35.9832*T*LN(T)
+     -9.4063E-04*T**2-4.840215E-08*T**3+12476.05*T**(-1);  2.60000E+03  Y
+      +609343.923-151.775041*T-16.36102*T*LN(T)-.005711295*T**2
+     +1.72754333E-07*T**3-12777080*T**(-1);  6.00000E+03  N !
+ FUNCTION F15411T    2.98150E+02  +611231.76+46.3558219*T-46.87401*T*LN(T)
+     -.01734593*T**2+3.536315E-06*T**3+194880.6*T**(-1);  7.00000E+02  Y
+      +604474.517+159.236354*T-64.54462*T*LN(T)+.0019320005*T**2
+     -2.38038667E-07*T**3+630559*T**(-1);  2.40000E+03  Y
+      +613241.601+78.6268439*T-53.45528*T*LN(T)-.0027577635*T**2
+     +9.275105E-08*T**3+606517*T**(-1);  6.00000E+03  N !
+ FUNCTION F15856T    2.98150E+02  +124152.804-21.0289709*T-20.897*T*LN(T)
+     +6.65E-05*T**2-5.58E-09*T**3+3335*T**(-1);  4.30000E+03  Y
+      +104038.336+64.4573272*T-31.558*T*LN(T)+.00230425*T**2
+     -8.82333333E-08*T**3+5389360*T**(-1);  8.20000E+03  Y
+      +681283.394-922.574932*T+78.50201*T*LN(T)-.0070638*T**2
+     +6.18466667E-08*T**3-5.65175E+08*T**(-1);  1.00000E+04  N !
+ FUNCTION F143T      2.98150E+02  -7976.15095+137.093054*T-24.3672*T*LN(T)
+     -.001884662*T**2-8.77663667E-07*T**3+74092.35*T**(-1);  7.00000E+02  Y
+      -11276.2396+223.048449*T-38.58443*T*LN(T)+.01853198*T**2
+     -5.76422667E-06*T**3+74092.35*T**(-1);  9.33400E+02  Y
+      -11507.187+188.904759*T-31.74819*T*LN(T);  2.90000E+03  N !
+ FUNCTION F15356T    2.98150E+02  -8162.60771+137.236869*T-22.83175*T*LN(T)
+     -.001912904*T**2-3.55178333E-09*T**3+176667.1*T**(-1);  1.68700E+03  Y
+      -9837.4814+167.484043*T-27.196*T*LN(T);  3.60000E+03  N !
+ FUNCTION F15848T    2.98150E+02  -7285.78605+118.469042*T-23.70131*T*LN(T)
+     -.001712034*T**2-1.26496267E-06*T**3;  6.92600E+02  Y
+      -10942.2592+172.177943*T-31.38*T*LN(T);  1.70000E+03  N !
+ FUNCTION UN_ASS 298.15 0; 300 N !
+
+
+ PHASE GAS:G %  1  1.0  !
+    CONSTITUENT GAS:G :AL,AL2,SI,SI2,SI3,ZN :  !
+
+   PARAMETER G(GAS,AL;0)  2.98150E+02  +F163T#+R#*T*LN(1E-05*P);   
+  6.00000E+03   N REF188 !
+   PARAMETER G(GAS,AL2;0)  2.98150E+02  +F624T#+R#*T*LN(1E-05*P);   
+  6.00000E+03   N REF444 !
+   PARAMETER G(GAS,SI;0)  2.98150E+02  +F15370T#+R#*T*LN(1E-05*P);   
+  6.00000E+03   N REF8643 !
+   PARAMETER G(GAS,SI2;0)  2.98150E+02  +F15390T#+R#*T*LN(1E-05*P);   
+  6.00000E+03   N REF8672 !
+   PARAMETER G(GAS,SI3;0)  2.98150E+02  +F15411T#+R#*T*LN(1E-05*P);   
+  6.00000E+03   N REF8694 !
+   PARAMETER G(GAS,ZN;0)  2.98150E+02  +F15856T#+R#*T*LN(1E-05*P);   
+  6.00000E+03   N REF8881 !
+
+
+ 
+$-------------------------------------------------------------------------------
+$ FUNCTIONS FOR PURE AND OTHERS DINSTALE-91
+$-------------------------------------------------------------------------------
+ FUNCTION  GHSERAL  298.0
+    -7976.15+137.0715*T-24.36720*T*LN(T)-1.884662E-3*T**2-0.877664E-6*T**3
+    +74092*T**(-1);                                                   700.00 Y
+    -11276.24+223.0269*T-38.58443*T*LN(T)+18.531982E-3*T**2-5.764227E-6*T**3
+    +74092*T**(-1);                                                    933.6 Y
+    -11277.68+188.6620*T-31.74819*T*LN(T)-1234.26E25*T**(-9);        2900.00 N ! 
+ FUNCTION  GALLIQ   298.0
+    +3029.403+125.2307*T-24.36720*T*LN(T)-1.884662E-3*T**2-0.877664E-6*T**3
+    +74092*T**(-1)+79.401E-21*T**7;                                   700.00 Y
+    -270.6860+211.1861*T-38.58443*T*LN(T)+18.53198E-3*T**2-5.764227E-6*T**3
+    +74092*T**(-1)+79.401E-21*T**7;                                    933.6 Y
+    -795.7090+177.4100*T-31.74819*T*LN(T);                           2900.00 N !
+ FUNCTION  GALHCP   298.0  +5481-1.8*T+GHSERAL#;                      6000  N !
+ FUNCTION GHSERZN    298.0  -7285.787+118.4693*T-23.70131*T*LN(T)
+     -.001712034*T**2-1.264963E-06*T**3;                              692.7 Y
+     -11070.60+172.3449*T-31.38*T*LN(T)+4.70657E+26*T**(-9);           1700 N !
+ FUNCTION GZNLIQ     298.14  +7157.213-10.29299*T-3.5896E-19*T**7+GHSERZN#;
+                                                                     692.7 Y
+     +7450.168-10.737066*T-4.7051E+26*T**(-9)+GHSERZN#;                 1700 N !
+ FUNCTION GZNFCC     298.15  +2969.82-1.56968*T+GHSERZN#;               1700 N !
+ FUNCTION GZNHCP     298.15  +GHSERZN#;               1700 N !
+$-------------------------------------------------------------------------------
+$ FUNCTION SI  
+$-------------------------------------------------------------------------------
+ FUNCTION GHSERSI 298.15  -8162.609+137.236859*T-22.8317533*T*LN(T)
+   -.001912904*T**2-3.552E-09*T**3+176667*T**(-1); 1687 Y
+   -9457.642+167.281367*T-27.196*T*LN(T)-4.20369E+30*T**(-9); 3600 N !
+ FUNCTION GLIQSI 298.15 50696.36-30.099439*T+209.307E-23*T**7+GHSERSI; 1687 Y
+ 40370.523+137.722298*T-27.196*T*LN(T);  3600.00 N !
+ FUNCTION GSIBCC 298.15 47000-22.5*T+GHSERSI; 3600 N !
+ FUNCTION GSIFCC 298.15 51000-21.8*T+GHSERSI; 3600 N !
+ FUNCTION GSIHCP 298.15 49200-20.8*T+GHSERSI; 3600 N !
+$-------------------------------------------------------------------------------
+$  DIAMOND_A4 AL,SI,ZN
+$-------------------------------------------------------------------------------
+ PHASE  DIAMOND_A4 % 1  1  !
+ CONSTITUENT  DIAMOND_A4 : AL,SI,ZN:  !
+ PARAMETER G(DIAMOND_A4,SI,ZN;0)   298.15   +100000 ; 6000 N !
+ PARAMETER G(DIAMOND_A4,AL;0) 298.15 30*T+GHSERAL; 2900 N !
+ PARAMETER G(DIAMOND_A4,SI;0) 298.15 GHSERSI; 3600 N !
+ PARAMETER G(DIAMOND_A4,ZN;0) 298.15 30*T+GHSERZN; 1700 N !
+ PARAMETER G(DIAMOND_A4,AL,SI;0)   298.15   +111417.7-46.1392*T ; 6000 N !
+ PARAMETER G(DIAMOND_A4,AL,ZN;0)   298.15   +100000 ; 6000 N !
+$-------------------------------------------------------------------------------
+$  FCC_A1 AL,SI,ZN
+$-------------------------------------------------------------------------------
+ PHASE  FCC_A1 % 1  1  !
+ CONSTITUENT  FCC_A1 : AL,SI,ZN:  !
+ PARAMETER G(FCC_A1,AL,SI;0)   298.15   -3423.91-0.09584*T ; 6000 N !
+ PARAMETER G(FCC_A1,AL;0) 298.15 GHSERAL; 2900 N !
+ PARAMETER G(FCC_A1,SI;0) 298.15 GSIFCC; 3600 N !
+ PARAMETER G(FCC_A1,ZN;0) 298.15 GZNFCC; 1700 N !
+ PARAMETER G(FCC_A1,SI,ZN;0)   298.15   +50000 ; 6000 N !
+ PARAMETER G(FCC_A1,AL,ZN;0)   298.15   +7297.48+0.47512*T ; 6000 N !
+ PARAMETER G(FCC_A1,AL,ZN;1)   298.15   +6612.88-4.5911*T ; 6000 N !
+ PARAMETER G(FCC_A1,AL,ZN;2)   298.15   -3097.19+3.30635*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$  HCP_A3 AL,SI,ZN
+$-------------------------------------------------------------------------------
+ PHASE  HCP_A3 % 1  1  !
+ CONSTITUENT  HCP_A3 : AL,SI,ZN:  !
+ PARAMETER G(HCP_A3,AL,SI;0)   298.15   +50000 ; 6000 N !
+ PARAMETER G(HCP_A3,AL;0) 298.15 GALHCP; 2900 N !
+ PARAMETER G(HCP_A3,SI;0) 298.15 GSIHCP; 3600 N !
+ PARAMETER G(HCP_A3,ZN;0) 298.15 GZNHCP; 1700 N !
+ PARAMETER G(HCP_A3,SI,ZN;0)   298.15   +50000 ; 6000 N !
+ PARAMETER G(HCP_A3,AL,ZN;0)   298.15   +18820.95-8.95255*T ; 6000 N !
+ PARAMETER G(HCP_A3,AL,ZN;1)   298.15   +0 ; 6000 N !
+ PARAMETER G(HCP_A3,AL,ZN;2)   298.15   +0 ; 6000 N !
+ PARAMETER G(HCP_A3,AL,ZN;3)   298.15   -702.79 ; 6000 N !
+$-------------------------------------------------------------------------------
+$  LIQUID AL,SI,ZN
+$-------------------------------------------------------------------------------
+ PHASE  LIQUID % 1  1  !
+ CONSTITUENT  LIQUID : AL,SI,ZN:  !
+ PARAMETER G(LIQUID,AL,SI;0)   298.15   -11655.93-0.92934*T ; 6000 N !
+ PARAMETER G(LIQUID,AL;0) 298.15 GALLIQ; 2900 N !
+ PARAMETER G(LIQUID,SI;0) 298.15 GLIQSI; 3600 N !
+ PARAMETER G(LIQUID,ZN;0) 298.15 GZNLIQ; 1700 N !
+ PARAMETER G(LIQUID,AL,SI;1)   298.15   -2873.45+0.2945*T ; 6000 N !
+ PARAMETER G(LIQUID,AL,SI;2)   298.15   +2520 ; 6000 N !
+ PARAMETER G(LIQUID,SI,ZN;0)   298.15   +7829.25 ; 6000 N !
+ PARAMETER G(LIQUID,SI,ZN;1)   298.15   -3338.18 ; 6000 N !
+ PARAMETER G(LIQUID,SI,ZN;2)   298.15   -891.33 ; 6000 N !
+ PARAMETER G(LIQUID,AL,ZN;0)   298.15   +10465.55-3.39259*T ; 6000 N !
+$-------------------------------------------------------------------------------

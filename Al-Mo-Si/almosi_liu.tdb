@@ -1,0 +1,212 @@
+$Al-Mo-Si
+$
+$ TDB-file for the thermodynamic assessment of the Al-Mo-Si system
+$
+$-----------------------------------------------------------------------------
+$ 2014.05.27
+$ 
+$ TDB file created by T.Abe, T.Bolotova
+$
+$ Particle Simulation and Thermodynamics Group, National Institute for 
+$ Materials Science. 1-2-1 Sengen, Tsukuba, Ibaraki 305-0047, Japan
+$ e-mail: abe.taichi(=)nims.go.jp (=)=@
+$ Copyright (C) NIMS 2014
+$
+$ PARAMETERS ARE TAKEN FROM
+$  Thermodynamic reassessment of the Mo-Si and Al-Mo-Si systems
+$  Y. Liu , G. Shao , P. Tsakiropoulos
+$  Intermetallics 8 (2000) 953-962
+$  
+$ ------------------------------------------------------------------------------
+ TYPE_DEFINITION % SEQ *!
+ DEFINE_SYSTEM_DEFAULT ELEMENT 2 !
+ DEFAULT_COMMAND DEF_SYS_ELEMENT VA /- !
+$------------------------------------------------------------------------------
+ ELEMENT /-   ELECTRON_GAS              0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT VA   VACUUM                    0.0000E+00  0.0000E+00  0.0000E+00!
+ ELEMENT AL   FCC_A1                    2.6982E+01  4.5773E+03  2.8322E+01 !
+ ELEMENT MO   BCC_A2                    9.5940E+01  4.5890E+03  2.8560E+01 !
+ ELEMENT SI   DIAMOND_A4                2.8085E+01  3.2175E+03  1.8820E+01 !
+$-------------------------------------------------------------------------------
+$ FUNCTION AL  
+$-------------------------------------------------------------------------------
+ FUNCTION GHSERAL 298.15
+ -7976.15+137.093038*T-24.3671976*T*LN(T)-1.884662E-3*T**2-0.877664E-6*T**3
+ +74092*T**(-1); 700 Y
+ -11276.24+223.048446*T-38.5844296*T*LN(T)+18.531982E-3*T**2-5.764227E-6*T**3
+ +74092*T**(-1); 933.473 Y
+ -11278.361+188.684136*T-31.748192*T*LN(T)-1230.622E25*T**(-9); 2900 N !
+ FUNCTION GHCPAL 298.15 5481-1.8*T+GHSERAL; 2900 N !
+ FUNCTION GBCCAL 298.15 10083-4.813*T+GHSERAL; 2900 N !
+ FUNCTION GLIQAL 298.15 11005.045-11.84185*T+79.337E-21*T**7+GHSERAL; 933.473 Y
+  -795.991+177.430209*T-31.748192*T*LN(T); 2900 N !
+$-------------------------------------------------------------------------------
+$ FUNCTION MO  
+$-------------------------------------------------------------------------------
+ FUNCTION GHSERMO  298.15
+ -7746.302+131.9197*T-23.56414*T*LN(T)-3.443396E-3*T**2+0.566283E-6*T**3
+ +65812*T**(-1)-0.130927E-9*T**4;  2896.00 Y
+ -30556.41+283.559746*T-42.63829*T*LN(T)-4849.315E30*T**(-9);  5000.00 N !
+ FUNCTION GLIQMO 298.15 41831.347-14.694912*T+424.519E-24*T**7+GHSERMO; 2896 Y
+ 3538.963+271.6697*T-42.63829*T*LN(T);  5000.00 N !
+ FUNCTION GFCCMO 298.15 15200+0.63*T+GHSERMO; 5000 N !
+ FUNCTION GHCPMO 298.15 11550+GHSERMO; 5000 N !
+$-------------------------------------------------------------------------------
+$ FUNCTION SI  
+$-------------------------------------------------------------------------------
+ FUNCTION GHSERSI  298.15
+ -8162.609+137.236859*T-22.8317533*T*LN(T)-1.912904E-3*T**2-0.003552E-6*T**3
+ +176667*T**(-1);  1687.00 Y
+ -9457.642+167.281367*T-27.196*T*LN(T)-420.369E28*T**(-9);  3600.00 N !
+ FUNCTION GLIQSI 298.15 50696.36-30.099439*T+209.307E-23*T**7+GHSERSI; 1687 Y
+ 40370.523+137.722298*T-27.196*T*LN(T);  3600.00 N !
+ FUNCTION GBCCSI 298.15 47000-22.5*T+GHSERSI; 3600 N !
+ FUNCTION GFCCSI 298.15 51000-21.8*T+GHSERSI; 3600 N !
+ FUNCTION GHCPSI 298.15 49200-20.8*T+GHSERSI; 3600 N !
+ FUNCTION GBCCMO 298.15  +GHSERMO; 5000 N !
+ FUNCTION GFCCAL 298.15  +GHSERAL; 2900 N !
+ FUNCTION GDIASI 298.15  +GHSERSI; 3600 N !
+$-------------------------------------------------------------------------------
+$   AL12MO    AL12MO, SUBLATTICE MODEL: (AL)0.923(MO)0.077 
+$-------------------------------------------------------------------------------
+ PHASE  AL12MO % 2 0.923 0.077    !
+ CONSTITUENT  AL12MO : AL : MO   :   !
+  PARAMETER G(AL12MO,AL:MO;0)   298.15   -10700+1.865*T
+   +0.077*GBCCMO+0.923*GFCCAL ; 6000 N !
+$-------------------------------------------------------------------------------
+$   AL5MO    AL5MO, SUBLATTICE MODEL: (AL)0.833(MO)0.167 
+$-------------------------------------------------------------------------------
+ PHASE  AL5MO % 2 0.833 0.167    !
+ CONSTITUENT  AL5MO : AL : MO   :   !
+  PARAMETER G(AL5MO,AL:MO;0)   298.15   -23000+4.381*T
+   +0.167*GBCCMO+0.833*GFCCAL ; 6000 N !
+$-------------------------------------------------------------------------------
+$   AL4MO    AL4MO, SUBLATTICE MODEL: (AL)0.8(MO)0.2 
+$-------------------------------------------------------------------------------
+ PHASE  AL4MO % 2 0.8 0.2    !
+ CONSTITUENT  AL4MO : AL : MO   :   !
+  PARAMETER G( AL4MO,AL:MO;0)   298.15   -26925+4.8*T
+   +0.2*GBCCMO+0.8*GFCCAL ; 6000 N !
+$-------------------------------------------------------------------------------
+$   AL8MO3    AL8MO3, SUBLATTICE MODEL: (AL)0.727(MO)0.273 
+$-------------------------------------------------------------------------------
+ PHASE  AL8MO3 % 2 0.727 0.273    !
+ CONSTITUENT  AL8MO3 : AL : MO   :   !
+  PARAMETER G(AL8MO3,AL:MO;0)   298.15   -35470+7.12*T
+   +0.273*GBCCMO+0.727*GFCCAL ; 6000 N !
+$-------------------------------------------------------------------------------
+$   AL63MO37    AL63MO37, SUBLATTICE MODEL: (AL)0.63(MO)0.37 
+$-------------------------------------------------------------------------------
+ PHASE  AL63MO37 % 2 0.63 0.37    !
+ CONSTITUENT  AL63MO37 : AL : MO   :   !
+  PARAMETER G(AL63MO37,AL:MO;0)   298.15   -13632-5.0*T
+   +0.37*GBCCMO+0.63*GFCCAL ; 6000 N !
+$-------------------------------------------------------------------------------
+$   BCC_A2    BCC_A2, SUBLATTICE MODEL: (AL, MO, SI) (VA)3 
+$-------------------------------------------------------------------------------
+ PHASE  BCC_A2 % 2 1 3    !
+ CONSTITUENT  BCC_A2 : AL,MO,SI : VA   :   !
+ PARAMETER G(BCC_A2,AL:VA;0) 298.15 GBCCAL; 2900 N !
+ PARAMETER G(BCC_A2,MO:VA;0) 298.15 GHSERMO; 5000 N !
+ PARAMETER G(BCC_A2,SI:VA;0) 298.15 GBCCSI; 3600 N !
+  PARAMETER G(BCC_A2,AL,MO:VA;0)   298.15   -85000+20*T ; 6000 N !
+  PARAMETER G(BCC_A2,AL,MO:VA;1)   298.15   -8000-5*T ; 6000 N !
+  PARAMETER G(BCC_A2,AL,MO:VA;2)   298.15   -30000 ; 6000 N !
+  PARAMETER G(BCC_A2,MO,SI:VA;0)   298.15   -60000+5*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$   C40    C40, SUBLATTICE MODEL: (MO)0.333(AL, SI)0.667 
+$-------------------------------------------------------------------------------
+ PHASE  C40 % 2 0.333 0.667    !
+ CONSTITUENT  C40 : MO : AL,SI   :   !
+  PARAMETER G(C40,MO:SI;0)   298.15   -43280-0.5*T
+   +0.333*GBCCMO+0.667*GDIASI ; 6000 N !
+  PARAMETER G(C40,MO:AL;0)   298.15   -21000
+   +0.333*GBCCMO+0.667*GFCCAL ; 6000 N !
+  PARAMETER G(C40,MO:AL,SI;0)   298.15   -21900+12*T ; 6000 N !
+  PARAMETER G(C40,MO:AL,SI;1)   298.15   +2300 ; 6000 N !
+$-------------------------------------------------------------------------------
+$   C54    C54, SUBLATTICE MODEL: (MO)0.333(SI)0.233(AL)0.434 
+$-------------------------------------------------------------------------------
+  PHASE  C54 % 3 0.333 0.233 0.434   !
+  CONSTITUENT  C54 : MO : SI : AL  :   !
+  PARAMETER G(C54,MO:SI:AL;0)   298.15   -33959.7-1.1*T
+   +0.333*GBCCMO+0.233*GDIASI+0.434*GFCCAL ; 6000 N !
+$-------------------------------------------------------------------------------
+$   DIAMOND_A4    DIAMOND, SUBLATTICE MODEL : (AL, SI) 
+$-------------------------------------------------------------------------------
+ PHASE  DIAMOND_A4 % 1 1       !
+ CONSTITUENT  DIAMOND_A4 : AL,SI     :   !
+ PARAMETER G(DIAMOND_A4,AL;0) 298.15 30*T+GHSERAL; 2900 N !
+ PARAMETER G(DIAMOND_A4,SI;0) 298.15 GHSERSI; 3600 N !
+  PARAMETER G(DIAMOND_A4,AL,SI;0)   298.15   +111417.7-46.1392*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$   FCC_A1    FCC_A1, SUBLATTICE MODEL: (AL, MO, SI) (VA) 
+$-------------------------------------------------------------------------------
+ PHASE  FCC_A1 % 2 1 1    !
+ CONSTITUENT  FCC_A1 : AL,MO,SI : VA   :   !
+ PARAMETER G(FCC_A1,AL:VA;0) 298.15 GHSERAL; 2900 N !
+ PARAMETER G(FCC_A1,MO:VA;0) 298.15 GFCCMO; 5000 N !
+ PARAMETER G(FCC_A1,SI:VA;0) 298.15 GFCCSI; 3600 N !
+  PARAMETER G(FCC_A1,AL,MO:VA;0)   298.15   -85300+20.4*T ; 6000 N !
+  PARAMETER G(FCC_A1,AL,MO:VA;1)   298.15   -10000 ; 6000 N !
+  PARAMETER G(FCC_A1,AL,SI:VA;0)   298.15   -3423.91-0.09584*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$   LIQUID    LIQUID, SUBLATTICE MODEL: (AL, MO, SI) 
+$-------------------------------------------------------------------------------
+ PHASE  LIQUID % 1 1     !
+ CONSTITUENT  LIQUID : AL,MO,SI    :   !
+ PARAMETER G(LIQUID,AL;0) 298.15 GLIQAL; 2900 N !
+ PARAMETER G(LIQUID,MO;0) 298.15 GLIQMO; 5000 N !
+ PARAMETER G(LIQUID,SI;0) 298.15 GLIQSI; 3600 N !
+  PARAMETER G(LIQUID,AL,MO;0)   298.15   -110000+32*T ; 6000 N !
+  PARAMETER G(LIQUID,AL,MO;1)   298.15   -10000+6.6*T ; 6000 N !
+  PARAMETER G(LIQUID,AL,MO;2)   298.15   +5000 ; 6000 N !
+  PARAMETER G(LIQUID,AL,SI;0)   298.15   -11655.93-0.92934*T ; 6000 N !
+  PARAMETER G(LIQUID,AL,SI;1)   298.15   -2873.45+0.2945*T ; 6000 N !
+  PARAMETER G(LIQUID,AL,SI;2)   298.15   +2520 ; 6000 N !
+  PARAMETER G(LIQUID,MO,SI;0)   298.15   -146600+16.5*T ; 6000 N !
+  PARAMETER G(LIQUID,MO,SI;1)   298.15   +7100-3*T ; 6000 N !
+  PARAMETER G(LIQUID,MO,SI;2)   298.15   +8000+12*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$   MO3ALSI    MO3(AL,SI), SUBLATTICE MODEL: (MO)0.75(AL, SI)0.25 
+$-------------------------------------------------------------------------------
+ PHASE  MO3ALSI % 2 0.75 0.25    !
+ CONSTITUENT  MO3ALSI : MO : AL,SI   :   !
+  PARAMETER G(MO3ALSI,MO:AL;0)   298.15   -25250+3.0*T
+   +0.75*GBCCMO+0.25*GFCCAL ; 6000 N !
+  PARAMETER G(MO3ALSI,MO:SI;0)   298.15   -27900-0.28*T
+   +0.75*GBCCMO+0.25*GDIASI ; 6000 N !
+  PARAMETER G(MO3ALSI,MO:AL,SI;0)   298.15   -24650+8.75*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$   MOSI2_C11B    MOSI2_C11B, SUBLATTICE MODEL: (MO)0.333(AL, SI)0.667 
+$-------------------------------------------------------------------------------
+ PHASE  MOSI2_C11B % 2 0.333 0.667    !
+ CONSTITUENT  MOSI2_C11B : MO : AL,SI   :   !
+  PARAMETER G(MOSI2_C11B,MO:SI;0)   298.15   -45156+0.223*T
+   +0.333*GBCCMO+0.667*GDIASI ; 6000 N !
+  PARAMETER G(MOSI2_C11B,MO:AL;0)   298.15   -19000
+   +0.333*GBCCMO+0.667*GFCCAL ; 6000 N !
+  PARAMETER G(MOSI2_C11B,MO:AL,SI;0)   298.15   -4346+5*T ; 6000 N !
+$-------------------------------------------------------------------------------
+$   MO5SI3    MO5SI3, SUBLATTICE MODEL: ( MO, SI )0.625( SI,MO, AL )0.375 
+$-------------------------------------------------------------------------------
+ PHASE  MO5SI3 % 2 0.625 0.375    !
+ CONSTITUENT  MO5SI3 : MO,SI : SI,MO,AL   :   !
+  PARAMETER G(MO5SI3,MO:SI;0)   298.15   -38980-1.349*T
+    +0.625*GBCCMO+0.375*GDIASI ; 6000 N !
+  PARAMETER G(MO5SI3,SI:MO;0)   298.15   +58980+1.349*T
+    +0.625*GDIASI+0.375*GBCCMO ; 6000 N !
+  PARAMETER G(MO5SI3,MO:MO;0)   298.15   +10000+GBCCMO ; 6000 N !
+  PARAMETER G(MO5SI3,SI:SI;0)   298.15   +10000+GDIASI ; 6000 N !
+  PARAMETER G(MO5SI3,MO:AL;0)   298.15   -7300
+    +0.625*GBCCMO+0.375*GFCCAL ; 6000 N !
+  PARAMETER G(MO5SI3,SI:AL;0)   298.15   +10000
+    +0.625*GDIASI+0.375*GFCCAL ; 6000 N !
+  PARAMETER G(MO5SI3,MO,SI:MO;0)   298.15   +10000 ; 6000 N !
+  PARAMETER G(MO5SI3,MO:MO,SI;0)   298.15   +20000 ; 6000 N !
+  PARAMETER G(MO5SI3,SI:MO,SI;0)   298.15   +20000 ; 6000 N !
+  PARAMETER G(MO5SI3,MO,SI:SI;0)   298.15   -68500+21.5*T ; 6000 N !
+  PARAMETER G(MO5SI3,MO:AL,SI;0)   298.15   -20000 ; 6000 N !
+  
+
+ 

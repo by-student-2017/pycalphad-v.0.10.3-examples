@@ -1,0 +1,139 @@
+$  case_sensitive
+
+Element         /-          ELECTRON_GAS         0         0         0 !
+Element         Al                   Fcc    26.982      4540      28.3 !
+Element          C              Graphite    12.011      1054    5.7423 !
+Element         Mg                   Hcp    24.305      4998    32.671 !
+Element         VA                VACUUM         0         0         0 !
+
+Species             Al2                   (Al)2 !
+Species             AlC                   (Al)1(C)1 !
+Species              C2                   (C)2 !
+Species              C3                   (C)3 !
+Species              C4                   (C)4 !
+Species              C5                   (C)5 !
+Species             Mg2                   (Mg)2 !
+
+Function R 298.15   8.31451; 6000 N !
+Function RTLNP 298.15   +R*T*ln(1e-005*P); 6000 N !
+Function GHSERAL 298.14    -7976.15+137.093038*T-24.3671976*T*LN(T) -.001884662*T**2-8.77664E-07*T**3+74092*T**(-1); 700 Y
+    -11276.24+223.048446*T-38.5844296*T*LN(T)+.018531982*T**2 -5.764227E-06*T**3+74092*T**(-1); 933.47 Y
+    -11278.378+188.684153*T-31.748192*T*LN(T)-1.230524E+28*T**(-9); 2900 N !
+Function GHSERCC 298.15   -17368.441+170.73*T-24.3*T*LN(T)-4.723E-04*T**2 +2562600*T**(-1)-2.643E+08*T**(-2)+1.2E+10*T**(-3); 6000 N !
+Function GHSERMG 298.14    -8367.34+143.675547*T-26.1849782*T*LN(T) +4.858E-04*T**2-1.393669E-06*T**3+78950*T**(-1); 923 Y
+    -14130.185+204.716215*T-34.3088*T*LN(T)+1.038192E+28*T**(-9); 3000 N !
+Function GLIQAL 298.15   11005.045-11.84185*T+79.337E-21*T**7+GHSERAL; 933.473 Y
+    -795.991+177.430209*T-31.748192*T*LN(T); 2900 N !
+Function GLIQCC 298.15   +100000.559+146.1*T-24.3*T*LN(T)-4.723E-04*T**2+2562600 *T**(-1)-2.643E+08*T**(-2)+1.2E+10*T**(-3); 6000 N !
+Function GLIQMG 298.14    +8202.243-8.83693*T+GHSERMG-8.0176E-20*T**7; 923 Y
+    +8690.316-9.392158*T+GHSERMG-1.038192E+28*T**(-9); 6000 N !
+Function GHCPAL 298.15    +5481-1.8*T+GHSERAL; 6000 N !
+Function GGAS_AL 298    323672.1-25.7052*T-20.78*T*LN(T) -2.500E+04*T**(-1); 3000 N !
+Function GGAS_AL2 298   475536.1+24.0226*T-38.45*T*LN(T); 6000 N !
+Function GGAS_C 298    710343.93-16.42589*T-21.17510*T*LN(T)+4.0621E-04*T**2 -7.4756E-08*T**3+6551.5*T**(-1)+3.6047E-12*T**4; 6000 N NIST !
+Function GGAS_C2 298   808275.74+553.23043*T-123.9092*T*LN(T)+1.74E-01*T**2 -8.0850E-05*T**3+620149*T**(-1)+1.94E-08*T**4; 700 Y
+    831574.53+0.81490*T-30.50408*T*LN(T)-2.7229E-03*T**2+1.4223E-07*T**3 -407375*T**(-1)-5.4701E-12*T**4; 6000 N NIST !
+Function GGAS_C3 298   812863.38-57.39802*T-26.33364*T*LN(T)-1.0134E-02*T**2 -4.6481E-07*T**3-233492.5*T**(-1)+4.2076E-10*T**4; 1000 Y
+    798268.94+68.79193*T-43.89853*T*LN(T)-2.7456E-03*T**2+1.3650E-07*T**3 +1939920.5*T**(-1)-4.0582E-12*T**4; 6000 N NIST !
+Function GGAS_C4 298      955437.73+30.63126*T-34.86640*T*LN(T)-4.2174E-02*T**2 +9.2747E-06*T**3+234072.0*T**(-1)-1.1523E-09*T**4; 1200 Y
+    924169.76+363.99983*T-84.02309*T*LN(T)-8.7324E-04*T**2+5.6807E-08*T**3 +4464224.0*T**(-1)-1.9128E-12*T**4; 6000 N NIST !
+Function GGAS_C5 298    959207.42+80.98296*T-43.06759*T*LN(T)-5.5497E-02*T**2 +1.2212E-05*T**3+400404.5*T**(-1)-1.5215E-09*T**4; 1200 Y
+    917922.31+519.95886*T-107.77570*T*LN(T)-1.1899E-03*T**2+7.7396E-08*T**3 +6008455.0*T**(-1)-2.6060E-12*T**4; 6000 N NIST !
+Function GGAS_MG 298    140901.5-9.3570*T-20.79*T*LN(T); 6000 N !
+Function GGAS_MG2 298    280355.0-77.4484*T-24.30*T*LN(T); 6000 N !
+Function GGAS_ALC 298    679881.7-7.3355*T-32.26*T*LN(T); 6000 N !
+
+
+Type_Definition ( GES AMEND_PHASE_DESCRIPTION Fcc MAGNETIC -3 0.28 !
+Type_Definition ) GES AMEND_PHASE_DESCRIPTION Hcp MAGNETIC -3 0.28 !
+
+
+Define_System_Default SPECIE 2 !
+
+Default_Command DEF_SYS_ELEMENT VA !
+
+Phase Gas:G % 1 1 !
+Constituent Gas :Al,Al2,C,C2,C3,C4,C5,Mg,Mg2,AlC:!
+    Parameter G(Gas,Al;0) 298    +GGAS_AL+RTLNP; 6000 N !
+    Parameter G(Gas,Al2;0) 298    +GGAS_AL2+RTLNP; 6000 N !
+    Parameter G(Gas,C;0) 298    +GGAS_C+RTLNP; 6000 N !
+    Parameter G(Gas,C2;0) 298    +GGAS_C2+RTLNP; 6000 N !
+    Parameter G(Gas,C3;0) 298    +GGAS_C3+RTLNP; 6000 N !
+    Parameter G(Gas,C4;0) 298    +GGAS_C4+RTLNP; 6000 N !
+    Parameter G(Gas,C5;0) 298    +GGAS_C5+RTLNP; 6000 N !
+    Parameter G(Gas,Mg;0) 298    +GGAS_MG+RTLNP; 6000 N !
+    Parameter G(Gas,Mg2;0) 298    +GGAS_MG2+RTLNP; 6000 N !
+    Parameter G(Gas,AlC;0) 298    +GGAS_ALC+RTLNP; 6000 N !
+
+Phase Liquid:L % 1 1 !
+Constituent Liquid :Al,C,Mg:!
+    Parameter G(Liquid,Al;0) 298.14  +GLIQAL; 2900 N !
+    Parameter G(Liquid,C;0) 298.15   +GLIQCC; 6000 N !
+    Parameter G(Liquid,Mg;0) 298.14    +8202.243-8.83693*T+GHSERMG-8.0176E-20*T**7; 923 Y
+        +8690.316-9.392158*T+GHSERMG-1.038192E+28*T**(-9); 6000 N !
+    Parameter G(Liquid,Al,C;0) 298.15  	-48892+1.15*T; 6000 N !
+    Parameter G(Liquid,Al,C;1) 298.15  	+32543; 6000 N !
+    Parameter G(Liquid,Al,Mg;0) 298.15   -12000.0+8.566*T; 6000 N !
+    Parameter G(Liquid,Al,Mg;1) 298.15     1894.0-3.000*T; 6000 N !
+    Parameter G(Liquid,Al,Mg;2) 298.15     2000.0; 6000 N !
+
+Phase C_graph % 1 1 !
+Constituent C_graph :C:!
+    Parameter G(C_graph,C;0) 298.15   GHSERCC; 6000 N !
+
+Phase Fcc %( 1 1 !
+Constituent Fcc :Al,Mg:!
+    Parameter G(Fcc,Al;0) 298.15    +GHSERAL; 6000 N !
+    Parameter G(Fcc,Mg;0) 298.15    +2600-.9*T+GHSERMG; 6000 N !
+    Parameter G(Fcc,Al,Mg;0) 298.15     4971.0-3.5*T; 6000 N !
+    Parameter G(Fcc,Al,Mg;1) 298.15      900.0+0.423*T; 6000 N !
+    Parameter G(Fcc,Al,Mg;2) 298.15      950.0; 6000 N !
+
+Phase Hcp %) 1 1 !
+Constituent Hcp :Al,Mg:!
+    Parameter G(Hcp,Al;0) 298.15    GHCPAL; 6000 N !
+    Parameter G(Hcp,Mg;0) 298.15   +GHSERMG; 6000 N !
+    Parameter G(Hcp,Al,Mg;0) 298.15     1950.0-2.0*T; 6000 N !
+    Parameter G(Hcp,Al,Mg;1) 298.15     1480.0-2.08*T; 6000 N !
+    Parameter G(Hcp,Al,Mg;2) 298.15     3500.0; 6000 N !
+
+Phase Al3Mg2 % 2 89 140 !
+Constituent Al3Mg2 :Mg:Al:!
+    Parameter G(Al3Mg2,Mg:Al;0) 270    -246175.0-675.55*T +89*GHSERMG+140*GHSERAL; 6000 N !
+
+Phase Al30Mg23 % 2 23 30 !
+Constituent Al30Mg23 :Mg:Al:!
+    Parameter G(Al30Mg23,Mg:Al;0) 270    -52565.4-173.1775*T +23*GHSERMG+30*GHSERAL; 6000 N !
+
+Phase Al12Mg17 % 3 10 24 24 !
+Constituent Al12Mg17 :Mg:Al,Mg:Al,Mg:!
+    Parameter G(Al12Mg17,Mg:Al:Al;0) 270    +195750.0-203.000*T +10*GHSERMG+48*GHSERAL; 6000 N !
+    Parameter G(Al12Mg17,Mg:Mg:Al;0) 270    -105560.0-101.500*T +34*GHSERMG+24*GHSERAL; 6000 N !
+    Parameter G(Al12Mg17,Mg:Al:Mg;0) 270    +568249.2-276.138*T +34*GHSERMG+24*GHSERAL; 6000 N !
+    Parameter G(Al12Mg17,Mg:Mg:Mg;0) 270    +266939.2-174.638*T +58*GHSERMG; 6000 N !
+    Parameter G(Al12Mg17,Mg:Al:Al,Mg;0) 270    226200-29*T; 6000 N !
+    Parameter G(Al12Mg17,Mg:Mg:Al,Mg;0) 270    226200-29*T; 6000 N !
+
+Phase Al2MgC2 % 3 2 1 2 !
+Constituent Al2MgC2 :Al:Mg:C:!
+    Parameter G(Al2MgC2,Al:Mg:C;0) 50  -137023.17-130.2133*T+31.64858*T*LN(T)-0.3098213*T**2-9339*T**(-1)+0.0001233135*T**3; 298.15 Y
+        -141504.37+95.31393*T-11.48743*T*LN(T)-0.1688773*T**2+0.0000462193*T**3; 500 Y
+        -170910.3+715.88624*T-113.83391*T*LN(T)-0.0099976*T**2+1599446*T**(-1); 3000 N REF0 !
+
+Phase Al4C3 % 3 2 2 3 !
+Constituent Al4C3 :Al,Mg:Al:C:!
+    Parameter G(Al4C3,Al:Al:C;0) 18  -209609.2+11.74423*T-3.98514*T*LN(T)+0.137076*T**2+139.4*T**(-1)-0.00098767*T**3; 60 Y
+        -207459.8-199.2384*T+47.03837*T*LN(T)-0.413864*T**2-17175.6*T**(-1)+0.000156251*T**3; 298.15 Y
+        -237336.07+643.8029*T-100.6823*T*LN(T)-0.0839832*T**2+1133215*T**(-1)+0.0000158781*T**3; 800 Y
+        -240446.3+866.8532*T-139.40526*T*LN(T)-0.0194607*T**2; 3000 N REF1 !
+    Parameter G(Al4C3,Mg:Al:C;0) 298.15  -1.354E+04+2*GHSERAL+2*GHSERMG+3*GHSERCC; 2000 N REF0 !
+    Parameter G(Al4C3,Al,Mg:Al:C;0) 298.15  -2.0471E+05+9.3252E+01*T; 3000 N REF0 !
+
+Phase Mg2C3 % 2 2 3 !
+Constituent Mg2C3 :Mg:C:!
+    Parameter G(Mg2C3,Mg:C;0) 298.15   35236.6+712.1276*T-118.74*T*ln(T) -0.005355*T**2+1250000*T**(-1); 6000 N !
+
+Phase MgC2 % 2 1 2 !
+Constituent MgC2 :Mg:C:!
+    Parameter G(MgC2,Mg:C;0) 298.15   61351.5+432.893*T-71.21*T*ln(T) -0.00322*T**2+750000*T**(-1); 6000 N !
+
