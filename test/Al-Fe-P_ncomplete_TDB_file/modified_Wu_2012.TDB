@@ -194,13 +194,18 @@ $
  TYPE_DEFINITION ) GES AMEND_PHASE_DESCRIPTION BCC_B2 DIS_PART BCC_A2,,,!
 
  PHASE BCC_B2  %)  3  0.5  0.5   3 !
-   CONSTITUENT BCC_B2  :AL%,FE% : AL,FE : VA : !
+   CONSTITUENT BCC_B2  :AL%,FE%,P : AL,FE,P : VA : !
    PARAMETER G(BCC_B2,AL:AL:VA;0) 298.15 +0.0; 6000 N !
    PARAMETER G(BCC_B2,FE:AL:VA;0) 2.98150E+02 
                                          -2*ALFEW1#; 6.00000E+03 N REF0 !
    PARAMETER G(BCC_B2,AL:FE:VA;0) 2.98150E+02
                                          -2*ALFEW1#; 6.00000E+03 N REF0 !
    PARAMETER G(BCC_B2,FE:FE:VA;0) 298.15 +0.0; 6000 N !
+   
+   $ The next line adds 0.0 to all combinations to avoid errors (bad)
+   PARAMETER G(BCC_B2,*:*:VA;0) 298.15 +0.0; 6000 N !
+   $PARAMETER TC(BCC_B2,*:*:VA;0) 298.15 +0.0; 6000 N !
+   $PARAMETER BMAGN(BCC_B2,*:*:VA;0) 298.15 +0.0; 6000 N !
 $
 $************************************************************************
 $ INPUT EXAMPLES
