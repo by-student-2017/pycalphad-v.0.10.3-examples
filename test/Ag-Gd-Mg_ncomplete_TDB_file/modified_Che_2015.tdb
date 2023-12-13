@@ -1,0 +1,222 @@
+$************************************************************************
+$ELEMENT NAME STABLE_ELEM_REFERENCE    MASS      H298-H0     S298  !
+$************************************************************************
+$
+ Element AG                   FCC  0.107868    5744.6    42.551 !
+ Element /-          ELECTRON_GAS         0         0         0 !
+ Element GD                   HCP   0.15725         0         0 !
+ Element MG                   HCP  0.024305      4998    32.671 !
+ Element VA                VACUUM         0         0         0 !
+$
+$************************************************************************
+$ PARAMETERS and FUNCTIONS for each elements (in various phases):
+$************************************************************************
+$
+ Function GHSERAG 298.14 
+   -7209.512+118.200733*T-23.8463314*T*ln(T)
+   -0.001790585*T**2-3.98587e-007*T**3-12011*T**(-1); 1235.08 Y
+   -15095.314+190.265169*T-33.472*T*ln(T)+1.412186e+029*T**(-9); 3000 N !
+ Function GLIQAG 298.14 
+   11025.293-8.890146*T-1.0322e-020*T**7+GHSERAG; 1235.08 Y
+             11507.972-9.300495*T-1.412186e+029*T**(-9)+GHSERAG; 3000 N !
+ Function GBCCAG  298.14 3400-1.05*T+GHSERAG; 3000 N !
+
+ Function GHSERGD 200 
+   -11600.525+151.111948*T-32.5013*T*ln(T)+0.00281265*T**2
+   -1.081237e-006*T**3+421363*T**(-1); 1300 Y
+   -8106.163+115.953605*T-27.459*T*ln(T)-0.000276123*T**2
+   -7.37325e-007*T**3; 1535 Y
+   -125618.511+711.994197*T-103.403757*T*ln(T)+0.015817949*T**2
+                            -6.72548e-007*T**3+30183452*T**(-1); 3600 N !
+ Function GLIQGD 298.14 
+   1957.09+142.499221*T-32.5013*T*ln(T)+0.00281265*T**2
+   -1.081237e-006*T**3+421363*T**(-1); 1000 Y
+   80721.646-609.764875*T+74.8351133*T*ln(T)-0.061538012*T**2
+   +6.061728e-006*T**3-10325075*T**(-1); 1535 Y
+                         -3485.133+182.116258*T-37.1539*T*ln(T); 3600 N !
+ Function GBCCGD  298.14 
+   -8028.44+148.806951*T-32.5013*T*ln(T)+0.00281265*T**2
+   -1.081237e-006*T**3+421363*T**(-1); 1000 Y
+  86879.486-747.960507*T+95.1961984*T*ln(T)-0.072542756*T**2
+  +7.116157e-006*T**3-12664161*T**(-1); 1535 Y
+  -14097.626+192.503674*T-37.656*T*ln(T); 1587 Y
+  -18620.027+217.622313*T-40.9284427*T*ln(T)+0.000953751*T**2
+                              -4.1967e-008*T**3+1107440*T**(-1); 3600 N !
+
+ Function GHSERMG 298.14 
+   -8367.34+143.675547*T-26.1849782*T*ln(T)+0.0004858*T**2
+   -1.393669e-006*T**3+78950*T**(-1); 923 Y
+   -14130.185+204.716215*T-34.3088*T*ln(T)
+                                         +1.038192e+028*T**(-9); 3000 N !
+ Function GBCCMG 298.15 3100-2.1*T+GHSERMG; 6000 N !
+ Function GLIQMG 298.14 
+   8202.243-8.83693*T+GHSERMG-8.0176e-020*T**7; 923 Y
+              8690.316-9.392158*T+GHSERMG-1.038192e+028*T**(-9); 6000 N !
+$************************************************************************
+$
+ Type_Definition % SEQ *!
+$
+$************************************************************************
+$ INPUT EXAMPLES
+$ TYPE_DEFINITION (1 symbol) GES A_P_D ORDER DIS_PART DISORDER(FCC) ,,, !
+$   PHASE ORDER %(1 symbol) 4 0.25 0.25 0.25 0.25 !
+$    COMSTITUENT ORDER : A,B,C : A,B,C : A,B,C : A,B,C : !
+$   PAR G (ORDER, A:A:A:A;0) 298.15  +0.0;  6000 N !
+$************************************************************************
+$
+ Type_Definition O GES A_P_D BCC_B2 dis_part BCC ,,,!
+ Type_Definition a GES A_P_D L12 dis_part FCC ,,,!
+ $
+$************************************************************************
+$ PHASE  NAME   Data-Type   Subl-No   Subl-Sites !
+$  and CONSTITUENT : PHASE CONSTITUENT DEFINITIONS : !
+$************************************************************************
+$
+ Phase BCC % 1 1 !
+   Constituent BCC :AG,GD,MG:!
+   Parameter G(BCC,AG;0)  298.15 GBCCAG; 3000 N !
+   Parameter G(BCC,GD;0)  298.15 GBCCGD; 3600 N !
+   Parameter G(BCC,MG;0)  298.15 GBCCMG; 6000 N !
+   Parameter G(BCC,AG,MG;0)  298.15 -57133.27-2.885*T; 3000 N !
+   Parameter G(BCC,AG,MG;1)  298.15 -49396.85+39.8*T; 3000 N !
+   Parameter G(BCC,AG,MG;2)  298.15 -11.66; 6000 N !
+   Parameter G(BCC,GD,MG;0)  298.15 -42867.7+15.7986*T; 6000 N !
+   Parameter G(BCC,GD,MG;1)  298.15 14300-5.5617*T; 6000 N !
+   Parameter G(BCC,GD,MG;2)  298.15 33793.6-24.0107*T; 6000 N !
+$
+   Parameter G(BCC,AG:GD;0)  298.14 -19427.1; 3000 N !
+
+ Phase BCC_B2 %O 2 0.5 0.5 !
+   Constituent BCC_B2 :AG,GD,MG:AG,GD,MG:!
+   Parameter G(BCC_B2,MG:AG;0)  298.14 -19427.1; 3000 N !
+   Parameter G(BCC_B2,AG:MG;0)  298.14 -19427.1; 3000 N !
+   $ The next line adds 0.0 to all combinations to avoid errors (bad)
+   Parameter G(BCC_B2,*:*;0)  298.14 +0.0; 3000 N !
+
+ Phase FCC % 1 1 !
+   Constituent FCC :AG,GD,MG:!
+   Parameter G(FCC,AG;0)  298.15 +GHSERAG; 3000 N !
+   Parameter G(FCC,GD;0)  298.15 10000+GHSERGD; 6000 N !
+   Parameter G(FCC,MG;0)  298.15 2600-0.9*T+GHSERMG; 6000 N !
+   Parameter G(FCC,AG,GD;0)  298.15 -36201+2.15*T; 6000 N !
+   Parameter G(FCC,AG,GD;1)  298.15 -21574; 6000 N !
+   Parameter G(FCC,AG,MG;0)  298.15 -58489.5; 6000 N !
+   Parameter G(FCC,AG,MG;1)  298.15 -29710+12*T; 6000 N !
+$
+   Parameter G(FCC,GD,MG;0)  298.15 -5070; 6000 N !
+
+ Phase AG51GD14 % 2 0.7846 0.2154 !
+   Constituent AG51GD14 :AG:GD:!
+   Parameter G(AG51GD14 ,AG:GD;0) 300 
+     -24793+3.8536*T+0.7846*GHSERAG+0.2154*GHSERGD; 3000 N !
+
+ Phase AG2GD % 2 0.6667 0.3333 !
+   Constituent AG2GD :AG:GD:!
+   Parameter G(AG2GD ,AG:GD;0) 300 
+     -25793+2.4022*T+0.6667*GHSERAG+0.3333*GHSERGD; 3000 N !
+
+ Phase AGMG3 % 2 0.23 0.77 !
+   Constituent AGMG3 :AG:MG:!
+   Parameter G(AGMG3,AG:MG;0) 300 
+     -22600+14.1*T+0.23*GHSERAG+0.77*GHSERMG; 3000 N !
+
+ Phase L12 %a 4 0.25 0.25 0.25 0.25 !
+   Constituent L12 :AG,GD,MG:AG,GD,MG:AG,GD,MG:AG,GD,MG:!
+   Parameter G(L12,MG:AG:AG:AG;0)  298.15 -5070; 6000 N !
+   Parameter G(L12,AG:MG:AG:AG;0)  298.15 -5070; 6000 N !
+   Parameter G(L12,AG:AG:MG:AG;0)  298.15 -5070; 6000 N !
+   Parameter G(L12,AG:AG:AG:MG;0)  298.15 -5070; 6000 N !
+   $ The next line adds 0.0 to all combinations to avoid errors (bad)
+   Parameter G(L12,*:*:*:*;0)  298.15 +0.0; 6000 N !
+
+ Phase AGGD % 2 0.5 0.5 !
+   Constituent AGGD :GD:AG:!
+   Parameter G(AGGD,GD:AG;0)  298.15 
+     -26595+0.1407*T+0.5*GHSERAG+0.5*GHSERGD; 6000 N !
+
+ Phase GDMG % 2 0.5 0.5 !
+   Constituent GDMG :GD:MG:!
+   Parameter G(GDMG,GD:MG;0) 298.15 
+     -25592.4+122.0674*T-24.642*T*LN(T)-0.004164*T**2
+     +160943.5*T**(-1); 6000 N !
+
+ Phase GDMG3 % 2 0.25 0.75 !
+   Constituent GDMG3 :GD:MG:!
+   Parameter G(GDMG3,GD:MG;0) 298.15 
+     -23840.5+125.865*T-23.689*T*LN(T)-0.0045547*T**2
+     +121278*T**(-1); 6000 N !
+
+ Phase GDMG2 % 2 0.33333 0.66667 !
+   Constituent GDMG2 :GD:MG:!
+   Parameter G(GDMG2,GD:MG;0) 298.15 
+     -24767.3+123.747*T-24.005*T*LN(T)-0.00442535*T**2
+     +121077.5*T**(-1); 6000 N !
+
+ Phase HCP % 1 1 !
+   Constituent HCP :AG,GD,MG:!
+   Parameter G(HCP,AG;0)  298.15 300+0.3*T+GHSERAG; 3000 N !
+   Parameter G(HCP,GD;0)  200 +GHSERGD; 3600 N !
+   Parameter G(HCP,MG;0)  298.15 +GHSERMG; 6000 N !
+   Parameter G(HCP,AG,MG;0)  300 -22618-14.63*T; 3000 N !
+   Parameter G(HCP,GD,MG;0)  298.15 -28514.7+10*T; 6000 N !
+   Parameter G(HCP,GD,MG;1)  298.15 9500+4.5186*T; 6000 N !
+
+ Phase AGMG4 % 2 0.2 0.8 !
+   Constituent AGMG4 :AG,GD:MG:!
+   Parameter G(AGMG4,AG:MG;0) 300 
+     -20458+13.313*T+0.2*GHSERAG+0.8*GHSERMG; 3000 N !
+
+$************************************************************************
+$ OPTIMIZATION AGMG5_DD  -20000 -15138.60; 0 N !
+$ OPTIMIZATION AGMG5_DDT  0 8.6672; 30 N !
+$ OPTIMIZATION AGMG6_AA  -20000 -14998.80; -10000 N !
+$ OPTIMIZATION AGMG6_AAT  0 11.5827; 20 N !
+$ OPTIMIZATION GDMG6_BB  -20000 -9427.88; 0 N !
+$ OPTIMIZATION GDMG6_BBT  0 7.6454; 20 N !
+$ OPTIMIZATION X_CC  -20000 -15029.31; -15000 N !
+$ OPTIMIZATION X_CCT  0 4.99; 20 N !
+$
+ Function AGMG5_DD  -20000 -15138.60; 0 N !
+ Function AGMG5_DDT  0 8.6672; 30 N !
+ Function AGMG6_AA  -20000 -14998.80; 0 N !
+ Function AGMG6_AAT  0 11.5827; 20 N !
+ Function GDMG6_BB  -20000 -9427.88; 0 N !
+ Function GDMG6_BBT  0 7.6454; 20 N !
+ Function X_CC      -20000 -15029.31; 0 N !
+ Function X_CCT      0 4.99; 20 N !
+$************************************************************************
+
+ Phase GDMG5 % 2 0.166667 0.833333 !
+   Constituent GDMG5 :AG,GD:MG:!
+   Parameter G(GDMG5,GD:MG;0) 298.15 
+     -18831.5+123.257*T-23.2024*T*LN(T)-0.0047014*T**2
+     +50680*T**(-1); 6000 N !
+   Parameter G(GDMG5,AG:MG;0) 298.15 
+     -16200.04+19.98*T+0.166667*GHSERAG+0.833333*GHSERMG; 6000 N !
+   Parameter G(GDMG5,AG,GD:MG;0) 298.15 AGMG5_DD+AGMG5_DDT*T; 6000 N !
+
+ Phase X_Phase % 2 0.15 0.85 !
+   Constituent X_Phase : AG,GD:MG:!
+   Parameter G(X_Phase,AG:MG;0) 298.15 
+     AGMG6_AA+AGMG6_AAT*T+0.15*GHSERAG+0.85*GHSERMG; 6000 N !
+   Parameter G(X_Phase,GD:MG;0) 298.15 
+     GDMG6_BB+GDMG6_BBT*T+0.15*GHSERGD+0.85*GHSERMG; 6000 N !
+   Parameter G(X_Phase,AG,GD:MG;0) 298.15 X_CC+X_CCT*T; 6000 N !
+
+ Phase LIQUID % 1 1 !
+   Constituent LIQUID :AG,GD,MG:!
+   Parameter G(LIQUID,AG;0)  298.15 GLIQAG; 3000 N !
+   Parameter G(LIQUID,GD;0)  298.15 GLIQGD; 3600 N !
+   Parameter G(LIQUID,MG;0)  298.15 GLIQMG; 6000 N !
+   Parameter G(LIQUID,AG,GD;0)  298.15 
+     -103000+50.4429*T-4.1259*T*LN(T); 6000 N !
+   Parameter G(LIQUID,AG,GD;1)  298.15 -31000+1.7421*T; 6000 N !
+   Parameter G(LIQUID,AG,GD;2)  298.15 +10283; 6000 N !
+   Parameter G(LIQUID,AG,MG;0)  298.15 -45000-20.4462*T; 6000 N !
+   Parameter G(LIQUID,AG,MG;1)  298.15 -3966.485; 6000 N !
+   Parameter G(LIQUID,GD,MG;0)  298.15 -24899.7-2.0057*T; 6000 N !
+   Parameter G(LIQUID,GD,MG;1)  298.15 39569.7-15.5027*T; 6000 N !
+   Parameter G(LIQUID,GD,MG;2)  298.15 -4025.92; 6000 N !
+   Parameter G(LIQUID,AG,GD,MG;0)  298.15 -60000; 6000 N !
+$
+$************************************************************************
