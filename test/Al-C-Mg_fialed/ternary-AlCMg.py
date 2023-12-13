@@ -4,8 +4,8 @@ from pycalphad import Database, ternplot
 from pycalphad import variables as v
 
 #------User input area--------
-#tdb_file = 'AlCMg_THERMOCALC.tdb' # from TDBDB (Deffrennes et al. (2019))
-tdb_file = 'AlCMg_PANDAT.tdb' # from TDBDB (Deffrennes et al. (2019))
+tdb_file = 'modified_AlCMg_THERMOCALC.tdb' # from TDBDB (Deffrennes et al. (2019))
+#tdb_file = 'modified_AlCMg_PANDAT.tdb' # from TDBDB (Deffrennes et al. (2019))
 ELA = 'Al'  # x-axis
 ELB = 'C'   # lower left side
 ELC = 'Mg'  # y-axis

@@ -6,13 +6,13 @@ Element          C              Graphite    12.011      1054    5.7423 !
 Element         Mg                   Hcp    24.305      4998    32.671 !
 Element         VA                VACUUM         0         0         0 !
 
-Species             Al2                   (Al)2 !
-Species             AlC                   (Al)1(C)1 !
-Species              C2                   (C)2 !
-Species              C3                   (C)3 !
-Species              C4                   (C)4 !
-Species              C5                   (C)5 !
-Species             Mg2                   (Mg)2 !
+Species             Al2                   Al2 !
+Species             AlC                   Al1C1 !
+Species              C2                   C2 !
+Species              C3                   C3 !
+Species              C4                   C4 !
+Species              C5                   C5 !
+Species             Mg2                   Mg2 !
 
 Function R 298.15   8.31451; 6000 N !
 Function RTLNP 298.15   +R*T*ln(1e-005*P); 6000 N !

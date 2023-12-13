@@ -13,11 +13,11 @@ $ SPECIES
 $******************************************************************************
 
 SPECIES             AL2                   AL2 !
-SPECIES             ALC                   (AL)1(C)1 !
-SPECIES              C2                   (C)2 !
-SPECIES              C3                   (C)3 !
-SPECIES              C4                   (C)4 !
-SPECIES              C5                   (C)5 !
+SPECIES             ALC                   AL1C1 !
+SPECIES              C2                   C2 !
+SPECIES              C3                   C3 !
+SPECIES              C4                   C4 !
+SPECIES              C5                   C5 !
 SPECIES              MG1                  MG!
 SPECIES              MG2                  MG2!
 
@@ -242,7 +242,7 @@ $******************************************************************************
 $ C-MG binary system
 $******************************************************************************
 
-PARA G(LIQUID,MG,C;0))     298.15 +0; 3000 N CHE12 !
+PARA G(LIQUID,MG,C;0)      298.15 +0; 3000 N CHE12 !
 
 PARA G(FCC_A1,MG:C;0)      298.15 +0; 6000 N!
 
