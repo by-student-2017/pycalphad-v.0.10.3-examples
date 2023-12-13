@@ -90,7 +90,7 @@
 
 ## TDB files
 - NIMS: CPDDB: https://cpddb.nims.go.jp/ (There are some files that cannot be read properly. It takes some time to register, but it is free to use.)
-- TDBDB: https://avdwgroup.engin.brown.edu/ 
+- TDBDB: https://avdwgroup.engin.brown.edu/ , https://www.sciencedirect.com/science/article/pii/S0364591618300099 (Open Access)
 - Available open databases: https://www.opencalphad.com/databases.html
 -   https://github.com/pycalphad/pycalphad/tree/develop/examples
 
@@ -101,6 +101,7 @@
 3. Use interactive 3D: [(check)]
 4. (click) Preview(experimental!)
 5. (Compare graphe and pycalphad results)
+- Paper: https://www.sciencedirect.com/science/article/pii/S0364591618300099 (Open Access)
 
 
 ## Learn more
@@ -148,7 +149,8 @@ Line 1310: => "+12*GHSERCR#;   6000   N REF:211 !"
 Line 1358-1373: Write "$" at the beginning of the line.
 ```
 - conds: 0 => 1e-4 for ZeroDivisionError: float division (Sometimes the problem can be solved by changing the temperature to be calculated.)
-- Folders related to hydrogen storage material: Mg-Mn-Ni, H-La-Ni
+- Regarding "C_S", I looked at the Thermo-Calc manual but couldn't understand it well. I would like to request that readers provide information to correct this issue. Currently, the "C_S" part in the test folder has been deleted with a comment. It would be fine if it had the same state diagram as the paper, but please be careful when handling it.
+- Folders related to hydrogen storage material: Mg-Mn-Ni, H-La-Ni, H-Nd-Ni
 - The test folder is a check to see if a ternary phase diagram can be drawn (including simple TDB file modifications). Normally, I would like to check whether the figure matches the figure in the paper, but since research funding in Japan is extremely uneven (therefore, the paper must be ordered based on copyright law), it is not easy to check. Another reason is that I don't have any achievements, so it's not easy to apply for research funding.
 
 
