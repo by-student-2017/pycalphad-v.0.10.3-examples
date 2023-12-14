@@ -88,7 +88,7 @@
 3. python3 binary-LiCoO.py
 
 
-## Example: Cs-Li-fix-Cl
+## Example: Cs-Li-fix-Cl_test
 1. cd ~/pycalphad-v.0.10.3-examples
 2. cd Cs-Li-fix-Cl
 3. python3 phase-diagram.py
