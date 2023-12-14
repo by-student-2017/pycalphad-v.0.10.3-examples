@@ -94,6 +94,7 @@
 - MatCalc, Open free databases: https://www.matcalc-engineering.com/index.php/databases , https://doi.org/10.1016/j.calphad.2023.102531 (Open Access)
 - Available open databases: https://www.opencalphad.com/databases.html
 -   https://github.com/pycalphad/pycalphad/tree/develop/examples
+- JAEA: https://migrationdb.jaea.go.jp/cgi-bin/db_menu.cgi?ej=1&title=TDB
 
 
 ## Usage (TDBDB: https://avdwgroup.engin.brown.edu/)
