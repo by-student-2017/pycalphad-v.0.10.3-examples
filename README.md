@@ -88,6 +88,13 @@
 3. python3 binary-LiCoO.py
 
 
+## Example: Cs-Li-fix-Cl
+1. cd ~/pycalphad-v.0.10.3-examples
+2. cd Cs-Li-fix-Cl
+3. python3 phase-diagram.py
+- see Gitter: https://app.gitter.im/#/room/#pycalphad_pycalphad:gitter.im
+
+
 ## TDB files
 - NIMS: CPDDB: https://cpddb.nims.go.jp/ (There are some files that cannot be read properly. It takes some time to register, but it is free to use.)
 - TDBDB: https://avdwgroup.engin.brown.edu/ , https://www.sciencedirect.com/science/article/pii/S0364591618300099 (Open Access)
