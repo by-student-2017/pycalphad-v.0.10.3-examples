@@ -117,6 +117,7 @@
 - Examples: https://pycalphad.org/docs/latest/examples/index.html
 - FAQ: https://github.com/pycalphad/pycalphad/blob/1563bc4cc7754d2925a73d6e4aa76bb22abbb7d4/docs/faq.rst#L50
 - Issues: https://github.com/pycalphad/pycalphad/issues
+- Gitter: https://app.gitter.im/#/room/#pycalphad_pycalphad:gitter.im
 - Package: https://pycalphad.org/docs/latest/api/pycalphad.html
 - Phases research lab: https://phaseslab.com/pycalphad/
 - ResearchGate: https://www.researchgate.net/publication/311959120_pycalphad_CALPHAD-based_Computational_Thermodynamics_in_Python
