@@ -101,7 +101,17 @@
 - MatCalc, Open free databases: https://www.matcalc-engineering.com/index.php/databases , https://doi.org/10.1016/j.calphad.2023.102531 (Open Access)
 - Available open databases: https://www.opencalphad.com/databases.html
 -   https://github.com/pycalphad/pycalphad/tree/develop/examples
+- MatCalc6: https://www.matcalc.at/index.php/databases/open-databases
+- NIST (Solder Systems): https://www.metallurgy.nist.gov/phase/solder/solder.html
 - JAEA: https://migrationdb.jaea.go.jp/cgi-bin/db_menu.cgi?ej=1&title=TDB
+- Computational Thermodynamics, Free databases: http://www.met.kth.se/~bosse/BOOK/databases/databases.html
+- nanocem CemGEMS: https://cemgems.org/cemdata/about-cemdata/
+- GEMS: https://gems.web.psi.ch/TDB/?forprint
+- MINES: https://geoinfo.nmt.edu/mines-tdb/
+- Thermo-Chimie: https://www.thermochimie-tdb.com/
+- SGTE Pure: https://www.sgte.net/en/free-pure-substance-database
+- ATAT: https://www.brown.edu/Departments/Engineering/Labs/avdw/atat/
+- TDB-6: https://www.oecd-nea.org/jcms/pl_22166/thermochemical-database-tdb-project
 
 
 ## Usage (TDBDB: https://avdwgroup.engin.brown.edu/)
