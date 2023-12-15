@@ -90,7 +90,7 @@
 
 ## Example: Cs-Li-fix-Cl_test
 1. cd ~/pycalphad-v.0.10.3-examples
-2. cd Cs-Li-fix-Cl
+2. cd Cs-Li-fix-Cl_test
 3. python3 phase-diagram.py
 - see Gitter: https://app.gitter.im/#/room/#pycalphad_pycalphad:gitter.im
 
