@@ -115,6 +115,18 @@
 - TDB-6: https://www.oecd-nea.org/jcms/pl_22166/thermochemical-database-tdb-project
 
 
+## Widom Alloy Database
+- https://alloy.phys.cmu.edu/
+
+
+## CAMP databases (CAMP Homepage)
+- https://databases.fysik.dtu.dk/
+
+
+## 2NN MEAM Interatomc Potential
+- https://cmse.postech.ac.kr/home_2nnmeam
+
+
 ## Usage (TDBDB: https://avdwgroup.engin.brown.edu/)
 1. Elements : Mo Ni Re
 2. (click) Search
