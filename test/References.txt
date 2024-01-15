@@ -29,49 +29,49 @@ https://d1wqtxts1xzle7.cloudfront.net/86206682/j.calphad.2018.11.00920220520-1-1
 Co-Cr-Fe-Mn-Ni HEA
 https://d1wqtxts1xzle7.cloudfront.net/34062441/AcMat_13_Sluggish_di%EF%AC%80usion_in_Co-Cr-Fe-Mn-Ni_high-entropy_alloys-libre.pdf?1404001840=&response-content-disposition=inline%3B+filename%3DSluggish_diffusion_in_Co_Cr_Fe_Mn_Ni_hig.pdf&Expires=1703836319&Signature=dt5idZu3TH5uYK0WYfIONg044H5nqWcqwDOmtmpFFvANSnqrgBich8ThaOI1vfIpvQ0sTbNODV6hZAn-0lEA3lopuNYM53p7bPTIAGXCchdmCBJsaOfsYgPaXMCdm-fkgqXMkQkCWhx2-EwXVv9uxcSw0txq3OipGdrhktdnur7YTspgzUxJEZHLEczk2a6jH0icKgmR5v9JNjhF9DzzUlnOBMS7jACfUUKYRU2vX1WaUaodEgpAXMP5NpFHs8JBDHVQSGIxeRobS8iONLmyxHg8grgSoHUendid7cD-1bB4U9XyLXz1-QihaZbmef0RyYdXKORTqqFdRx1QJyGKqw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
 -------------------------------------------------------------------------
-Cr-Ti-V
+Cr-Ti-V (Cr-V-Ti at 773, 873, 973, 1173, 1273 and 1473 K)
 https://www.researchgate.net/profile/Gautam-Ghosh-2/publication/225652299_Thermodynamic_and_kinetic_modeling_of_the_Cr-Ti-V_system/links/5a4be4cb458515a6bc6bf22a/Thermodynamic-and-kinetic-modeling-of-the-Cr-Ti-V-system.pdf
 -------------------------------------------------------------------------
-Cu-Al-Fe
+Cu-Al-Fe (Cu-Al-Fe at 1273 K)
 https://www.researchgate.net/profile/Cong-Dai-2/publication/251582837_Interdiffusivities_and_atomic_mobilities_in_fcc_Cu-Al-Fe_alloys/links/59f7cce1a6fdcc075ec7c24b/Interdiffusivities-and-atomic-mobilities-in-fcc-Cu-Al-Fe-alloys.pdf
 -------------------------------------------------------------------------
-Mg-Al-Ca-Sr-Mn
+Mg-Al-Ca-Sr-Mn (Mg-Al-Ca at 300+273, 400+273, 500+273 and 600+273 K)
 https://core.ac.uk/download/pdf/45268822.pdf
 -------------------------------------------------------------------------
-Mg-Zn-Re_Mg-Ni-Re
+Mg-Zn-Re_Mg-Ni-Re (Mg-Ni-Nd at 300+273 K, 4 MPa H2)
 https://www.jmst.org/article/2020/1005-0302/1005-0302-44-0-171.shtml
 -------------------------------------------------------------------------
-Mg-Zn-Gd
+Mg-Zn-Gd (Mg-Zn-Gd at 673 K)
 https://www.researchgate.net/profile/Guanglong-Xu/publication/258373094_Experimental_investigation_and_thermodynamic_assessment_of_the_Mg-Zn-Gd_system_focused_on_Mg-rich_corner/links/00b7d529b8f06945af000000/Experimental-investigation-and-thermodynamic-assessment-of-the-Mg-Zn-Gd-system-focused-on-Mg-rich-corner.pdf
 -------------------------------------------------------------------------
-Mg-Sn-Zn
+Mg-Sn-Zn (Mg-Zn-Sn at 340+273 and 500+273 K)
 https://users.encs.concordia.ca/~mmedraj/papers/Mg%E2%80%93Sn%E2%80%93Zn_system.pdf
 -------------------------------------------------------------------------
 Mo-Nb-Ta-V-W
 https://arxiv.org/pdf/1705.01844.pdf
 -------------------------------------------------------------------------
-Nb-Si-Al
+Nb-Si-Al (Al-Si-Nb at 1400+273 and 500+273 K) (Nb-Si-Al at 1000+273 and 1400+273 K)
 https://edisciplinas.usp.br/pluginfile.php/7956731/mod_resource/content/1/Nb-Si-Al-2004Shao.pdf
 -------------------------------------------------------------------------
 TiAl-Nb-Mo
 https://liss.sdf-eu.org/KDL/papers/Schmoelzer-2010-Intermetallics.pdf
 -------------------------------------------------------------------------
-Cr-Nb-Sn-Zr
+Cr-Nb-Sn-Zr (Cr-Zr-Nb at 1300+273 K) (Cr-Zr-Sn at 900+273 K) (Nb-Zr-Sn at 950+273 and 1000+273 K)
 https://cea.hal.science/cea-02339676/document
 -------------------------------------------------------------------------
-Zr-Nb-Cr
+Zr-Nb-Cr (Cr-Zr-Nb at 1573 K)
 https://www.researchgate.net/profile/Nan-Zou-10/publication/279636268_Thermodynamic_modeling_of_Cr-Nb_and_Zr-Cr_with_extension_to_the_ternary_Zr-Nb-Cr_system/links/5cab0d554585157bd32a737a/Thermodynamic-modeling-of-Cr-Nb-and-Zr-Cr-with-extension-to-the-ternary-Zr-Nb-Cr-system.pdf
 -------------------------------------------------------------------------
-Cr-Y-O
+Cr-Y-O (O-Y-Cr at 800+273, 1000+273, 1200+273 and 1500+273 K)
 https://backend.orbit.dtu.dk/ws/portalfiles/portal/171280249/Y_Cr_O_Paper_final_postprint.pdf
 -------------------------------------------------------------------------
 Fe-Mn-Ca-Mg-S
 https://www.researchgate.net/profile/Md-Washim-Akram-2/post/What_is_the_best_way_to_perform_thermodynamic_study_on_new_alloy_systems/attachment/5aaf4b33b53d2f0bba58d4b1/AS%3A605766897635328%401521437491148/download/dilner2016.pdf
 -------------------------------------------------------------------------
-Fe-Mg-Mn and Fe-Mg-Ni
+Fe-Mg-Mn and Fe-Mg-Ni (Mg-Ni-Fe at 500+273 K) (Mg-Mn-Fe at 500+273 and 800+273 K)
 https://www.researchgate.net/profile/Lijun-Zhang-46/publication/275847189_Experimental_investigation_and_thermodynamic_calculation_of_the_Fe-Mg-Mn_and_Fe-Mg-Ni_systems/links/55506ea408ae739bdb90df1d/Experimental-investigation-and-thermodynamic-calculation-of-the-Fe-Mg-Mn-and-Fe-Mg-Ni-systems.pdf
 -------------------------------------------------------------------------
-Mg-Al-Ca-Sr-Mn
+Mg-Al-Ca-Sr-Mn (Mg-Ca-Sr at 500+273 K) (Al-Ca-Sr at 500+273 K)
 https://link.springer.com/article/10.1007/s11669-009-9467-4
 -------------------------------------------------------------------------
 Mg-Al-Ca-Sr
@@ -80,35 +80,35 @@ https://spectrum.library.concordia.ca/id/eprint/975881/1/NR37762.pdf
 Mg-Al-Zn-Sr
 https://escholarship.mcgill.ca/downloads/fb494d07w#page=105
 -------------------------------------------------------------------------
-Mg-Al-Ca-Sr-Zn
+Mg-Al-Ca-Sr-Zn (Mg-Al-Ca at 688 K)
 https://etda.libraries.psu.edu/files/final_submissions/6729
 -------------------------------------------------------------------------
 Mg-Mn-{Sn, Sr}
 https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/iet-smt.2013.0267
 -------------------------------------------------------------------------
-Al-Mg-Sr
+Al-Mg-Sr (Mg-Al-Sr at 400+273 and 500+273 K)
 https://users.encs.concordia.ca/~mmedraj/papers/mg-al-sr%20with%20rainer.pdf
 -------------------------------------------------------------------------
 Nb-Ni-Si
 https://d1wqtxts1xzle7.cloudfront.net/42895648/Santos.Nb-Ni-Si.1073K.1-s2.0-S0364591615300092-main-libre.pdf?1456052578=&response-content-disposition=inline%3B+filename%3DThermodynamic_modelling_of_the_Nb_Ni_Si.pdf&Expires=1703853977&Signature=ZrJeI7E0i3Nfzs8Jzz-PPrbXkqUyqRI5n-sbhl-TYZy~2D~Y2qqkURrb2vOVB5Hxjoar7Cm-9d0d8I4SAh38pfdxSevBC4~2O92fWgE0eSax1GrPCKbHMuKFiGyBDfSfwYVSOSGjXPG5AiBh6~SpSK7s9n3zjFVRKxHY33IdzdkxuE7Cmf5MbqilI9IKhUnhN-OBm9cT0vvy6NoDWxwcdS1dVnCWI6YIVoTELP4eXfAdFe~bNBNva~3S8nY~6adDCXv3TbEhp-4TZL7FS0cZb71L-0QudOIO2mIwXv5a~oDlNKlEU3Vxfp04q~ndW5cty7XhVw6GX-kR0S9EExJuCw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
 -------------------------------------------------------------------------
-Sb-Sn-Zn
+Sb-Sn-Zn (Zn-Sb-Sn at 250+273 and 350+273 K)
 https://www.researchgate.net/profile/Ondrej-Zobac/publication/282960715_Calphad-type_assessment_of_the_Sb-Sn-Zn_ternary_system/links/5c470db9458515a4c737a5e3/Calphad-type-assessment-of-the-Sb-Sn-Zn-ternary-system.pdf
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
 Al-Cu-Mg-Si
 http://www.gotrawama.eu/Modeling%20of%20the%20viscosity%20in%20the%20AL%E2%80%93Cu%E2%80%93Mg%E2%80%93Si%20system%20Database%20Construction.pdf
 -------------------------------------------------------------------------
-Al-Cu-Yb
+Al-Cu-Yb (Cu-Al-Yb at 870 K)
 https://aseestant.ceon.rs/index.php/jmm/article/download/8681/4734
 -------------------------------------------------------------------------
 Al-Mo-Si
 https://d1wqtxts1xzle7.cloudfront.net/41244137/Thermodynamic_reassessment_of_the_MoSi_a20160114-3119-ibvjw2.pdf20160115-19908-lax3f1-libre.pdf?1452897365=&response-content-disposition=inline%3B+filename%3DThermodynamic_reassessment_of_the_Mo_Si.pdf&Expires=1703854693&Signature=Cd4mWXGUMWICKomtC8h4cifr3dTPW0wi12bBmUTYxO9dydxxpa9Tp45DMsxgGdoWjSu8X0kOsnqjCPdY~s~MVqfQbypq~~HQL6sBpbXKlfmQ78T36d4QvptbCB2tDnYVi1~8DBJEwSoez9LvSOyoJoy4GHTROwm76spWwMXuZta7OxVxBeeKB-pxbXtBro3F5elEDPQStzfhCi9XZ4eXwFUydaqJ8Cm0jD3zLubEI~yOpPev8r6PjoyJzGSIP6GrDpURjTZU09zeUFXekIGlAoxds~BSx2eVu0EqiKI7fptJLyGbGHjoUvt3UqA0Z3lmLo86IhUx4n9gtjEU6m2y0A__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
 -------------------------------------------------------------------------
-Cr-Ge-Mn and Cr-Ge-Si
+Cr-Ge-Mn and Cr-Ge-Si (Cr-Ge-Mn at 1173 K) (Ge-Si-Cr at 1150 K)
 https://www.researchgate.net/profile/Philippe-Jund/publication/273390569_Ab-initio_calculations_and_CALPHAD_description_of_Cr-Ge-Mn_and_Cr-Ge-Si/links/55b2064b08aed621ddfd7adf/Ab-initio-calculations-and-CALPHAD-description-of-Cr-Ge-Mn-and-Cr-Ge-Si.pdf
 -------------------------------------------------------------------------
-Cu-Fe-Si
+Cu-Fe-Si (Fe-Cu-Si at 1023, 1273, 1523, 1723, 1833 and 2073 K)
 https://www.researchgate.net/profile/Jingrui-Zhao/publication/226874786_Experimental_Investigation_and_Thermodynamic_Reassessment_of_the_Cu-Fe-Si_System/links/5693bb4908ae3ad8e33b28ce/Experimental-Investigation-and-Thermodynamic-Reassessment-of-the-Cu-Fe-Si-System.pdf
 -------------------------------------------------------------------------
 Cr-Mo-Ni-Re
