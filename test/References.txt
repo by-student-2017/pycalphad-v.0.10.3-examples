@@ -1,0 +1,116 @@
+-------------------------------------------------------------------------
+Al-C-Fe (Fe-Al-C at 1673 or 2573 K)
+https://drive.google.com/file/d/1h4pgAHkR-g_DhYHTL1dLaNNu_sYKWzWw/view
+-------------------------------------------------------------------------
+Al-Cr-Ni (Cr-O-Ni at 1873 or 2000 K)
+https://www.researchgate.net/profile/O-Fabrichnaya/publication/27272432_Thermodynamics_of_liquid_and_undercooled_liquid_Al-Cr-Ni_Alloys/links/00b7d51645884727fe000000/Thermodynamics-of-liquid-and-undercooled-liquid-Al-Cr-Ni-Alloys.pdf
+-------------------------------------------------------------------------
+Au-Cu-Sn (Au-Cu-Sn at 273+150, 200, 320 or 350 K)
+https://d1wqtxts1xzle7.cloudfront.net/45741207/Thermodynamic_modeling_of_AuCeSn_ternary20160518-25400-gzkp0p-libre.pdf?1463573264=&response-content-disposition=inline%3B+filename%3DThermodynamic_modeling_of_Au_Ce_Sn_terna.pdf&Expires=1703836102&Signature=C4CUxPFv0EblBtU9FEaIqYruajKvx1dC86u1yogtVqMcfbKh5jmw6FSmlG8zzyP3u4tFkfaclEOx9Gk9mPQ5UjRL2BFrLQM4l0rrEZGkHA4AwaXcL5KZPLLdzS4pU~y97Rkz1CLp4edP2LwUW0mnFZYCk27MZXCz6zYvHC1R7TzHeeVOuj33xJKWZKhg3jLAptJv4IDzcugvPLW5Oxh77R2Xj6G5Jkjqsz7pfBgeihYhqLQC8Wn5djSCsdmGn~dPbivaml1aVCUwecoxVj9r92fTwvJVOTN90Jln-YaCSuOEgXQOc0O68kPn0IG9pi89jrwh4lDvaatsgv3v~UQytQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+-------------------------------------------------------------------------
+Al-Ni-Pt (Ni-Pt-Al at 1373, 1428, 1523 or 1573 K)
+https://www.sciencedirect.com/science/article/am/pii/S0364591616301171
+-------------------------------------------------------------------------
+Au-Ni-Sn (Sn-Au-Ni at 273+150, 200, 300, 400, 500 or 600 K)
+https://d1wqtxts1xzle7.cloudfront.net/45667912/Thermodynamic_reassessment_of_AuNiSn_ter20160516-14000-gmzr2p-libre.pdf?1463418127=&response-content-disposition=inline%3B+filename%3DThermodynamic_reassessment_of_Au_Ni_Sn_t.pdf&Expires=1703836076&Signature=a169ySlVvMs-CxDmo6e65uXpSEtKlf2n8YmgJVz4qZaaHeRGEv4yDAPjmUatMitFzC8fDUukFpwNMGXsvN~Q1sBmBhj0mLrR12FFUXD8IO7arNBte9RB-En4r~umTAgq-Ba~fS2JOUEzSn0k-DFHOEuy0m0nMikDSU-1jSXTYWGLjKe916JtGGj9E4HJNLKxmzbjQMsu1bmkOd4dGj22fJt1Xvm3U6NxuwZqVbbOTv3q27t~bIWfSN9PM8e1gha9o1cV9HRRNJyAU8oiQkkdM6L1lHs1fLm6WpUHeDHXbn9eVfykkxOKXCkaEjDoUqVq7DPYcXs-9VNTl2AGEKFmLQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+-------------------------------------------------------------------------
+Ag-Pb-Zn
+https://doi.org/10.1016/j.fmre.2022.03.004
+-------------------------------------------------------------------------
+Ca-Mg-Fe-Mn
+http://www.minsocam.org/ammin/am75/am75_328.pdf
+-------------------------------------------------------------------------
+Ca-Mg-Fe-Mn HEA
+http://www.minsocam.org/ammin/am75/am75_328.pdf
+-------------------------------------------------------------------------
+Ce-Fe-Sb
+https://d1wqtxts1xzle7.cloudfront.net/86206682/j.calphad.2018.11.00920220520-1-1l2v4nf-libre.pdf?1653055117=&response-content-disposition=inline%3B+filename%3DThermodynamic_assessment_of_the_Ce_Fe_Sb.pdf&Expires=1703837008&Signature=VLZIL-Nuo~EjbCKTKGTSZMb~GAr1TTu7OgBFm3umJNZOv1573uNAzls4cnWn9pTIlHXfomViUS32RY~sWAZIwJrfUkZ0X1sWeAY7FEaBywGkD3rQbaIxpv2S0udsUMMsL2-kThU~7iPTAi4LkxfWQxusbpWsh9NW4q9iaIwJEU2A3i0OuyuGTwCIb4xlnCoyzfhJMUtW~yPeTNVbTc1HW05aq3xC~2wIu7xOl4MYDpadfirMKCqew9dN3n9Q0weauMLe~9ZrdZ7boa9x-aHWbaKExzmZvOVGYDRAsFtEePk3Xk140KXOgsFY8czIk8dznvf-u42gnP5kLv1pVT2z5A__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+-------------------------------------------------------------------------
+Co-Cr-Fe-Mn-Ni HEA
+https://d1wqtxts1xzle7.cloudfront.net/34062441/AcMat_13_Sluggish_di%EF%AC%80usion_in_Co-Cr-Fe-Mn-Ni_high-entropy_alloys-libre.pdf?1404001840=&response-content-disposition=inline%3B+filename%3DSluggish_diffusion_in_Co_Cr_Fe_Mn_Ni_hig.pdf&Expires=1703836319&Signature=dt5idZu3TH5uYK0WYfIONg044H5nqWcqwDOmtmpFFvANSnqrgBich8ThaOI1vfIpvQ0sTbNODV6hZAn-0lEA3lopuNYM53p7bPTIAGXCchdmCBJsaOfsYgPaXMCdm-fkgqXMkQkCWhx2-EwXVv9uxcSw0txq3OipGdrhktdnur7YTspgzUxJEZHLEczk2a6jH0icKgmR5v9JNjhF9DzzUlnOBMS7jACfUUKYRU2vX1WaUaodEgpAXMP5NpFHs8JBDHVQSGIxeRobS8iONLmyxHg8grgSoHUendid7cD-1bB4U9XyLXz1-QihaZbmef0RyYdXKORTqqFdRx1QJyGKqw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+-------------------------------------------------------------------------
+Cr-Ti-V
+https://www.researchgate.net/profile/Gautam-Ghosh-2/publication/225652299_Thermodynamic_and_kinetic_modeling_of_the_Cr-Ti-V_system/links/5a4be4cb458515a6bc6bf22a/Thermodynamic-and-kinetic-modeling-of-the-Cr-Ti-V-system.pdf
+-------------------------------------------------------------------------
+Cu-Al-Fe
+https://www.researchgate.net/profile/Cong-Dai-2/publication/251582837_Interdiffusivities_and_atomic_mobilities_in_fcc_Cu-Al-Fe_alloys/links/59f7cce1a6fdcc075ec7c24b/Interdiffusivities-and-atomic-mobilities-in-fcc-Cu-Al-Fe-alloys.pdf
+-------------------------------------------------------------------------
+Mg-Al-Ca-Sr-Mn
+https://core.ac.uk/download/pdf/45268822.pdf
+-------------------------------------------------------------------------
+Mg-Zn-Re_Mg-Ni-Re
+https://www.jmst.org/article/2020/1005-0302/1005-0302-44-0-171.shtml
+-------------------------------------------------------------------------
+Mg-Zn-Gd
+https://www.researchgate.net/profile/Guanglong-Xu/publication/258373094_Experimental_investigation_and_thermodynamic_assessment_of_the_Mg-Zn-Gd_system_focused_on_Mg-rich_corner/links/00b7d529b8f06945af000000/Experimental-investigation-and-thermodynamic-assessment-of-the-Mg-Zn-Gd-system-focused-on-Mg-rich-corner.pdf
+-------------------------------------------------------------------------
+Mg-Sn-Zn
+https://users.encs.concordia.ca/~mmedraj/papers/Mg%E2%80%93Sn%E2%80%93Zn_system.pdf
+-------------------------------------------------------------------------
+Mo-Nb-Ta-V-W
+https://arxiv.org/pdf/1705.01844.pdf
+-------------------------------------------------------------------------
+Nb-Si-Al
+https://edisciplinas.usp.br/pluginfile.php/7956731/mod_resource/content/1/Nb-Si-Al-2004Shao.pdf
+-------------------------------------------------------------------------
+TiAl-Nb-Mo
+https://liss.sdf-eu.org/KDL/papers/Schmoelzer-2010-Intermetallics.pdf
+-------------------------------------------------------------------------
+Cr-Nb-Sn-Zr
+https://cea.hal.science/cea-02339676/document
+-------------------------------------------------------------------------
+Zr-Nb-Cr
+https://www.researchgate.net/profile/Nan-Zou-10/publication/279636268_Thermodynamic_modeling_of_Cr-Nb_and_Zr-Cr_with_extension_to_the_ternary_Zr-Nb-Cr_system/links/5cab0d554585157bd32a737a/Thermodynamic-modeling-of-Cr-Nb-and-Zr-Cr-with-extension-to-the-ternary-Zr-Nb-Cr-system.pdf
+-------------------------------------------------------------------------
+Cr-Y-O
+https://backend.orbit.dtu.dk/ws/portalfiles/portal/171280249/Y_Cr_O_Paper_final_postprint.pdf
+-------------------------------------------------------------------------
+Fe-Mn-Ca-Mg-S
+https://www.researchgate.net/profile/Md-Washim-Akram-2/post/What_is_the_best_way_to_perform_thermodynamic_study_on_new_alloy_systems/attachment/5aaf4b33b53d2f0bba58d4b1/AS%3A605766897635328%401521437491148/download/dilner2016.pdf
+-------------------------------------------------------------------------
+Fe-Mg-Mn and Fe-Mg-Ni
+https://www.researchgate.net/profile/Lijun-Zhang-46/publication/275847189_Experimental_investigation_and_thermodynamic_calculation_of_the_Fe-Mg-Mn_and_Fe-Mg-Ni_systems/links/55506ea408ae739bdb90df1d/Experimental-investigation-and-thermodynamic-calculation-of-the-Fe-Mg-Mn-and-Fe-Mg-Ni-systems.pdf
+-------------------------------------------------------------------------
+Mg-Al-Ca-Sr-Mn
+https://link.springer.com/article/10.1007/s11669-009-9467-4
+-------------------------------------------------------------------------
+Mg-Al-Ca-Sr
+https://spectrum.library.concordia.ca/id/eprint/975881/1/NR37762.pdf
+-------------------------------------------------------------------------
+Mg-Al-Zn-Sr
+https://escholarship.mcgill.ca/downloads/fb494d07w#page=105
+-------------------------------------------------------------------------
+Mg-Al-Ca-Sr-Zn
+https://etda.libraries.psu.edu/files/final_submissions/6729
+-------------------------------------------------------------------------
+Mg-Mn-{Sn, Sr}
+https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/iet-smt.2013.0267
+-------------------------------------------------------------------------
+Al-Mg-Sr
+https://users.encs.concordia.ca/~mmedraj/papers/mg-al-sr%20with%20rainer.pdf
+-------------------------------------------------------------------------
+Nb-Ni-Si
+https://d1wqtxts1xzle7.cloudfront.net/42895648/Santos.Nb-Ni-Si.1073K.1-s2.0-S0364591615300092-main-libre.pdf?1456052578=&response-content-disposition=inline%3B+filename%3DThermodynamic_modelling_of_the_Nb_Ni_Si.pdf&Expires=1703853977&Signature=ZrJeI7E0i3Nfzs8Jzz-PPrbXkqUyqRI5n-sbhl-TYZy~2D~Y2qqkURrb2vOVB5Hxjoar7Cm-9d0d8I4SAh38pfdxSevBC4~2O92fWgE0eSax1GrPCKbHMuKFiGyBDfSfwYVSOSGjXPG5AiBh6~SpSK7s9n3zjFVRKxHY33IdzdkxuE7Cmf5MbqilI9IKhUnhN-OBm9cT0vvy6NoDWxwcdS1dVnCWI6YIVoTELP4eXfAdFe~bNBNva~3S8nY~6adDCXv3TbEhp-4TZL7FS0cZb71L-0QudOIO2mIwXv5a~oDlNKlEU3Vxfp04q~ndW5cty7XhVw6GX-kR0S9EExJuCw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+-------------------------------------------------------------------------
+Sb-Sn-Zn
+https://www.researchgate.net/profile/Ondrej-Zobac/publication/282960715_Calphad-type_assessment_of_the_Sb-Sn-Zn_ternary_system/links/5c470db9458515a4c737a5e3/Calphad-type-assessment-of-the-Sb-Sn-Zn-ternary-system.pdf
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+Al-Cu-Mg-Si
+http://www.gotrawama.eu/Modeling%20of%20the%20viscosity%20in%20the%20AL%E2%80%93Cu%E2%80%93Mg%E2%80%93Si%20system%20Database%20Construction.pdf
+-------------------------------------------------------------------------
+Al-Cu-Yb
+https://aseestant.ceon.rs/index.php/jmm/article/download/8681/4734
+-------------------------------------------------------------------------
+Al-Mo-Si
+https://d1wqtxts1xzle7.cloudfront.net/41244137/Thermodynamic_reassessment_of_the_MoSi_a20160114-3119-ibvjw2.pdf20160115-19908-lax3f1-libre.pdf?1452897365=&response-content-disposition=inline%3B+filename%3DThermodynamic_reassessment_of_the_Mo_Si.pdf&Expires=1703854693&Signature=Cd4mWXGUMWICKomtC8h4cifr3dTPW0wi12bBmUTYxO9dydxxpa9Tp45DMsxgGdoWjSu8X0kOsnqjCPdY~s~MVqfQbypq~~HQL6sBpbXKlfmQ78T36d4QvptbCB2tDnYVi1~8DBJEwSoez9LvSOyoJoy4GHTROwm76spWwMXuZta7OxVxBeeKB-pxbXtBro3F5elEDPQStzfhCi9XZ4eXwFUydaqJ8Cm0jD3zLubEI~yOpPev8r6PjoyJzGSIP6GrDpURjTZU09zeUFXekIGlAoxds~BSx2eVu0EqiKI7fptJLyGbGHjoUvt3UqA0Z3lmLo86IhUx4n9gtjEU6m2y0A__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA
+-------------------------------------------------------------------------
+Cr-Ge-Mn and Cr-Ge-Si
+https://www.researchgate.net/profile/Philippe-Jund/publication/273390569_Ab-initio_calculations_and_CALPHAD_description_of_Cr-Ge-Mn_and_Cr-Ge-Si/links/55b2064b08aed621ddfd7adf/Ab-initio-calculations-and-CALPHAD-description-of-Cr-Ge-Mn-and-Cr-Ge-Si.pdf
+-------------------------------------------------------------------------
+Cu-Fe-Si
+https://www.researchgate.net/profile/Jingrui-Zhao/publication/226874786_Experimental_Investigation_and_Thermodynamic_Reassessment_of_the_Cu-Fe-Si_System/links/5693bb4908ae3ad8e33b28ce/Experimental-Investigation-and-Thermodynamic-Reassessment-of-the-Cu-Fe-Si-System.pdf
+-------------------------------------------------------------------------
+Cr-Mo-Ni-Re
+https://hal.science/hal-01786104/document
+-------------------------------------------------------------------------
