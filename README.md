@@ -188,15 +188,6 @@ Line 1358-1373: Write "$" at the beginning of the line.
 - The test folder is a check to see if a ternary phase diagram can be drawn (including simple TDB file modifications). Normally, I would like to check whether the figure matches the figure in the paper, but since research funding in Japan is extremely uneven (therefore, the paper must be ordered based on copyright law), it is not easy to check. Another reason is that I don't have any achievements, so it's not easy to apply for research funding.
 
 
-Acknowledgment
-=======
-- This project (modified version) is/was partially supported by the following :
-- meguREnergy Co., Ltd.
-- ATSUMITEC Co., Ltd.
-- Without the support of "meguREnergy Co., Ltd." and "ATSUMITEC Co., Ltd.", I would not have been able to develop the examples to the level shown on this github. I would like to express my sincere gratitude. 
-- I received permission from Dr. T. Abe of NIMS to post the revised version of TDB. I would like to express my gratitude to you. (11/Dec/2023 12.04)
-
-
 PC specs used for test
 =======
 + OS: Microsoft Windows 11 Home 64 bit
